@@ -1,0 +1,389 @@
+<div class="main-wrapper">
+    <header class="header">
+        <div class="logo"><img src="../../../../assets/forms/logo.png" /></div>
+        <div class="title">
+            <h1>SITE SAFETY ORIENTATION</h1>
+        </div>
+    </header>
+
+    <div class="page __1">
+        <div class="form-content">
+
+            <div class="x-inputgroup-row">
+                <div class="x-inputgroup">
+                    <div class="x-inpuntinline">
+                        <div class="x-input">
+                            <p>Name (Print):</p>
+                            <div class="x-inputtext">
+                                {{siteSafetyOrientation.name}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x-inpuntinline">
+                        <div class="x-input">
+                            <p>Date:</p>
+                            <div class="x-inputtext">
+                                {{siteSafetyOrientation.date | date: 'MM/dd/yyyy'}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="x-inputgroup-row">
+                <div class="x-inpuntinline">
+                    <div class="x-input">
+                        <p>Project Name / Site Location:</p>
+                        <div class="x-inputtext">
+                            {{siteSafetyOrientation.project.name}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="x-form-checklist">
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>G</span>eneral <span>S</span>afety <span>R</span>ules:</p>
+                    </div>
+                    <div class="x-checklist">
+
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.generalHealth }"></span>
+                            General health and safety – (For example smoking,
+                            illumination, ventilation)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.houseKeeping  } "></span>
+                            Housekeeping and sanitation – (Good housekeeping, trip
+                            hazards, waste disposal)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.powerTools  } "></span>
+                            Hand and power tools – (Correct usage, correct tool, double
+                            insulation vs. grounding)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.firePrevention  } "></span>
+                            {{siteSafetyOrientation.firePrevention }}Fire prevention – (Sources of ignition, high hazard areas
+                            and activities, fire extinguishertraining, PASS, ABC rating)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.welding  } "></span>
+                            Welding and cutting – (Removal of flammables, PPE, storage,
+                            fire blankets, curtains)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.compressedAir  } "></span>
+                            Compressed air and gas – (Storage, secure, 20 feet
+                            separation)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.electricalSafety  } "></span>
+                            Electrical safety – (100% GFCI, extension cords, demolition
+                            areas)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.aerialLifts }"></span>
+                            Aerial lifts – (Scissor vs. boom, safety chains and gates,
+                            trained personnel only, fall protection)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.scaffolding  } "></span>
+                            Scaffolding – (Competent person supervision, planking and
+                            decking, ladders, guardrails, inspections)
+
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.trenching  } "></span>
+                            Trenching and excavations – (Must be trained, daily
+                            inspections, protective systems, inspections)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.fallProtection  } "></span>
+                            Fall protection – (100% above 6 feet, different types,
+                            anchorage, inspection, aerial lifts)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.fleetSafety  } "></span>
+                            Fleet safety – (Speed limits, seat belts, accident
+                            reporting)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.craneSafety  } "></span>
+                            Crane safety – (Trained operators only, daily inspections,
+                            signaling)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.firstAid  } "></span>
+                            First Aid and CPR – (Trained personnel only, first aid
+                            locations, accidentreporting)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.pathogens  } "></span>
+                            Blood-borne pathogens – (Hazards of exposure,reporting,
+                            vaccinations)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.lead  } "></span>
+                            Lead and asbestos – (Work prohibited in exposure areas,
+                            notify safety, how to ID)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.confinedSpaces  } "></span>
+                            Confined spaces – (Trained personnel only, hazards, how to
+                            ID, signage, permits)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.lockout  } "></span>
+                            Lock-out / Tag-out – (Trained personnel only, purpose of
+                            procedures, do notremove locks)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.forkTrucks  } "></span>
+                            Fork trucks – (Trained personnel only, inspections, speed
+                            limits, seat belts, horn)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.protectiveEquipment  } "></span>
+                            Personal protective equipment – (100% hard hats and safety
+                            glasses, vests, boots, gloves, face shields, clothing
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.hearingProtection  } "></span>
+                            hearing protection, respiratory protection)
+                        </div>
+                    </div>
+                </div>
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>D</span>esignated <span>H</span>ealth <span>C</span>are:</p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.designateFacilities  } "></span>
+                            Designated facilities – (Nearest locations)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.coverage  } "></span>
+                            Coverage – (Work-related incidents and illnesses)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.contactInformation  } "></span>
+                            Contact information
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page __2">
+        <div class="form-content">
+            <div class="x-form-checklist">
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>I</span>ncident <span>R</span>eporting:</p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.whatRequires  } "></span>
+                            What requires reporting (After experiencing a work-related
+                            injury)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.whenToReport  } "></span>
+                            When to report ... IMMEDIATELY!
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.whoToNotify  } "></span>
+                            Who to notify – (Foreman, Superintendent, Safety Director)
+                        </div>
+                    </div>
+                </div>
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>S</span>ubstance <span>A</span>buse:</p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.testingProcedures  } "></span>
+                            Testing procedures – (Pre-employment, post-incident (BAT),
+                            annual, random (BAT), suspicion (BAT))
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.reportingOfMedication  } "></span>Reporting of medication and Rx
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.eap  } "></span>EAP – (Employee Assistance Program)
+                        </div>
+                    </div>
+                </div>
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>D</span>isciplinary <span>A</span>ction:</p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.progressivePolicy  } "></span>Progressive policy – (Informal action, verbal, written,
+                            suspension, dismissal, gross misconduct)
+                        </div>
+                    </div>
+                </div>
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>H</span>azard <span>C</span>ommunication:</p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.obtainInformation  } "></span>How to obtain information
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.sds  } "></span>SDS use and location
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.hazardCommunication  } "></span>Hazard communication program details
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.labelingSystems  } "></span>Labeling systems
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.protectiveMeasures  } "></span>Protective measures and PPE
+                        </div>
+                    </div>
+                </div>
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>E</span>mergency <span>A</span>ction <span>P</span>lan (<span>O</span>ffice and
+                            <span>F</span>ield):
+                        </p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.alarmSystems  } "></span>Alarm systems
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.shelterAreas  } "></span>Shelter areas
+                        </div>
+                        <div class="x-checkitem"> 
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.musteringZones  } "></span>Mustering zones
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.accountingProcedures  } "></span>Accounting procedures
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>P</span>ersonal <span>P</span>rotective <span>E</span>quipment:</p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.hardHats  } "></span>100% hard hats and safety glasses
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.safetyVests  } "></span>Safety vests
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.handProtection  } "></span>Hand protection
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.footProtection  } "></span>Foot protection
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.faceProtection  } "></span>Face protection 
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.hearingProtection2  } "></span>Hearing protection
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.protectiveClothing  } "></span>Protective clothing
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.personalFallArrest  } "></span>Personal fall arrest
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page __3">
+        <div class="form-content">
+            <div class="x-form-checklist">
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>L</span>adder <span>S</span>afety:</p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.stepLadders  } "></span>Step ladders – (Do not use top two steps, belt buckle rule,
+                            3 points of contact, inspections, footing)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.extensionLadders  } "></span>Extension ladders – (4:1 rule, footing, secure the top)
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{ 'checked ':  siteSafetyOrientation.capacities  } "></span>Capacities
+                        </div>
+                        <div class="x-checkitem">
+                            <span class="x-checkbox" [ngClass]="{'checked': siteSafetyOrientation.properUse }"></span>
+                                Proper use, care, and storage
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="x-certify">
+                <p><span>T</span>his is to certify that <span>I</span> have completed <span
+                        class="x-inputtext-inline"></span> new employee safety orientation. <span>A</span>lso,
+                    <span>I</span> have
+                <p>
+                <p>received the <span class="x-inputtext-inline w-22p"></span> employee handbook and am familiar with
+                    its contents. <span>I</span> understand</p>
+                <p>that failing to abide by these policies as well as generally accepted safe work practices subjects me
+                    to disciplinary action.</p>
+                <p><span>I</span> agree to do whatever possible to provent injury and illness to others and myself.</p>
+
+                <div class="x-inputgroup m-t-40">
+                    <div class="x-inpuntinline">
+                        <div class="x-input">
+                            <p><span>N</span>ame (Print):</p>
+                            <div class="x-inputtext"></div>
+                        </div>
+                    </div>
+                    <div class="x-inpuntinline">
+                        <div class="x-input">
+                            <p><span>D</span>ate:</p>
+                            <div class="x-inputtext"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="x-inpuntinline m-t-40">
+                    <div class="x-input">
+                        <p><span>S</span>ignature</p>
+                        <div class="x-inputsign"></div>
+                    </div>
+                </div>
+
+                <div class="x-inputgroup m-t-80">
+                    <div class="x-inpuntinline">
+                        <div class="x-input">
+                            <p><span>S</span>afety <span>D</span>irector’s <span>S</span>ignature:</p>
+                            <div class="x-inputtext"></div>
+                        </div>
+                    </div>
+                    <div class="x-inpuntinline">
+                        <div class="x-input">
+                            <p><span>D</span>ate:</p>
+                            <div class="x-inputtext"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer"></footer>
+</div>

@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+        <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-7">
+            <h5 class="card-title"> Good Catch Type Entries</h5>
+            </div>
+            <div class="pull-right col-1">
+            <input type="button" value="Add New" (click)="add()" class="btn btn-sm btn-primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-2">
+            </div>
+            <div class="row m-1 col-8 ">
+
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter()" placeholder="Filter" [(ngModel)]="filter">
+            </mat-form-field>
+
+            <table mat-table [dataSource]="goodCatchTypes" matSort class="mat-elevation-z8 col-12">
+
+                  <ng-container matColumnDef="goodCatchTypeId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Good Catch Type Id </th>
+                    <td mat-cell *matCellDef="let element">
+                      <a href="javascript:void(0)" (click)="edit(element.goodCatchTypeId)">{{element.goodCatchTypeId}}</a>
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="catchType">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Catch Type </th>
+                    <td mat-cell *matCellDef="let element">
+                      {{element.catchType}}
+                    </td>
+                  </ng-container>
+
+
+                <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element">
+                    <input type="button" value="Edit" class="btn btn-sm btn-primary" (click)="edit(element.goodCatchTypeId)">
+                    <i class="material-icons m-2 delete" 
+                    (click)="delete(element.goodCatchTypeId)">delete</i>
+                </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>

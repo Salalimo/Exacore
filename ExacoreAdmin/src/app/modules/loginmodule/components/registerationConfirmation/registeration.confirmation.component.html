@@ -1,0 +1,93 @@
+<form>
+    <div class="maincounter">
+        <app-nav></app-nav>
+        <div class="mid_counter">
+            <div class="myaccount_step_main">
+                <div class="steps">
+                    <ul>
+                        <li class="step-left"></li>
+                        <li class="step-mid"><a href="#/login" title="Login">Login</a></li>
+                        <li class="step-stepred"></li>
+                        <li class="step-midred"><a href="javascript:void(0)" title="Forgot Password">Reset Password</a>
+                        </li>
+                        <li class="step-stepredact"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page_heading">
+            <h2>
+                Reset Password</h2>
+        </div>
+        <table class="inner_content">
+            <tr>
+                <td>
+
+                    <br />
+                    <div>
+
+                    </div>
+                    <br />
+                    <div>
+                        <div style="padding-left: 200px;">
+                            <table class="tablemain" *ngIf="!emailSent">
+                                <tr class="sundance_filled">
+                                    <td>
+                                        Thank you for your registration. We have sent an e-mail with verification
+                                        instructions.
+                                        <br />
+                                        <br />
+                                        Please verify you account before you login.
+                                        <br />
+                                        <br />
+                                        Thank you.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="errorOuterdiv" style="width: 310px; margin-top: 5px"
+                                            *ngIf="error.length > 0">
+                                            <label Width="310px" class="errormessage"
+                                                style="color: red;">{{error}}</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table style="width: 530px; text-align: center;" *ngIf="emailSent">
+                                <tr>
+                                    <td>
+                                        <label>
+                                            An email with the verification link has been sent. Please check your spam
+                                            folder if you have not reveived it. </label>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>
+                                            Did not receive the email? </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button class="submitbtn" (click)="resendVerification()">
+                                            Resend Link
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br />
+                </td>
+            </tr>
+        </table>
+        <div style="height: 50px; clear: both;">
+        </div>
+    </div>
+</form>
+<app-footer></app-footer>

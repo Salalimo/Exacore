@@ -1,0 +1,122 @@
+<div class="main-wrapper">
+    <header class="header">
+        <div class="logo"><img src="" /></div>
+        <div class="title">
+            <h1>GOOD CATCH</h1>
+        </div>
+    </header>
+    <div class="page">
+        <div class="form-content">
+            <div class="x-inputgroup-row">
+                <div class="x-inputgroup">
+                    <div class="x-input ">
+                        <p><span>G</span>ood <span>C</span>atch <span>D</span>ate</p>
+                        <div class="x-inputtext">
+                            {{goodCatch.date | date: 'MM/dd/yyyy'}}
+                        </div>
+                    </div>
+                    <div class="x-input ">
+                        <p><span>G</span>ood <span>C</span>atch <span>T</span>ime</p>
+                        <div class="x-inputtext">
+                            {{goodCatch.time }}
+                        </div>
+                    </div>
+                    <div class="x-input mcol_x3">
+                        <p><span>D</span>ivision</p>
+                        <div class="x-inputtext">
+                            {{goodCatch.division.name}}
+                        </div>
+                    </div>
+                    <div class="x-input mcol_x3">
+                        <p><span>D</span>epartment</p>
+                        <div class="x-inputtext">
+                            {{goodCatch.department.name}}
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup">
+                    <div class="x-input mcol_24p">
+                        <p><span>A</span>ffected <span>J</span>obsite <span>L</span>ocation</p>
+                        <div class="x-inputtext">
+                            {{goodCatch.affectedJobsiteLocation}}
+                        </div>
+                    </div>
+                    <div class="x-input mcol_x3">
+                        <p><span>P</span>roject <span>N</span>ame</p>
+                        <div class="x-inputtext">
+                            {{goodCatch.project.name}}
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup">
+                    <div class="x-input mcol_33p">
+                        <p class="x-green"><span>G</span>ood <span>C</span>atch <span>T</span>ype</p>
+                        <div class="x-inputtext">
+                            {{goodCatch.goodCatchType.catchType}}
+                        </div>
+                    </div>
+                    <div class="x-input mcol_30p">
+                        <p><span>S</span>upervisor</p>
+                        <div class="x-inputtext">
+                            {{goodCatch.supervisor}}
+                        </div>
+                    </div>
+                    <div class="x-input mcol_37p">
+                        <p class="bgr"><span>N</span>ame / <span>T</span>itle of <span>G</span>ood <span>C</span>atch
+                            <span>I</span>dentifier</p>
+                        <div class="x-inputtext">
+                            {{goodCatch.name}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="x-divider"></div>
+            <div class="x-inputgroup-row">
+                <div class="x-inputgroup">
+                    <div class="x-input ">
+                        <p><span>G</span>ood <span>C</span>atch <span>D</span>escription</p>
+                        <div class="x-inputtextarea">
+                            {{goodCatch.description}}
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup x-inpuntinline">
+                    <div class="x-input">
+                        <p class="x-green"><span>C</span>ontrol <span>M</span>ethod</p>
+                        <div class="x-inputtext">
+                            {{goodCatch.controlMethod.method}}
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup">
+                    <div class="x-input ">
+                        <p><span>I</span>mmediate <span>A</span>ction <span>T</span>aken</p>
+                        <div class="x-inputtextarea">
+                            {{goodCatch.immediateActionTaken}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="x-inputgroup-row input-prepared">
+                <div class="x-inputgroup">
+                    <div class="x-input ">
+                        <p><span>D</span>ate</p>
+                        <div class="x-inputtext">
+                            {{goodCatch.changedDate | date: 'MM/dd/yyyy'}}
+                        </div>
+                    </div>
+                    <div class="x-input ">
+                        <p><span>P</span>repared <span>B</span>y:</p>
+                        <div class="x-inputtext"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="x-divider x-mb-5"></div>
+            <p class="review">Please review this Safety Alert with your crews and coworkers at your next crew meeting.
+                Discuss similar work exposures and/or conditions at your job site and methods that can be used to
+                prevent a similar incident from occurring. Additional causes, corrective actions and required follow-up
+                (if needed) will be identified in the Investigation and/or MCIA report.</p>
+        </div>
+    </div>
+    <footer class="footer"></footer>
+</div>

@@ -1,0 +1,226 @@
+<div class="main-wrapper">
+    <header class="header">
+        <div class="logo"><img src="../../../../assets/forms/logo.png" /></div>
+        <div class="title">
+            <h1>NEAR MISS</h1>
+        </div>
+    </header>
+    <div class="page">
+        <div class="form-content">
+            <div class="x-inputgroup-row">
+                <div class="x-inputgroup">
+                    <div class="x-input mcol_154p">
+                        <p><span>D</span>ate</p>
+                        <div class="x-inputtext">
+                            {{nearMiss.date | date: 'MM/dd/yyyy'}}
+                        </div>
+                    </div>
+                    <div class="x-input mcol_152p">
+                        <p><span>T</span>ime</p>
+                        <div class="x-inputtext">
+                            {{nearMiss.date | date: 'hh:mm a'}}
+                        </div>
+                    </div>
+                    <div class="x-input mcol_x3">
+                        <p><span>D</span>ivision</p>
+                        <div class="x-inputtext">
+                            {{nearMiss.division.name }}
+                        </div>
+                    </div>
+                    <div class="x-input mcol_x3">
+                        <p><span>D</span>epartment</p>
+                        <div class="x-inputtext">
+                            {{nearMiss.department.name }}
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup">
+                    <div class="x-input mcol_24p">
+                        <p><span>A</span>ffected <span>J</span>obsite/ <span>L</span>ocation</p>
+                        <div class="x-inputtext">
+                            {{nearMiss.affectedJobsiteLocation}}
+                        </div>
+                    </div>
+                    <div class="x-input mcol_x3">
+                        <p><span>P</span>roject <span>N</span>ame</p>
+                        <div class="x-inputtext">
+                            {{nearMiss.project.name}}
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup">
+                    <div class="x-input mcol_33p">
+                        <p class="x-green"><span>N</span>EAR <span>M</span>ISS <span>T</span>ype</p>
+                        <div class="x-inputtext">
+                            {{nearMiss.nearMissType.missType}}
+                        </div>
+                    </div>
+                    <div class="x-input mcol_30p">
+                        <p><span>S</span>upervisor</p>
+                        <div class="x-inputtext">
+                            {{nearMiss.supervisor}}
+                        </div>
+                    </div>
+                    <div class="x-input mcol_37p">
+                        <p class="bgr"><span>N</span>ame / <span>T</span>itle of <span>R</span>eporting
+                            <span>P</span>erson</p>
+                        <div class="x-inputtext">
+                            {{nearMiss.reporingPerson}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="x-inputgroup-row x-row-bottom" style="margin-top: 10px">
+                <div class="x-inputgroup">
+                    <div class="x-inputgroup-col">
+
+                        <div class="x-input ">
+                            <p>Near Miss Description</p>
+                            <div class="x-inputtextarea">
+                                {{nearMiss.nearMissDescription}}
+                            </div>
+                        </div>
+                        <div class="x-inputgroup">
+                            <div class="x-input ">
+                                <p>Immediate Action Taken</p>
+                                <div class="x-inputtextarea hght_90p">
+                                    {{nearMiss.immediateAction}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="x-inputgroup x-inpuntinline">
+                            <div class="x-input">
+                                <p>Control Method</p>
+                                <div class="x-inputtext">
+                                    {{nearMiss.controlMethod.method}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="x-inputgroup">
+                            <div class="x-input ">
+                                <p>Corrective Action Taken to Prevent Reoccurence (if any)</p>
+                                <div class="x-inputtextarea">
+                                    {{nearMiss.correctiveAction}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x-inputgroup-col x-col-checks">
+                        <div class="x-checks-head">
+                            <div>
+                                <p>What unsafe act occurred?</p>
+                            </div>
+                            <div>
+                                <p> (Check all that apply)</p>
+                            </div>
+                        </div>
+
+                        <div class="x-checkbox-group">
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.wrongselectionofPPE }"></span> Wrong selection of PPE
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.disregardSafetyRules }"></span> Disregard Safety Rules
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.employeefatigue }"></span> Employee fatigue
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.failuretofollowprocedure  }"></span> Failure to follow procedure
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.takingshortcuts  }"></span> Taking shortcuts
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.lackofattention  }"></span> Lack of attention
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.workingtofast }"></span> Working to fast
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.lackofemployeetraining }"></span> Lack of employee training
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.improperLiftingtechnique }"></span> Improper Lifting technique
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.newtaskforemployeeorlackofexperience }"></span> New task for employee or lack of experience
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.failuretosecureorwarn }"></span> Failure to secure or warn
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.nooroutdatedprocedure }"></span> No or outdated procedure
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.operatingwithoutauthority }"></span> Operating without authority
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.hazardousmethodorprocedure }"></span> Hazardous method or procedure
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.poorpositioning }"></span> Poor positioning
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.unsafeposture }"></span> Unsafe posture
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.travelingpublicenteringworkarea }"></span> Traveling public entering work area
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.incompleteoroutdatedJSA }"></span> Incomplete or outdated JSA
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.improperLOTO }"></span> Improper LOTO
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.poororhousekeepingpractices }"></span> Poor or housekeeping practices
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.guardremovedornotinstalledonequipment }"></span> Guard removed or not installed on equipment
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.equipmentfailure }"></span> Equipment failure
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.impropermaterialorequipmentused }"></span> Improper material or equipment used
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.weather }"></span> Weather
+                            </div>
+                            <div class="x-check-item">
+                                <span class="x-checkbox" [ngClass]="{ 'checked ':  nearMiss.other }"></span> Other
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="x-inputgroup-row input-prepared">
+                <div class="x-inputgroup">
+                    <div class="x-input ">
+                        <p>SUPERVISOR</p>
+                        <div class="x-inputtext"></div>
+                    </div>
+                    <div class="x-input ">
+                        <p>SSHO</p>
+                        <div class="x-inputtext">
+                            {{nearMiss.ssho }}
+                        </div>
+                    </div>
+                    <div class="x-input ">
+                        <p>PROJECT/SITE MANAGER</p>
+                        <div class="x-inputtext">
+                            {{nearMiss.manager }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <footer class="footer"></footer>
+</div>
