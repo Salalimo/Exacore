@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card border-0 shadow rounded-3 my-5">
+                <div class="card-body p-4 p-sm-5">
+                    <h5 class="card-title text-center mb-5 fw-light fs-5">Forgot Password</h5>
+                    <form *ngIf="!emailSent">
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" name="email" [(ngModel)]="password"
+                                placeholder="New Password" [ngClass]="{ 'is-invalid': submitted && email.length == 0 }">
+                            <label for="floatingInput">New Password</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" name="email" [(ngModel)]="confirmPassword"
+                                placeholder="Confirm Password"
+                                [ngClass]="{ 'is-invalid': submitted && email.length == 0 }">
+                            <label for="floatingInput">Confirm Password</label>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit"
+                                (click)="resetPassword()">Send Email
+                            </button>
+                        </div>
+                        <span style="color: red;" *ngIf="error.length">
+                            {{error}}
+
+                            <a *ngIf="error== 'The reset password link has expired.'" href="forgotpassword"
+                                class="link_text">Resend verifcation link</a>
+                            <br>
+                        </span>
+                        <a href="login" class="link_text">Login here</a>
+                    </form>
+
+                    <form *ngIf="emailSent">
+                        Your password has been updated. You may proceed to <a href="#/" class="link_text">Login here</a>
+                        <br />
+                        <br />
+
+
+                        <br />
+                        <br />
+                        Thank you.
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

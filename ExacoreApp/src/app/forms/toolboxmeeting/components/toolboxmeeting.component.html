@@ -1,0 +1,143 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <span class="ex-text">Toolbox Meeting Form</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <form [formGroup]="toolboxMeetingForm" (ngSubmit)="onSubmit()">
+      <ion-list inset>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Supervisor</ion-label>
+          <ion-input formControlName="supervisor" name="supervisor" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Date</ion-label>
+          <ion-input value="{{ f.date.value | date: 'MM.dd.yyyy' }}" id="date" class="ion-text-end"></ion-input>
+          <ion-popover trigger="date" size="cover">
+            <ng-template>
+              <ion-datetime formControlName="date" name="date" ngDefaultControl presentation="date">
+              </ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Job Title</ion-label>
+          <ion-input formControlName="jobTitle" name="jobTitle" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Employee Id</ion-label>
+          <ion-input formControlName="employeeId" name="employeeId" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Location</ion-label>
+          <ion-input formControlName="location" name="location" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Project No</ion-label>
+          <ion-input formControlName="projectNo" name="projectNo" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">NumberOfAttendees</ion-label>
+          <ion-input formControlName="numberOfAttendees" name="numberOfAttendees" type="number" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Crew No</ion-label>
+          <ion-input formControlName="crewNo" name="crewNo" type="text" ngDefaultControl autocomplete="asd"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Number of Topics</ion-label>
+          <ion-select name="numberOfTopics" (ionChange)="onChangeTopics($event)" ngDefaultControl>
+            <ion-select-option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" [value]="i">
+              {{i}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <span *ngFor="let topics of t.controls; let i = index">
+          <div [formGroup]="topics" class="form-row">
+            <ion-item>
+              <ion-label position="floating" class="label label-md">Description</ion-label>
+              <ion-input formControlName="description" name="description" type="text" ngDefaultControl
+                autocomplete="asd">
+              </ion-input>
+            </ion-item>
+
+          </div>
+        </span>
+
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Number of Attendances</ion-label>
+          <ion-select name="numberOfAttendances" (ionChange)="onChangeAttendances($event)" ngDefaultControl>
+            <ion-select-option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" [value]="i">
+              {{i}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <span *ngFor="let attendances of a.controls; let i = index">
+          <div [formGroup]="attendances" class="form-row">
+            <ion-item>
+              <ion-label position="floating" class="label label-md">Name</ion-label>
+              <ion-input formControlName="name" name="name" type="text" ngDefaultControl autocomplete="asd">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating" class="label label-md">Company</ion-label>
+              <ion-input formControlName="company" name="company" type="text" ngDefaultControl autocomplete="asd">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating" class="label label-md">Comments</ion-label>
+              <ion-input formControlName="comments" name="comments" type="text" ngDefaultControl autocomplete="asd">
+              </ion-input>
+            </ion-item>
+
+          </div>
+        </span>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Project</ion-label>
+          <ion-select name="projectId" formControlName="projectId" ngDefaultControl>
+            <ion-select-option *ngFor="let project of projects" [value]="project.projectId">
+              {{project.name}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+
+        <ion-button type="submit" color="primary"
+          class="button button-md button-default button-default-md button-full button-full-md button-md-primary"
+          style="margin: 20px 0 50px 0;">SAVE
+        </ion-button>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

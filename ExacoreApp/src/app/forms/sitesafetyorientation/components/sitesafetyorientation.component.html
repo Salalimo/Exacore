@@ -1,0 +1,338 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <span class="ex-text">Site Safety Orientation Form</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <form [formGroup]="siteSafetyOrientationForm" (ngSubmit)="onSubmit()">
+      <ion-list inset>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="name" name="name" type="text" ngDefaultControl autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Date</ion-label>
+          <ion-input value="{{ f.date.value | date: 'MM.dd.yyyy' }}" id="date" class="ion-text-end"></ion-input>
+          <ion-popover trigger="date" size="cover">
+            <ng-template>
+              <ion-datetime formControlName="date" name="date" ngDefaultControl presentation="date">
+              </ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Project</ion-label>
+          <ion-select name="projectId" formControlName="projectId" ngDefaultControl>
+            <ion-select-option *ngFor="let project of projects" [value]="project.projectId">
+              {{project.name}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label label-md">General Health</ion-label>
+          <ion-checkbox slot="end" formControlName="generalHealth" ngDefaultControl name="generalHealth"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">House Keeping</ion-label>
+          <ion-checkbox slot="end" formControlName="houseKeeping" ngDefaultControl name="houseKeeping"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Power Tools</ion-label>
+          <ion-checkbox slot="end" formControlName="powerTools" ngDefaultControl name="powerTools"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Fire Prevention</ion-label>
+          <ion-checkbox slot="end" formControlName="firePrevention" ngDefaultControl name="firePrevention">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Welding</ion-label>
+          <ion-checkbox slot="end" formControlName="welding" ngDefaultControl name="welding"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Compressed Air</ion-label>
+          <ion-checkbox slot="end" formControlName="compressedAir" ngDefaultControl name="compressedAir"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Electrical Safety</ion-label>
+          <ion-checkbox slot="end" formControlName="electricalSafety" ngDefaultControl name="electricalSafety">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Aerial Lifts</ion-label>
+          <ion-checkbox slot="end" formControlName="aerialLifts" ngDefaultControl name="aerialLifts"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Scaffolding</ion-label>
+          <ion-checkbox slot="end" formControlName="scaffolding" ngDefaultControl name="scaffolding"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Trenching</ion-label>
+          <ion-checkbox slot="end" formControlName="trenching" ngDefaultControl name="trenching"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Fall Protection</ion-label>
+          <ion-checkbox slot="end" formControlName="fallProtection" ngDefaultControl name="fallProtection">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Fleet Safety</ion-label>
+          <ion-checkbox slot="end" formControlName="fleetSafety" ngDefaultControl name="fleetSafety"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Crane Safety</ion-label>
+          <ion-checkbox slot="end" formControlName="craneSafety" ngDefaultControl name="craneSafety"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">First Aid</ion-label>
+          <ion-checkbox slot="end" formControlName="firstAid" ngDefaultControl name="firstAid"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Pathogens</ion-label>
+          <ion-checkbox slot="end" formControlName="pathogens" ngDefaultControl name="pathogens"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Lead</ion-label>
+          <ion-checkbox slot="end" formControlName="lead" ngDefaultControl name="lead"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Confined Spaces</ion-label>
+          <ion-checkbox slot="end" formControlName="confinedSpaces" ngDefaultControl name="confinedSpaces">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Lockout</ion-label>
+          <ion-checkbox slot="end" formControlName="lockout" ngDefaultControl name="lockout"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Fork Trucks</ion-label>
+          <ion-checkbox slot="end" formControlName="forkTrucks" ngDefaultControl name="forkTrucks"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Protective Equipment</ion-label>
+          <ion-checkbox slot="end" formControlName="protectiveEquipment" ngDefaultControl name="protectiveEquipment">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Hearing Protection</ion-label>
+          <ion-checkbox slot="end" formControlName="hearingProtection" ngDefaultControl name="hearingProtection">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Designate Facilities</ion-label>
+          <ion-checkbox slot="end" formControlName="designateFacilities" ngDefaultControl name="designateFacilities">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Coverage</ion-label>
+          <ion-checkbox slot="end" formControlName="coverage" ngDefaultControl name="coverage"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Contact Information</ion-label>
+          <ion-checkbox slot="end" formControlName="contactInformation" ngDefaultControl name="contactInformation">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">What Requires</ion-label>
+          <ion-checkbox slot="end" formControlName="whatRequires" ngDefaultControl name="whatRequires"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">When To Report</ion-label>
+          <ion-checkbox slot="end" formControlName="whenToReport" ngDefaultControl name="whenToReport"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Who To Notify</ion-label>
+          <ion-checkbox slot="end" formControlName="whoToNotify" ngDefaultControl name="whoToNotify"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Testing Procedures</ion-label>
+          <ion-checkbox slot="end" formControlName="testingProcedures" ngDefaultControl name="testingProcedures">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Reporting Of Medication</ion-label>
+          <ion-checkbox slot="end" formControlName="reportingOfMedication" ngDefaultControl
+            name="reportingOfMedication"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Eap</ion-label>
+          <ion-checkbox slot="end" formControlName="eap" ngDefaultControl name="eap"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Progressive Policy</ion-label>
+          <ion-checkbox slot="end" formControlName="progressivePolicy" ngDefaultControl name="progressivePolicy">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Obtain Information</ion-label>
+          <ion-checkbox slot="end" formControlName="obtainInformation" ngDefaultControl name="obtainInformation">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Sds</ion-label>
+          <ion-checkbox slot="end" formControlName="sds" ngDefaultControl name="sds"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Hazard Communication</ion-label>
+          <ion-checkbox slot="end" formControlName="hazardCommunication" ngDefaultControl name="hazardCommunication">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Labeling Systems</ion-label>
+          <ion-checkbox slot="end" formControlName="labelingSystems" ngDefaultControl name="labelingSystems">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Protective Measures</ion-label>
+          <ion-checkbox slot="end" formControlName="protectiveMeasures" ngDefaultControl name="protectiveMeasures">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Alarm Systems</ion-label>
+          <ion-checkbox slot="end" formControlName="alarmSystems" ngDefaultControl name="alarmSystems"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Shelter Areas</ion-label>
+          <ion-checkbox slot="end" formControlName="shelterAreas" ngDefaultControl name="shelterAreas"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Mustering Zones</ion-label>
+          <ion-checkbox slot="end" formControlName="musteringZones" ngDefaultControl name="musteringZones">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Accounting Procedures</ion-label>
+          <ion-checkbox slot="end" formControlName="accountingProcedures" ngDefaultControl name="accountingProcedures">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Hard Hats</ion-label>
+          <ion-checkbox slot="end" formControlName="hardHats" ngDefaultControl name="hardHats"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Safety Vests</ion-label>
+          <ion-checkbox slot="end" formControlName="safetyVests" ngDefaultControl name="safetyVests"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Hand Protection</ion-label>
+          <ion-checkbox slot="end" formControlName="handProtection" ngDefaultControl name="handProtection">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Foot Protection</ion-label>
+          <ion-checkbox slot="end" formControlName="footProtection" ngDefaultControl name="footProtection">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Face Protection</ion-label>
+          <ion-checkbox slot="end" formControlName="faceProtection" ngDefaultControl name="faceProtection">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Hearing Protection2</ion-label>
+          <ion-checkbox slot="end" formControlName="hearingProtection2" ngDefaultControl name="hearingProtection2">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Protective Clothing</ion-label>
+          <ion-checkbox slot="end" formControlName="protectiveClothing" ngDefaultControl name="protectiveClothing">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Personal Fall Arrest</ion-label>
+          <ion-checkbox slot="end" formControlName="personalFallArrest" ngDefaultControl name="personalFallArrest">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Step Ladders</ion-label>
+          <ion-checkbox slot="end" formControlName="stepLadders" ngDefaultControl name="stepLadders"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Extension Ladders</ion-label>
+          <ion-checkbox slot="end" formControlName="extensionLadders" ngDefaultControl name="extensionLadders">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Capacities</ion-label>
+          <ion-checkbox slot="end" formControlName="capacities" ngDefaultControl name="capacities"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Proper Use</ion-label>
+          <ion-checkbox slot="end" formControlName="properUse" ngDefaultControl name="properUse"></ion-checkbox>
+        </ion-item>
+
+
+
+        <ion-button type="submit" color="primary"
+          class="button button-md button-default button-default-md button-full button-full-md button-md-primary"
+          style="margin: 20px 0 50px 0;">SAVE
+        </ion-button>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

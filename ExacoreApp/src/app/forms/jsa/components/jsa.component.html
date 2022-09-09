@@ -1,0 +1,176 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <span class="ex-text">Jsa Form</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <form [formGroup]="jsaForm" (ngSubmit)="onSubmit()">
+      <ion-list inset>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Jsa No</ion-label>
+          <ion-input formControlName="jsaNo" name="jsaNo" type="text" ngDefaultControl autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Rev</ion-label>
+          <ion-input formControlName="rev" name="rev" type="text" ngDefaultControl autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Reference</ion-label>
+          <ion-input formControlName="reference" name="reference" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Job Description</ion-label>
+          <ion-input formControlName="jobDescription" name="jobDescription" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Page</ion-label>
+          <ion-input formControlName="page" name="page" type="text" ngDefaultControl autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Date</ion-label>
+          <ion-input value="{{ f.date.value | date: 'MM.dd.yyyy' }}" id="date" class="ion-text-end"></ion-input>
+          <ion-popover trigger="date" size="cover">
+            <ng-template>
+              <ion-datetime formControlName="date" name="date" ngDefaultControl presentation="date">
+              </ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Title</ion-label>
+          <ion-input formControlName="title" name="title" type="text" ngDefaultControl autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Supervisor</ion-label>
+          <ion-input formControlName="supervisor" name="supervisor" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Analysis By</ion-label>
+          <ion-input formControlName="analysisBy" name="analysisBy" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Approved By</ion-label>
+          <ion-input formControlName="approvedBy" name="approvedBy" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Location</ion-label>
+          <ion-input formControlName="location" name="location" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Department</ion-label>
+          <ion-input formControlName="department" name="department" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Daily Safety</ion-label>
+          <ion-checkbox slot="end" formControlName="dailySafety" ngDefaultControl name="dailySafety"></ion-checkbox>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Number of Step Actions</ion-label>
+          <ion-select name="numberOfStepActions" (ionChange)="onChangeStepActions($event)" ngDefaultControl>
+            <ion-select-option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" [value]="i">
+              {{i}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <span *ngFor="let stepActions of s.controls; let i = index">
+          <div [formGroup]="stepActions" class="form-row">
+            <ion-item>
+              <ion-label position="floating" class="label label-md">StepSequnce</ion-label>
+              <ion-input formControlName="stepSequnce" name="stepSequnce" type="text" ngDefaultControl
+                autocomplete="asd">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating" class="label label-md">Hazards</ion-label>
+              <ion-input formControlName="hazards" name="hazards" type="text" ngDefaultControl autocomplete="asd">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating" class="label label-md">Actions</ion-label>
+              <ion-input formControlName="actions" name="actions" type="text" ngDefaultControl autocomplete="asd">
+              </ion-input>
+            </ion-item>
+
+          </div>
+        </span>
+
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Number of Crew Attendances</ion-label>
+          <ion-select name="numberOfCrewAttendances" (ionChange)="onChangeCrewAttendances($event)" ngDefaultControl>
+            <ion-select-option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" [value]="i">
+              {{i}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <span *ngFor="let crewAttendances of c.controls; let i = index">
+          <div [formGroup]="crewAttendances" class="form-row">
+            <ion-item>
+              <ion-label position="floating" class="label label-md">PrintName</ion-label>
+              <ion-input formControlName="printName" name="printName" type="text" ngDefaultControl autocomplete="asd">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating" class="label label-md">SignName</ion-label>
+              <ion-input formControlName="signName" name="signName" type="text" ngDefaultControl autocomplete="asd">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating" class="label label-md">SignIn</ion-label>
+              <ion-input formControlName="signIn" name="signIn" type="text" ngDefaultControl autocomplete="asd">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating" class="label label-md">SignOut</ion-label>
+              <ion-input formControlName="signOut" name="signOut" type="text" ngDefaultControl autocomplete="asd">
+              </ion-input>
+            </ion-item>
+
+          </div>
+        </span>
+
+
+
+        <ion-button type="submit" color="primary"
+          class="button button-md button-default button-default-md button-full button-full-md button-md-primary"
+          style="margin: 20px 0 50px 0;">SAVE
+        </ion-button>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

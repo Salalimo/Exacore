@@ -1,0 +1,43 @@
+<ion-header style="position: relative;">
+  <ion-toolbar style="background-color: #a8003a;">
+
+    <ion-title>
+      <img src="../../../assets/images/logo-sm.png" style="margin-top: 8px;" alt="logo">
+    </ion-title>
+    <ion-buttons slot="end">
+      <span class="top-menu-text">
+        Safety Forms
+      </span>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <br>
+  <br>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="margin: 0 20px;">
+    <ion-item class="ex-text">
+      Sigin In
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" class="label label-md">Email</ion-label>
+      <ion-input formControlName="email" ngDefaultControl name="email" type="text"></ion-input>
+    </ion-item>
+    <ion-item style="background: #ececec;">
+      <ion-label position="floating" class="label label-md">Password</ion-label>
+      <ion-input formControlName="password" name="password" ngDefaultControl type="password"></ion-input>
+    </ion-item>
+
+    <ion-buttons>
+      <ion-button type="submit" class="button button-md button-full  button-md-primary" style="margin-top: 20px;">LOGIN
+      </ion-button>
+    </ion-buttons>
+    <!--<ion-buttons>
+      <ion-button type="submit" class="button button-md button-full  btn-google" (click)="externalLogin()"
+        style="margin-top: 20px;"> <i class="mdi mdi-google mr-2"></i>
+        Sign in with Google
+      </ion-button>
+    </ion-buttons>-->
+
+  </form>
+
+</ion-content>

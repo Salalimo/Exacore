@@ -1,0 +1,563 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <span class="ex-text">Motorized Equipment Form</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <form [formGroup]="motorizedEquipmentForm" (ngSubmit)="onSubmit()">
+      <ion-list inset>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Model</ion-label>
+          <ion-input formControlName="ME_model" name="ME_model" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Hour Meter</ion-label>
+          <ion-input formControlName="ME_hourMeter" name="ME_hourMeter" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Inspected By</ion-label>
+          <ion-input formControlName="ME_inspectedBy" name="ME_inspectedBy" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Date</ion-label>
+          <ion-input value="{{ f.ME_date.value | date: 'MM.dd.yyyy' }}" id="ME_date" class="ion-text-end"></ion-input>
+          <ion-popover trigger="ME_date" size="cover">
+            <ng-template>
+              <ion-datetime formControlName="ME_date" name="ME_date" ngDefaultControl presentation="date">
+              </ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_HL_name" name="ME_OI_HL_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_HL_yesNoNa" name="ME_OI_HL_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_HL_description" name="ME_OI_HL_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_RL_name" name="ME_OI_RL_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_RL_yesNoNa" name="ME_OI_RL_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_RL_description" name="ME_OI_RL_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_RLA_name" name="ME_OI_RLA_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_RLA_yesNoNa" name="ME_OI_RLA_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_RLA_description" name="ME_OI_RLA_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_PB_name" name="ME_OI_PB_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_PB_yesNoNa" name="ME_OI_PB_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_PB_description" name="ME_OI_PB_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_BG_name" name="ME_OI_BG_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_BG_yesNoNa" name="ME_OI_BG_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_BG_description" name="ME_OI_BG_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_WLG_name" name="ME_OI_WLG_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_WLG_yesNoNa" name="ME_OI_WLG_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_WLG_description" name="ME_OI_WLG_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_TG_name" name="ME_OI_TG_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_TG_yesNoNa" name="ME_OI_TG_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_TG_description" name="ME_OI_TG_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_OLG_name" name="ME_OI_OLG_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_OLG_yesNoNa" name="ME_OI_OLG_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_OLG_description" name="ME_OI_OLG_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_FLG_name" name="ME_OI_FLG_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_FLG_yesNoNa" name="ME_OI_FLG_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_FLG_description" name="ME_OI_FLG_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_H_name" name="ME_OI_H_name" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_H_yesNoNa" name="ME_OI_H_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_H_description" name="ME_OI_H_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_RS_name" name="ME_OI_RS_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_RS_yesNoNa" name="ME_OI_RS_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_RS_description" name="ME_OI_RS_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_B_name" name="ME_OI_B_name" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_B_yesNoNa" name="ME_OI_B_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_B_description" name="ME_OI_B_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_SB_name" name="ME_OI_SB_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_SB_yesNoNa" name="ME_OI_SB_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_SB_description" name="ME_OI_SB_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_C_name" name="ME_OI_C_name" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_C_yesNoNa" name="ME_OI_C_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_C_description" name="ME_OI_C_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_HO_name" name="ME_OI_HO_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_HO_yesNoNa" name="ME_OI_HO_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_HO_description" name="ME_OI_HO_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_HT_name" name="ME_OI_HT_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_HT_yesNoNa" name="ME_OI_HT_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_HT_description" name="ME_OI_HT_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_HSS_name" name="ME_OI_HSS_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_HSS_yesNoNa" name="ME_OI_HSS_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_HSS_description" name="ME_OI_HSS_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_EOL_name" name="ME_OI_EOL_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_EOL_yesNoNa" name="ME_OI_EOL_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_EOL_description" name="ME_OI_EOL_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_HOL_name" name="ME_OI_HOL_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_HOL_yesNoNa" name="ME_OI_HOL_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_HOL_description" name="ME_OI_HOL_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_OI_SC_name" name="ME_OI_SC_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_OI_SC_yesNoNa" name="ME_OI_SC_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_OI_SC_description" name="ME_OI_SC_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_DI_LD_name" name="ME_DI_LD_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_DI_LD_yesNoNa" name="ME_DI_LD_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_DI_LD_description" name="ME_DI_LD_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_DI_TAW_name" name="ME_DI_TAW_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_DI_TAW_yesNoNa" name="ME_DI_TAW_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_DI_TAW_description" name="ME_DI_TAW_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_DI_F_name" name="ME_DI_F_name" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_DI_F_yesNoNa" name="ME_DI_F_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_DI_F_description" name="ME_DI_F_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_DI_A_name" name="ME_DI_A_name" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_DI_A_yesNoNa" name="ME_DI_A_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_DI_A_description" name="ME_DI_A_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_DI_BC_name" name="ME_DI_BC_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_DI_BC_yesNoNa" name="ME_DI_BC_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_DI_BC_description" name="ME_DI_BC_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_DI_G_name" name="ME_DI_G_name" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_DI_G_yesNoNa" name="ME_DI_G_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_DI_G_description" name="ME_DI_G_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_DI_SD_name" name="ME_DI_SD_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_DI_SD_yesNoNa" name="ME_DI_SD_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_DI_SD_description" name="ME_DI_SD_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Name</ion-label>
+          <ion-input formControlName="ME_DI_PTL_name" name="ME_DI_PTL_name" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Yes No Na</ion-label>
+          <ion-input formControlName="ME_DI_PTL_yesNoNa" name="ME_DI_PTL_yesNoNa" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Description</ion-label>
+          <ion-input formControlName="ME_DI_PTL_description" name="ME_DI_PTL_description" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+
+
+        <ion-button type="submit" color="primary"
+          class="button button-md button-default button-default-md button-full button-full-md button-md-primary"
+          style="margin: 20px 0 50px 0;">SAVE
+        </ion-button>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

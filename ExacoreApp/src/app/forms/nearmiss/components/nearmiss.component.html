@@ -1,0 +1,317 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <span class="ex-text">Near Miss Form</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <form [formGroup]="nearMissForm" (ngSubmit)="onSubmit()">
+      <ion-list inset>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Date</ion-label>
+          <ion-input value="{{ f.date.value | date: 'MM.dd.yyyy' }}" id="date" class="ion-text-end"></ion-input>
+          <ion-popover trigger="date" size="cover">
+            <ng-template>
+              <ion-datetime formControlName="date" name="date" ngDefaultControl presentation="date">
+              </ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Time</ion-label>
+          <ion-input value="{{ f.time.value | date: 'h:mm a' }}" id="time" class="ion-text-end"></ion-input>
+          <ion-popover trigger="time" size="cover">
+            <ng-template>
+              <ion-datetime formControlName="time" name="time" ngDefaultControl presentation="time">
+              </ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Affected Jobsite Location</ion-label>
+          <ion-input formControlName="affectedJobsiteLocation" name="affectedJobsiteLocation" type="text"
+            ngDefaultControl autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Supervisor</ion-label>
+          <ion-input formControlName="supervisor" name="supervisor" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Reporing Person</ion-label>
+          <ion-input formControlName="reporingPerson" name="reporingPerson" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Near Miss Description</ion-label>
+          <ion-input formControlName="nearMissDescription" name="nearMissDescription" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Immediate Action</ion-label>
+          <ion-input formControlName="immediateAction" name="immediateAction" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Corrective Action</ion-label>
+          <ion-input formControlName="correctiveAction" name="correctiveAction" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Ssho</ion-label>
+          <ion-input formControlName="ssho" name="ssho" type="text" ngDefaultControl autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Manager</ion-label>
+          <ion-input formControlName="manager" name="manager" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Number of Unsafe Acts</ion-label>
+          <ion-select name="numberOfUnsafeActs" (ionChange)="onChangeUnsafeActs($event)" ngDefaultControl>
+            <ion-select-option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" [value]="i">
+              {{i}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <span *ngFor="let unsafeActs of u.controls; let i = index">
+          <div [formGroup]="unsafeActs" class="form-row">
+            <ion-item>
+              <ion-label position="floating" class="label label-md">Description</ion-label>
+              <ion-input formControlName="description" name="description" type="text" ngDefaultControl
+                autocomplete="asd">
+              </ion-input>
+            </ion-item>
+
+          </div>
+        </span>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Division</ion-label>
+          <ion-select name="divisionId" formControlName="divisionId" ngDefaultControl>
+            <ion-select-option *ngFor="let division of divisions" [value]="division.divisionId">
+              {{division.name}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Department</ion-label>
+          <ion-select name="departmentId" formControlName="departmentId" ngDefaultControl>
+            <ion-select-option *ngFor="let department of departments" [value]="department.departmentId">
+              {{department.name}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Project</ion-label>
+          <ion-select name="projectId" formControlName="projectId" ngDefaultControl>
+            <ion-select-option *ngFor="let project of projects" [value]="project.projectId">
+              {{project.name}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Near Miss Type</ion-label>
+          <ion-select name="nearMissTypeId" formControlName="nearMissTypeId" ngDefaultControl>
+            <ion-select-option *ngFor="let nearMissType of nearMissTypes" [value]="nearMissType.nearMissTypeId">
+              {{nearMissType.missType}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Control Method</ion-label>
+          <ion-select name="controlMethodId" formControlName="controlMethodId" ngDefaultControl>
+            <ion-select-option *ngFor="let controlMethod of controlMethods" [value]="controlMethod.controlMethodId">
+              {{controlMethod.method}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label class="label label-md">Wrong selection of PPE</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="wrongselectionofPPE" ngDefaultControl
+            name="wrongselectionofPPE">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Disregard safety rules</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="disregardSafetyRules" ngDefaultControl
+            name="disregardSafetyRules">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Employee fatigue</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="employeefatigue" ngDefaultControl
+            name="employeefatigue">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Failure to follow procedure</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="failuretofollowprocedure" ngDefaultControl
+            name="failuretofollowprocedure"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Taking shortcuts</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="takingshortcuts" ngDefaultControl
+            name="takingshortcuts">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Lack of attention</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="lackofattention" ngDefaultControl
+            name="lackofattention">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Working to fast</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="workingtofast" ngDefaultControl
+            name="workingtofast"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Lack of employee training</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="lackofemployeetraining" ngDefaultControl
+            name="lackofemployeetraining"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Improper lifting technique</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="improperLiftingtechnique" ngDefaultControl
+            name="improperLiftingtechnique"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">New task for employee or lack of experience</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="newtaskforemployeeorlackofexperience"
+            ngDefaultControl name="newtaskforemployeeorlackofexperience"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Failure to secure or warn</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="failuretosecureorwarn" ngDefaultControl
+            name="failuretosecureorwarn"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">No or outdated procedure</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="nooroutdatedprocedure" ngDefaultControl
+            name="nooroutdatedprocedure"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Operating without authority</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="operatingwithoutauthority" ngDefaultControl
+            name="operatingwithoutauthority"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Hazardous method or procedure</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="hazardousmethodorprocedure" ngDefaultControl
+            name="hazardousmethodorprocedure"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Poor positioning</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="poorpositioning" ngDefaultControl
+            name="poorpositioning">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Unsafe posture</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="unsafeposture" ngDefaultControl
+            name="unsafeposture"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Traveling public entering work area</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="travelingpublicenteringworkarea"
+            ngDefaultControl name="travelingpublicenteringworkarea"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Incomplete or outdated JSA</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="incompleteoroutdatedJSA" ngDefaultControl
+            name="incompleteoroutdatedJSA"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Improper LOTO</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="improperLOTO" ngDefaultControl
+            name="improperLOTO"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Poor or housekeeping practices</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="poororhousekeepingpractices" ngDefaultControl
+            name="poororhousekeepingpractices"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Guard removed or not installed on equipment</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="guardremovedornotinstalledonequipment"
+            ngDefaultControl name="guardremovedornotinstalledonequipment"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Equipment failure</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="equipmentfailure" ngDefaultControl
+            name="equipmentfailure">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Improper material or equipment used</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="impropermaterialorequipmentused"
+            ngDefaultControl name="impropermaterialorequipmentused"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Weather</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="weather" ngDefaultControl name="weather">
+          </ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="label label-md">Other</ion-label>
+          <ion-checkbox class="checked-box" slot="end" formControlName="other" ngDefaultControl name="other">
+          </ion-checkbox>
+        </ion-item>
+
+
+
+        <ion-button type="submit" color="primary"
+          class="button button-md button-default button-default-md button-full button-full-md button-md-primary"
+          style="margin: 20px 0 50px 0;">SAVE
+        </ion-button>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,78 @@
+<ion-app [class.dark-theme]="dark">
+  <ion-split-pane contentId="main-content">
+
+    <ion-menu contentId="main-content">
+      <ion-content>
+        <ion-list lines="none">
+          <ion-list-header class="hrs">
+            <div style="width: 100%;" >
+              <span id="left" style="float:left; padding-bottom: 0px;">
+                <img src="../assets/images/logo-sm.png" style="float:right; padding-bottom: 0%;">
+              </span>
+              <span class="top-menu-text" style="padding-bottom: 0px;">
+                Safety Forms
+              </span>
+            </div>
+
+          </ion-list-header>
+          <ion-menu-toggle autoHide="false" *ngFor="let f of appForms; let i = index">
+            <ion-item [routerLink]="f.url" routerLinkActive="selected" routerDirection="root" detail="false">
+              <ion-icon slot="start" [name]="f.icon + '-outline'"></ion-icon>
+              <ion-label>
+                {{f.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list *ngIf="loggedIn" lines="none">
+          <ion-list-header>
+            Account
+          </ion-list-header>
+
+          <ion-menu-toggle autoHide="false">
+            <ion-item routerLink="/account" routerLinkActive="active" routerDirection="root" detail="false">
+              <ion-icon slot="start" name="person"></ion-icon>
+              <ion-label>
+                Account
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle autoHide="false">
+            <ion-item button (click)="logout()" detail="false">
+              <ion-icon slot="start" name="log-out"></ion-icon>
+              <ion-label>
+                Logout
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+        </ion-list>
+
+        <ion-list *ngIf="!loggedIn" lines="none">
+          <ion-list-header>
+            Account
+          </ion-list-header>
+
+          <ion-menu-toggle autoHide="false">
+            <ion-item routerLink="/login" routerLinkActive="active" routerDirection="root" detail="false">
+              <ion-icon slot="start" name="log-in"></ion-icon>
+              <ion-label>
+                Login
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-item>
+            <ion-icon slot="start" name="moon-outline"></ion-icon>
+            <ion-label>
+              Dark Mode
+            </ion-label>
+            <ion-toggle [(ngModel)]="dark"></ion-toggle>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

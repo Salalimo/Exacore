@@ -1,0 +1,8 @@
+.checked-box {
+  --background-checked: #2BC224;
+  --border-color-checked: #2BC224;
+}
+
+.ex-text {
+  color: #2BC224 !important;
+}

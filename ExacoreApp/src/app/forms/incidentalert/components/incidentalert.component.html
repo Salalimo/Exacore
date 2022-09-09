@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <span class="ex-text">Incident Alert Form</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <form [formGroup]="incidentAlertForm" (ngSubmit)="onSubmit()">
+      <ion-list inset>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Date</ion-label>
+          <ion-input value="{{ f.date.value | date: 'MM.dd.yyyy' }}" id="date" class="ion-text-end"></ion-input>
+          <ion-popover trigger="date" size="cover">
+            <ng-template>
+              <ion-datetime formControlName="date" name="date" ngDefaultControl presentation="date">
+              </ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Time</ion-label>
+          <ion-input value="{{ f.time.value | date: 'h:mm a' }}" id="time" class="ion-text-end"></ion-input>
+          <ion-popover trigger="time" size="cover">
+            <ng-template>
+              <ion-datetime formControlName="time" name="time" ngDefaultControl presentation="time">
+              </ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Equipment Incident Location</ion-label>
+          <ion-input formControlName="equipmentIncidentLocation" name="equipmentIncidentLocation" type="text"
+            ngDefaultControl autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Supervisor</ion-label>
+          <ion-input formControlName="supervisor" name="supervisor" type="text" ngDefaultControl autocomplete="asd">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Involved Job Title</ion-label>
+          <ion-input formControlName="involvedJobTitle" name="involvedJobTitle" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Incident Description</ion-label>
+          <ion-input formControlName="incidentDescription" name="incidentDescription" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Immediate Action Taken</ion-label>
+          <ion-input formControlName="immediateActionTaken" name="immediateActionTaken" type="text" ngDefaultControl
+            autocomplete="asd"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Alert Time</ion-label>
+          <ion-select name="alertTimeId" formControlName="alertTimeId" ngDefaultControl>
+            <ion-select-option *ngFor="let alertTime of alertTimes" [value]="alertTime.alertTimeId">
+              {{alertTime.name}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" class="label label-md">Project</ion-label>
+          <ion-select name="projectId" formControlName="projectId" ngDefaultControl>
+            <ion-select-option *ngFor="let project of projects" [value]="project.projectId">
+              {{project.name}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+
+        <ion-button type="submit" color="primary"
+          class="button button-md button-default button-default-md button-full button-full-md button-md-primary"
+          style="margin: 20px 0 50px 0;">SAVE
+        </ion-button>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>
