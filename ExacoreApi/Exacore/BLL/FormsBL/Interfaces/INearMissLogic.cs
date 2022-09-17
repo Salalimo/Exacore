@@ -7,5 +7,6 @@ namespace Exacore.BLL.LookupsBL.Interfaces
     {
         Task<NearMissDto> Get(int Id);
         Task<NearMissDto> Add(NearMissDto dto);
+        Task<NearMissDto> Update(NearMissDto dto);
     }
 }

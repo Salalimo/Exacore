@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Exacore.BLL.PdfBL;
+using Exacore.BLL.PdfBL.Interfaces;
 using Exacore.DAL;
 using Exacore.DAL.Forms;
 using Exacore.Dtos.Forms;
@@ -15,10 +15,28 @@ namespace Exacore.BLL.FormsBL.Interfaces
         IMapper _mapper;
         IExacoreContext _db;
 
-        public FormLogic(IMapper mapper, IExacoreContext db)
+        IJsaPdf _jsaPdf;
+        INearMissPdf _nearMissPdf;
+        IGoodCatchPdf _goodCatchPdf;
+        IIncidentAlertPdf _incidentAlertPdf;
+        IToolboxMeetingPdf _toolboxMeetingPdf;
+        IMotorizedEquipmentPdf _motorizedEquipmentPdf;
+        ISiteSafetyOrientationPdf _siteSafetyOrientationPdf;
+
+
+        public FormLogic(IMapper mapper, IExacoreContext db, IGoodCatchPdf goodCatchPdf, IIncidentAlertPdf incidentAlertPdf,
+            IJsaPdf jsaPdf, IMotorizedEquipmentPdf motorizedEquipmentPdf, INearMissPdf nearMissPdf, 
+            ISiteSafetyOrientationPdf siteSafetyOrientationPdf, IToolboxMeetingPdf toolboxMeetingPdf)
         {
-            _mapper = mapper;
             _db = db;
+            _mapper = mapper;
+            _goodCatchPdf = goodCatchPdf;
+            _incidentAlertPdf = incidentAlertPdf;
+            _jsaPdf = jsaPdf;
+            _motorizedEquipmentPdf = motorizedEquipmentPdf;
+            _nearMissPdf = nearMissPdf;
+            _siteSafetyOrientationPdf = siteSafetyOrientationPdf;
+            _toolboxMeetingPdf = toolboxMeetingPdf; 
         }
 
         public async Task<List<FormDto>> GetAll()
@@ -57,19 +75,19 @@ namespace Exacore.BLL.FormsBL.Interfaces
             switch(form.FormName)
             {
                 case "Good Catch":
-                    return new GoodCatchPdf().CreatePdf();
+                    return _goodCatchPdf.CreatePdf();
                 case "Incident Alert":
-                    return new IncidentAlertPdf().CreatePdf();
+                    return _incidentAlertPdf.CreatePdf();
                 case "Jsa":
-                    return new JsaPdf().CreatePdf();
+                    return _jsaPdf.CreatePdf();
                 case "Near Miss":
-                    return new NearMissPdf().CreatePdf();
+                    return _nearMissPdf.CreatePdf();
                 case "Motorized Equipment":
-                    return new MotorizedEquipmentPdf().CreatePdf();
+                    return _motorizedEquipmentPdf.CreatePdf();
                 case "Site Safety Orientation":
-                    return new SiteSafetyOrientationPdf().CreatePdf();
+                    return _siteSafetyOrientationPdf.CreatePdf();
                 case "Toolbox Meeting":
-                    return new ToolboxMeetingPdf().CreatePdf();
+                    return _toolboxMeetingPdf.CreatePdf();
                 default:
                     return null;
             }

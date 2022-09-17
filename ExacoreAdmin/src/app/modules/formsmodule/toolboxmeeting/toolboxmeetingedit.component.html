@@ -1,0 +1,189 @@
+<div class="main-wrapper">
+    <header class="header">
+        <div class="logo"><img src="../../../../assets/forms/logo.png" /></div>
+        <div class="title">
+            <h1>TOOLBOX MEETING REPORT</h1>
+        </div>
+    </header>
+    <div class="page">
+        <div class="form-content">
+            <div class="x-inputgroup-row">
+                <div class="x-inputgroup">
+                    <div class="x-input ">
+                        <p><span>S</span>upervisor <span>N</span>ame</p>
+                        <div class="">
+                            <input type="text" name="time" style="width: 100%;" [(ngModel)]="toolboxMeeting.supervisor">
+                        </div>
+                    </div>
+                    <div class="x-input mcol_235p">
+                        <p><span>D</span>ate</p>
+                        <div class="">
+                            <input type="date" name="date" [ngModel]="toolboxMeeting.date | date:'yyyy-MM-dd'"
+                                style="width: 200px;" (ngModelChange)="toolboxMeeting.date = $event" type="date"
+                                name="startDate">
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup">
+                    <div class="x-input">
+                        <p><span>J</span>ob <span>T</span>itle</p>
+                        <div class="">
+                            <input type="text" name="time" style="width: 100%;" [(ngModel)]="toolboxMeeting.jobTitle">
+                        </div>
+                    </div>
+                    <div class="x-input mcol_235p">
+                        <p><span>E</span>mployee <span>Id</span> <span>N</span>o.</p>
+                        <div class="">
+                            <input type="text" name="time" style="width: 100%;" [(ngModel)]="toolboxMeeting.employeeId">
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup">
+                    <div class="x-input">
+                        <p><span>P</span>roject <span>N</span>ame</p>
+                        <div class="">
+                            <input type="text" name="time" style="width: 100%;" [(ngModel)]="toolboxMeeting.projectNo">
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup">
+                    <div class="x-input">
+                        <p><span>P</span>roject <span>L</span>ocation</p>
+                        <div class="">
+                            <select class="form-control form-control-sm" [(ngModel)]="toolboxMeeting.projectId"
+                                style="width: 200px;">
+                                <option *ngFor="let project of projects" [value]="project.projectId">
+                                    {{project.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup">
+                    <div class="x-input ">
+                        <p><span>P</span>roject <span>N</span>o./<span>C</span>ontract <span>N</span>o.</p>
+                        <div class="">
+                            <input type="text" name="time" style="width: 100%;" [(ngModel)]="toolboxMeeting.projectNo">
+                        </div>
+                    </div>
+                    <div class="x-input ">
+                        <p><span>N</span>o. <span>O</span>f <span>A</span>ttendees</p>
+                        <div class="">
+                            <input type="text" name="time" style="width: 100%;"
+                                [(ngModel)]="toolboxMeeting.numberOfAttendees">
+                        </div>
+                    </div>
+                    <div class="x-input ">
+                        <p><span>N</span>o. <span>I</span>n <span>C</span>rew</p>
+                        <div class="">
+                            <input type="text" name="time" style="width: 100%;" [(ngModel)]="toolboxMeeting.crewNo">
+                        </div>
+                    </div>
+                </div>
+                <div class="list-description">
+                    <div class="list-heading">
+                        <p><span>T</span>opics <span>C</span>overed</p>
+                        <p class="bld"><span>(</span>List/Brief Description<span>)</span></p>
+                    </div>
+                    <div class="x-input" *ngFor="let topic of toolboxMeeting.topics">
+                        <div class="">
+                            <input type="text" name="time" style="width: 100%;" [(ngModel)]="topic.description">
+                        </div>
+                    </div>
+
+                    <div class="x-input" *ngFor="let topic of topics">
+                        <div class="">
+                            <input type="text" name="time" style="width: 100%;" [(ngModel)]="topic.description">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="x-inputgroup x-inpuntinline">
+                    <div class="x-input ">
+                        <p><span>S</span>upervisor <span>S</span>ignature</p>
+                        <div class="x-inputtext"></div>
+                    </div>
+                </div>
+                <div class="x-form-foot">
+                    <p>Return completed form to the Project/Site Safety Representative.</p>
+                    <p>Have all attendees sign page 2 of this form.</p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="page __2">
+        <header class="header_2"></header>
+        <div class="form-content">
+            <div class="x-attendance-sheet">
+                <div class="xas-note">
+                    <p>Enter name and Company acknowledging your attendance of the ToolBox Safety Meeting<br />
+                        referenced on page 1 of this form. Report all safety concerns to your immediate supervisor or
+                        safety Representative.</p>
+                </div>
+                <div class="xas-label">
+                    ATTENDANCE
+                </div>
+                <div class="xas-head">
+                    <div class="xas-head-name"><span>N</span>ame <span>(</span>signature<span>)</span></div>
+                    <div class="xas-head-company"><span>C</span>ompany</div>
+                    <div class="xas-head-comments"><span>C</span>omments/<span>S</span>afety <span>C</span>oncerns/
+                        <span>T</span>raining <span>R</span>equests
+                    </div>
+                </div>
+                <div class="xas-body">
+                    <div class="x-inputgroup" *ngFor="let attendance of toolboxMeeting.attendances">
+                        <div class="">
+                            <div class="">
+                                <input type="text" name="time" style="width: 100%;" [(ngModel)]="attendance.name">
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="">
+                                <input type="text" name="time" style="width: 100%;" [(ngModel)]="attendance.company">
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="">
+                                <input type="text" name="time" style="width: 100%;" [(ngModel)]="attendance.comments">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x-inputgroup" *ngFor="let attendance of attendances">
+                        <div class=" ">
+                            <div class="">
+                                <input type="text" name="time" style="width: 100%;" [(ngModel)]="attendance.name">
+                            </div>
+                        </div>
+                        <div class=" ">
+                            <div class="">
+                                <input type="text" name="time" style="width: 100%;" [(ngModel)]="attendance.company">
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="">
+                                <input type="text" name="time" style="width: 100%;" [(ngModel)]="attendance.comments">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <button class="btn btn-sm btn-primary pull-right" (click)="save()">
+                    Save
+                </button>
+                <div class="pull-right col-2">
+                    <button class="btn btn-sm btn-default pull-right" (click)="cancel()">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+
+    <footer class="footer"></footer>
+</div>

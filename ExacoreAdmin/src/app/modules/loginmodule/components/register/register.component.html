@@ -21,7 +21,6 @@
                         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                             <table style="width: 650px;">
                                 <tr>
-                                   
                                     <ng-container *ngIf="selectedRole">
                                         <td>
                                             <div class="register_filled_one">
@@ -58,7 +57,6 @@
                                                     <input type="text" formControlName="firstName" class="inp"
                                                         [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }"
                                                         placeholder="First Name" maxlength="50" />
-
                                                 </div>
                                             </div>
                                         </td>

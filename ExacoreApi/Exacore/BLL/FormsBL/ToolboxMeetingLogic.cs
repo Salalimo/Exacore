@@ -35,6 +35,7 @@ namespace Exacore.BLL.LookupsBL
         public async Task<ToolboxMeetingDto> Add(ToolboxMeetingDto dto)
         {
             var toolboxMeeting = _mapper.Map<ToolboxMeetingDto, ToolboxMeeting>(dto);
+            toolboxMeeting.Project = null;
             var form = new Form();
             form.ToolboxMeetings = new List<ToolboxMeeting>();
             form.ToolboxMeetings.Add(toolboxMeeting);
@@ -42,6 +43,16 @@ namespace Exacore.BLL.LookupsBL
             form.FormName = "Toolbox Meeting";
 
             _db.Form.Add(form);
+            await _db.SaveChangesAsync();
+            return _mapper.Map<ToolboxMeeting, ToolboxMeetingDto>(toolboxMeeting);
+        }
+
+        public async Task<ToolboxMeetingDto> Update(ToolboxMeetingDto dto)
+        {
+            var toolboxMeeting = await _db.ToolboxMeeting.FindAsync(dto.ToolboxMeetingId);
+            toolboxMeeting.Project = null;
+            _mapper.Map(dto, toolboxMeeting);
+            _db.Entry(toolboxMeeting).State = EntityState.Modified;
             await _db.SaveChangesAsync();
             return _mapper.Map<ToolboxMeeting, ToolboxMeetingDto>(toolboxMeeting);
         }

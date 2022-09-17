@@ -14,7 +14,6 @@
                         <div class="x-inputtext">
                             <input type="date" name="date" [ngModel]="goodCatch.date | date:'yyyy-MM-dd'"
                                 (ngModelChange)="goodCatch.date = $event" type="date" name="startDate">
-                            <!-- [value]="goodCatch.date | date: 'yyyy-MM-dd'" -->
                         </div>
                     </div>
                     <div class="x-input ">
@@ -25,14 +24,24 @@
                     </div>
                     <div class="x-input mcol_x3">
                         <p><span>D</span>ivision</p>
-                        <div class="x-inputtext">
-                            <input type="text" name="divname" [(ngModel)]="goodCatch.division.name">
+                        <div class="">
+                            <select class="form-control form-control-sm" [(ngModel)]="goodCatch.divisionId"
+                                style="width: 200px;">
+                                <option *ngFor="let division of divisions" [value]="division.divisionId">
+                                    {{division.name}}
+                                </option>
+                            </select>
                         </div>
                     </div>
                     <div class="x-input mcol_x3">
                         <p><span>D</span>epartment</p>
-                        <div class="x-inputtext">
-                            <input type="text" name="deptname" [(ngModel)]="goodCatch.department.name">
+                        <div class="">
+                            <select class="form-control form-control-sm" [(ngModel)]="goodCatch.departmentId"
+                                style="width: 200px;">
+                                <option *ngFor="let department of departments" [value]="department.departmentId">
+                                    {{department.name}}
+                                </option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -46,16 +55,27 @@
                     </div>
                     <div class="x-input mcol_x3">
                         <p><span>P</span>roject <span>N</span>ame</p>
-                        <div class="x-inputtext">
-                            <input type="text" name="projname" [(ngModel)]="goodCatch.project.name">
+                        <div class="">
+                            <select class="form-control form-control-sm" [(ngModel)]="goodCatch.projectId"
+                                style="width: 200px;">
+                                <option *ngFor="let project of projects" [value]="project.projectId">
+                                    {{project.name}}
+                                </option>
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="x-inputgroup">
                     <div class="x-input mcol_33p">
                         <p class="x-green"><span>G</span>ood <span>C</span>atch <span>T</span>ype</p>
-                        <div class="x-inputtext">
-                            <input type="text" name="catchname" [(ngModel)]="goodCatch.goodCatchType.catchType">
+                        <div class="">
+                            <select class="form-control form-control-sm" [(ngModel)]="goodCatch.goodCatchTypeId"
+                                style="width: 200px;">
+                                <option *ngFor="let goodCatchType of goodCatchTypes"
+                                    [value]="goodCatchType.goodCatchTypeId">
+                                    {{goodCatchType.catchType}}
+                                </option>
+                            </select>
                         </div>
                     </div>
                     <div class="x-input mcol_30p">
@@ -88,8 +108,14 @@
                 <div class="x-inputgroup x-inpuntinline">
                     <div class="x-input">
                         <p class="x-green"><span>C</span>ontrol <span>M</span>ethod</p>
-                        <div class="x-inputtext">
-                            <input type="text" name="name" [(ngModel)]="goodCatch.controlMethod.method">
+                        <div class="">
+                            <select class="form-control form-control-sm" [(ngModel)]="goodCatch.controlMethodId"
+                                style="width: 200px;">
+                                <option *ngFor="let controlMethod of controlMethods"
+                                    [value]="controlMethod.controlMethodId">
+                                    {{controlMethod.method}}
+                                </option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -108,7 +134,7 @@
                     <div class="x-input ">
                         <p><span>D</span>ate</p>
                         <div class="">
-                            {{goodCatch.changedDate | date:'yyyy-MM-dd'}}
+                            <!-- {{goodCatch.changedDate | date:'yyyy-MM-dd'}} -->
                         </div>
                     </div>
                     <div class="x-input ">
@@ -127,7 +153,13 @@
                 <button class="btn btn-sm btn-primary pull-right" (click)="save()">
                     Save
                 </button>
+                <div class="pull-right col-2">
+                    <button class="btn btn-sm btn-default pull-right" (click)="cancel()">
+                        Cancel
+                    </button>
+                </div>
             </div>
+            <br>
         </div>
     </div>
     <footer class="footer"></footer>

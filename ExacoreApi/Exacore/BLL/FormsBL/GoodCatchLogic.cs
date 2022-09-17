@@ -23,6 +23,12 @@ namespace Exacore.BLL.FormsBL
         public async Task<GoodCatchDto> Add(GoodCatchDto dto)
         {
             var goodCatch = _mapper.Map<GoodCatchDto, GoodCatch>(dto);
+            goodCatch.Project = null;
+            goodCatch.Division = null;
+            goodCatch.Department = null;
+            goodCatch.GoodCatchType = null;
+            goodCatch.ControlMethod = null;
+
             var form = new Form();
             form.GoodCatches = new List<GoodCatch>();
             form.GoodCatches.Add(goodCatch);
@@ -37,6 +43,11 @@ namespace Exacore.BLL.FormsBL
         {
             var goodCatch = await _db.GoodCatch.FindAsync(dto.GoodCatchId);
             _mapper.Map(dto, goodCatch);
+            goodCatch.Project = null;
+            goodCatch.Division = null;
+            goodCatch.Department = null;
+            goodCatch.GoodCatchType = null;
+            goodCatch.ControlMethod = null;
             _db.Entry(goodCatch).State = EntityState.Modified;
             await _db.SaveChangesAsync();
             return _mapper.Map<GoodCatch, GoodCatchDto>(goodCatch);

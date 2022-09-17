@@ -15,7 +15,7 @@ namespace Exacore.AuhBL.AuthenticationBL.Helpers
             string guid = System.Guid.NewGuid().ToString();
 
             //string verificationLink = appSettings.EmailTemplate.HomePageLink + "/activateaccount?email=" + email + "&guid=" + guid;
-            string verificationLink = appSettings.EmailTemplate.HomePageLink + "/resetpassword?email=" + email + "&guid=" + guid;
+            string verificationLink = appSettings.EmailTemplate.HomePageLink + "#/resetpassword?email=" + email + "&guid=" + guid;
             body = body.Replace(":link:", verificationLink);
             body = body.Replace(":name:", firstName + " " + lastName);
             body = body.Replace(":homepagelink:", appSettings.EmailTemplate.HomePageLink);
@@ -36,7 +36,7 @@ namespace Exacore.AuhBL.AuthenticationBL.Helpers
             string path = Path.Combine(Directory.GetCurrentDirectory(), "Content\\Templates\\EmailPasswordReset.htm");
             string body = File.ReadAllText(path);
             string guid = System.Guid.NewGuid().ToString();
-            string link = appSettings.EmailTemplate.HomePageLink + "/resetpassword?email=" + email + "&guid=" + guid;
+            string link = appSettings.EmailTemplate.HomePageLink + "#/resetpassword?email=" + email + "&guid=" + guid;
             body = body.Replace(":link:", link);
             body = body.Replace(":name:", firstName + " " + lastName);
             body = body.Replace(":homepagelink:", appSettings.EmailTemplate.HomePageLink);

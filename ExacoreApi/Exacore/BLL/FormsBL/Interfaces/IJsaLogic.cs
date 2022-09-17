@@ -7,5 +7,6 @@ namespace Exacore.BLL.LookupsBL.Interfaces
     {
         Task<JsaDto> Get(int Id);
         Task<JsaDto> Add(JsaDto dto);
+        Task<JsaDto> Update(JsaDto dto);
     }
 }

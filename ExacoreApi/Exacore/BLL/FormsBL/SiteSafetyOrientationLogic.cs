@@ -43,5 +43,14 @@ namespace Exacore.BLL.LookupsBL
             await _db.SaveChangesAsync();
             return _mapper.Map<SiteSafetyOrientation, SiteSafetyOrientationDto>(siteSafetyOrientation);
         }
+
+        public async Task<SiteSafetyOrientationDto> Update(SiteSafetyOrientationDto dto)
+        {
+            var siteSafetyOrientation = await _db.SiteSafetyOrientation.FindAsync(dto.SiteSafetyOrientationId);
+            _mapper.Map(dto, siteSafetyOrientation);
+            _db.Entry(siteSafetyOrientation).State = EntityState.Modified;
+            await _db.SaveChangesAsync();
+            return _mapper.Map<SiteSafetyOrientation, SiteSafetyOrientationDto>(siteSafetyOrientation);
+        }
     }
 }

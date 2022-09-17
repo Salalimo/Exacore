@@ -1,0 +1,349 @@
+<div class="main-wrapper">
+    <header class="header">
+        <div class="logo"><img src="../../../../assets/forms/logo.png" /></div>
+        <div class="title">
+            <h1>NEAR MISS</h1>
+        </div>
+    </header>
+    <div class="page">
+        <div class="form-content">
+            <div class="x-inputgroup-row">
+                <div class="x-inputgroup">
+                    <div class="x-input mcol_154p">
+                        <p><span>D</span>ate</p>
+                        <div class="">
+                            <input type="date" name="date" [ngModel]="nearMiss.date | date:'yyyy-MM-dd'"
+                                style="width: 200px;" (ngModelChange)="nearMiss.date = $event" type="date"
+                                name="startDate">
+                        </div>
+                    </div>
+                    <div class="x-input mcol_152p">
+                        <p><span>T</span>ime</p>
+                        <div class="">
+                            <!-- {{nearMiss.date | date: 'hh:mm a'}} -->
+                        </div>
+                    </div>
+                    <div class="x-input mcol_x3">
+                        <p><span>D</span>ivision</p>
+                        <div class="">
+                            <select class="form-control form-control-sm" [(ngModel)]="nearMiss.divisionId"
+                                style="width: 200px;">
+                                <option *ngFor="let division of divisions" [value]="division.divisionId">
+                                    {{division.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="x-input mcol_x3">
+                        <p><span>D</span>epartment</p>
+                        <div class="">
+                            <select class="form-control form-control-sm" [(ngModel)]="nearMiss.departmentId"
+                                style="width: 200px;">
+                                <option *ngFor="let department of departments" [value]="department.departmentId">
+                                    {{department.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup">
+                    <div class="x-input mcol_24p">
+                        <p><span>A</span>ffected <span>J</span>obsite/ <span>L</span>ocation</p>
+                        <div class="">
+                            <input type="text" style="width: 100%;" name="time"
+                                [(ngModel)]="nearMiss.affectedJobsiteLocation">
+                        </div>
+                    </div>
+                    <div class="x-input mcol_x3">
+                        <p><span>P</span>roject <span>N</span>ame</p>
+                        <div class="">
+                            <select class="form-control form-control-sm" [(ngModel)]="nearMiss.projectId"
+                                style="width: 90%;">
+                                <option *ngFor="let project of projects" [value]="project.projectId">
+                                    {{project.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup">
+                    <div class="x-input mcol_33p">
+                        <p class="x-green"><span>N</span>EAR <span>M</span>ISS <span>T</span>ype</p>
+                        <div class="">
+                            <select class="form-control form-control-sm" [(ngModel)]="nearMiss.nearMissTypeId"
+                                style="width: 200px;">
+                                <option *ngFor="let nearMissType of nearMissTypes"
+                                    [value]="nearMissType.nearMissTypeId">
+                                    {{nearMissType.missType}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="x-input mcol_30p">
+                        <p><span>S</span>upervisor</p>
+                        <div class="">
+                            <input type="text" style="width: 100%;" name="time" [(ngModel)]="nearMiss.supervisor">
+                        </div>
+                    </div>
+                    <div class="x-input mcol_37p">
+                        <p class="bgr"><span>N</span>ame / <span>T</span>itle of <span>R</span>eporting
+                            <span>P</span>erson
+                        </p>
+                        <div class="">
+                            <input type="text" style="width: 100%;" name="time" [(ngModel)]="nearMiss.reporingPerson">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="x-inputgroup-row x-row-bottom" style="margin-top: 10px">
+                <div class="x-inputgroup">
+                    <div class="x-inputgroup-col">
+
+                        <div class="x-input ">
+                            <p>Near Miss Description</p>
+                            <div class="">
+                                <textarea name="description" rows="13" cols="51"
+                                    [(ngModel)]="nearMiss.nearMissDescription"></textarea>
+                            </div>
+                        </div>
+                        <div class="x-inputgroup">
+                            <div class="x-input ">
+                                <p>Immediate Action Taken</p>
+                                <div class=" hght_90p">
+                                    <textarea name="description" rows="3" cols="51"
+                                        [(ngModel)]="nearMiss.immediateAction"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="x-inputgroup x-inpuntinline">
+                            <div class="x-input">
+                                <p>Control Method</p>
+                                <div class="">
+                                    <select class="form-control form-control-sm" [(ngModel)]="nearMiss.controlMethodId"
+                                        style="width: 200px;">
+                                        <option *ngFor="let controlMethod of controlMethods"
+                                            [value]="controlMethod.controlMethodId">
+                                            {{controlMethod.method}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="x-inputgroup">
+                            <div class="x-input ">
+                                <p>Corrective Action Taken to Prevent Reoccurence (if any)</p>
+                                <div class="">
+                                    <textarea name="description" rows="10" cols="51"
+                                        [(ngModel)]="nearMiss.correctiveAction"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x-inputgroup-col x-col-checks">
+                        <div class="x-checks-head">
+                            <div>
+                                <p>What unsafe act occurred?</p>
+                            </div>
+                            <div>
+                                <p> (Check all that apply)</p>
+                            </div>
+                        </div>
+
+                        <div class="x-checkbox-group">
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.wrongselectionofPPE"
+                                        type="checkbox">
+                                    Wrong selection of PPE</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.disregardSafetyRules"
+                                        type="checkbox">
+                                    Disregard Safety Rules</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.employeefatigue" type="checkbox">
+                                    Employee fatigue</label>
+                            </div>
+                            <div class="x-check-item">
+
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.failuretofollowprocedure"
+                                        type="checkbox">
+                                    Failure to follow procedure</label>
+                            </div>
+                            <div class="x-check-item">
+
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.takingshortcuts" type="checkbox">
+                                    Taking shortcuts</label>
+
+
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.lackofattention" type="checkbox">
+                                    Lack of attention</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.workingtofast" type="checkbox">
+                                    Working too fast</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.lackofemployeetraining"
+                                        type="checkbox">
+                                    Lack of employee training</label>
+
+                            </div>
+                            <div class="x-check-item">
+
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.improperLiftingtechnique"
+                                        type="checkbox">
+                                    Improper Lifting technique</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox"
+                                        [(ngModel)]="nearMiss.newtaskforemployeeorlackofexperience" type="checkbox">
+                                    New task for employee or lack of experience</label>
+
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.failuretosecureorwarn"
+                                        type="checkbox">
+                                    Failure to secure or warn</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.nooroutdatedprocedure"
+                                        type="checkbox">
+                                    No or outdated procedure</label>
+
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.operatingwithoutauthority"
+                                        type="checkbox">
+                                    Operating without authority</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.hazardousmethodorprocedure"
+                                        type="checkbox">
+                                    Hazardous method or procedure</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.poorpositioning" type="checkbox">
+                                    Poor positioning</label>
+
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.unsafeposture" type="checkbox">
+                                    Unsafe posture</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.travelingpublicenteringworkarea"
+                                        type="checkbox">
+                                    Traveling public entering work area</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.incompleteoroutdatedJSA"
+                                        type="checkbox">
+                                    Incomplete or outdated JSA</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.improperLOTO" type="checkbox">
+                                    Improper LOTO</label>
+
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.poororhousekeepingpractices"
+                                        type="checkbox">
+                                    Poor or housekeeping practices</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox"
+                                        [(ngModel)]="nearMiss.guardremovedornotinstalledonequipment" type="checkbox">
+                                    Guard removed or not installed on equipment</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.equipmentfailure" type="checkbox">
+                                    Equipment failure</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.impropermaterialorequipmentused"
+                                        type="checkbox">
+                                    Improper material or equipment used</label>
+
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.weather" type="checkbox">
+                                    Weather</label>
+                            </div>
+                            <div class="x-check-item">
+                                <label>
+                                    <input class="x-checkbox" [(ngModel)]="nearMiss.other" type="checkbox">
+                                    Other</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="x-inputgroup-row input-prepared">
+                <div class="x-inputgroup" style="height: 60px;">
+                    <div class="x-input ">
+                        <p>SUPERVISOR</p>
+                        <div class="">
+                            <input type="text" style="width: 100%;" name="time" [(ngModel)]="nearMiss.ssho">
+                        </div>
+                    </div>
+                    <div class="x-input ">
+                        <p>SSHO</p>
+                        <div class="">
+                            <input type="text" style="width: 100%;" name="time" [(ngModel)]="nearMiss.ssho">
+                        </div>
+                    </div>
+                    <div class="x-input ">
+                        <p>PROJECT/SITE MANAGER</p>
+                        <div class="">
+                            <input type="text" style="width: 100%;" name="time" [(ngModel)]="nearMiss.manager">
+                            {{nearMiss.manager }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <button class="btn btn-sm btn-primary pull-right" (click)="save()">
+                    Save
+                </button>
+                <div class="pull-right col-2">
+                    <button class="btn btn-sm btn-default pull-right" (click)="cancel()">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+
+    <footer class="footer"></footer>
+</div>

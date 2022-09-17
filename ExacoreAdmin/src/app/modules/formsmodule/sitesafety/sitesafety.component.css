@@ -247,6 +247,14 @@ h1 {
     color: #565964;
     margin-bottom: 5px;
 }
+.x-checkitem-edit {
+    display: flex;
+    align-items: center;
+    font-size: 11pt;
+    padding-left: 20px;
+    color: #565964;
+    vertical-align: middle;
+}
 
 .x-checkitem span {
     margin-right: 10px;

@@ -13,6 +13,11 @@ namespace Exacore.BLL.PdfBL
 {
     public class GoodCatchPdf : IGoodCatchPdf
     {
+        IExacoreContext _db;
+        public GoodCatchPdf (IExacoreContext db)
+        {
+            _db= db;
+        }
         public byte[] CreatePdf()
         {
             var model = GetModel();
@@ -92,11 +97,11 @@ namespace Exacore.BLL.PdfBL
 
         private GoodCatch GetModel()
         {
-            var connectionstring = "Server=ROGU3\\SQLEXPRESS; Database=Exacore; User Id=ssaa;Password=limo;";
-            var optionsBuilder = new DbContextOptionsBuilder<ExacoreContext>();
-            optionsBuilder.UseSqlServer(connectionstring);
-            var db = new ExacoreContext(optionsBuilder.Options);
-            var model = db.GoodCatch
+            //var connectionstring = "Server=ROGU3\\SQLEXPRESS; Database=Exacore; User Id=ssaa;Password=limo;";
+            //var optionsBuilder = new DbContextOptionsBuilder<ExacoreContext>();
+            //optionsBuilder.UseSqlServer(connectionstring);
+            //var db = new ExacoreContext(optionsBuilder.Options);
+            var model = _db.GoodCatch
                 .Include(g => g.Division)
                 .Include(g => g.Department)
                 .Include(g => g.Project)

@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
                                 'Content-Type': 'application/json',
                                 'Authorization': 'Bearer ' + authToken.authToken
                             });
-                           this.router.navigateByUrl('dashboard');
+                            this.router.navigateByUrl('dashboard');
                         },
                         error: (error) => {
                             console.log(error)

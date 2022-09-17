@@ -34,6 +34,8 @@ namespace Exacore.BLL.LookupsBL
         public async Task<IncidentAlertDto> Add(IncidentAlertDto dto)
         {
             var incidentAlert = _mapper.Map<IncidentAlertDto, IncidentAlert>(dto);
+            incidentAlert.AlertTime = null;
+            incidentAlert.Project = null;
             var form = new Form();
             form.IncidentAlerts = new List<IncidentAlert>();
             form.IncidentAlerts.Add(incidentAlert);
@@ -44,5 +46,17 @@ namespace Exacore.BLL.LookupsBL
             await _db.SaveChangesAsync();
             return _mapper.Map<IncidentAlert, IncidentAlertDto>(incidentAlert);
         }
+
+        public async Task<IncidentAlertDto> Update(IncidentAlertDto dto)
+        {
+            var incidentAlert = await _db.IncidentAlert.FindAsync(dto.IncidentAlertId);
+            _mapper.Map(dto, incidentAlert);
+            incidentAlert.AlertTime = null;
+            incidentAlert.Project = null;
+            _db.Entry(incidentAlert).State = EntityState.Modified;
+            await _db.SaveChangesAsync();
+            return _mapper.Map<IncidentAlert, IncidentAlertDto>(incidentAlert);
+        }
+
     }
 }

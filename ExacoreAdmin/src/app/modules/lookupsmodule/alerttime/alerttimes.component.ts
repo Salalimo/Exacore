@@ -50,6 +50,7 @@ export class AlertTimesComponent implements OnInit {
       console.log(result)
       if (result) {
         this.alertTimeClient.delete(id).subscribe((data: AlertTimeDto) => {
+          this.loadAlertTimes();
         });
       }
     });

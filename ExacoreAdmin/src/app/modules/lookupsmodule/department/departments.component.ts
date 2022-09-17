@@ -50,6 +50,7 @@ export class DepartmentsComponent implements OnInit {
       console.log(result)
       if (result) {
         this.departmentClient.delete(id).subscribe((data: DepartmentDto) => {
+          this.loadDepartments();
         });
       }
     });

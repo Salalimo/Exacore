@@ -7,7 +7,7 @@ namespace Exacore.DAL.Entities.Account
     public class Contact : BaseEntity, IAuditable
     {
         [Column("ContactID")]
-        public int ContactId { get; set; }
+        public int? ContactId { get; set; }
         [Column("FirstName")]
         public string FirstName { get; set; }
         [Column("LastName")]

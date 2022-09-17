@@ -35,5 +35,12 @@ namespace Exacore.Controllers
             var vm = await _incidentalertLogic.Add(dto);
             return Ok(vm);
         }
+        [HttpPut, Route("")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(IncidentAlertDto))]
+        public async Task<IActionResult> Update(IncidentAlertDto dto)
+        {
+            var vm = await _incidentalertLogic.Update(dto);
+            return Ok(vm);
+        }
     }
 }

@@ -85,6 +85,10 @@ namespace Exacore.BLL.AuthBL
 
         public async Task Delete(int Id)
         {
+            var guids = await _db.UserGuid.Where(g => g.UserId ==  Id).ToListAsync();
+            _db.UserGuid.RemoveRange(guids);
+            await _db.SaveChangesAsync();
+
             var user = await _db.User.FindAsync(Id);
             _db.User.Remove(user);
             await _db.SaveChangesAsync();

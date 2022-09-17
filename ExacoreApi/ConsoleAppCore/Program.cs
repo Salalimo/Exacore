@@ -9,7 +9,8 @@ namespace ConsoleAppCore
     {
         static void Main(string[] args)
         {
-            string pdfTemplate = @"c:\Temp\exacore\JSa.pdf";
+            //string pdfTemplate = @"c:\Temp\exacore\JSa.pdf";
+            string pdfTemplate = @"c:\Temp\asdasd.pdf";
             PdfDocument document = PdfReader.Open(pdfTemplate, PdfDocumentOpenMode.Modify);
             PdfAcroForm form = document.AcroForm;
             PdfAcroField.PdfAcroFieldCollection fields = form.Fields;
@@ -20,18 +21,18 @@ namespace ConsoleAppCore
             }
             for (int idx = 0; idx < fields.Count; idx++)
             {
-                //Console.WriteLine(fields[idx].Name);
+                //Console.WriteLin  e(fields[idx].Name);
             }
 
             //return;
             //var pdf = new GoodCatchPdf();
             //var pdf = new IncidentAlertPdf();
-            var pdf = new JsaPdf();
+            //var pdf = new JsaPdf();
             //var pdf = new MotorizedEquipmentPdf();
             //var pdf = new NearMissPdf();
             //var pdf = new SiteSafetyOrientationPdf();
             //var pdf = new ToolboxMeetingPdf();
-            pdf.CreatePdf();
+            //pdf.CreatePdf();
 
         }
     }

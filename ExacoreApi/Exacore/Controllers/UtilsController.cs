@@ -17,7 +17,7 @@ namespace Exacore.Controllers
         [SwaggerResponse(HttpStatusCode.OK, typeof(string))]
         public async Task<IActionResult> AngularServiceCode()
         {
-            var document = await OpenApiDocument.FromUrlAsync("http://localhost:6359/swagger/v1/swagger.json");
+            var document = await OpenApiDocument.FromUrlAsync("https://localhost:44302/swagger/v1/swagger.json");
 
             var settings = new TypeScriptClientGeneratorSettings
             {

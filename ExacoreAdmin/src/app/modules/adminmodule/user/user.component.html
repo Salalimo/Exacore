@@ -18,9 +18,9 @@
                                 <div class="col-sm-8">
                                     <select [(ngModel)]="user.roleId" class="form-control form-control-sm"
                                         name="roleid">
-                                        <option [value]="2">Super Admin</option>
-                                        <option [value]="1">Admin</option>
-                                        <option [value]="2">User</option>
+                                        <option *ngFor="let role of roles" [value]="role.roleId">
+                                            {{role.name}}
+                                        </option>
                                     </select>
                                 </div>
                             </div>

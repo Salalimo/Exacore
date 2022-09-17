@@ -1,0 +1,316 @@
+<div class="main-wrapper">
+    <header class="header"></header>
+    <div class="page __1">
+        <div class="form-content">
+            <div class="form-sheet">
+                <div class="fs-head">
+                    <div class="logo">
+                        <img src="../../../../assets/forms/logo.png" />
+                    </div>
+                    <div class="x-head-inputgroup-high">
+                        <div class="x-input">
+                            <p><span>J</span>ob <span>D</span>escription:</p>
+                            <div class="x-inputtext-high">
+                                <input type="text" name="time" [(ngModel)]="jsa.jobDescription">
+                            </div>
+                        </div>
+                        <div class="x-input">
+                            <p><span>T</span>itle Of <span>P</span>erson Who Does Job:</p>
+                            <div class="x-inputtext-high">
+                                <input type="text" name="time" [(ngModel)]="jsa.title">
+                            </div>
+                        </div>
+                        <div class="x-input">
+                            <p><span>L</span>ocation:</p>
+                            <div class="x-inputtext-high">
+                                <input type="text" name="time" [(ngModel)]="jsa.location">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x-head-inputgroup-high">
+                        <div class="x-input _2-col">
+                            <div class="">
+                                <p><span>P</span>age:</p>
+                                <div class="x-inputtext">
+                                    <input type="text" name="time" [(ngModel)]="jsa.page">
+                                </div>
+                            </div>
+                            <div class="">
+                                <p><span>D</span>ate:</p>
+                                <div class="x-inputtext">
+                                    <input type="date" name="date" [ngModel]="jsa.date | date:'yyyy-MM-dd'"
+                                        style="width: 200px;" (ngModelChange)="jsa.date = $event" type="date"
+                                        name="startDate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="x-input">
+                            <p><span>S</span>upervisor:</p>
+                            <div class="x-inputtext-high">
+                                <input type="text" name="time" [(ngModel)]="jsa.supervisor">
+                            </div>
+                        </div>
+                        <div class="x-input">
+                            <p><span>D</span>epartment <span>O</span>r <span>P</span>roject:</p>
+                            <div class="x-inputtext">
+                                <input type="text" name="time" [(ngModel)]="jsa.department">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x-head-inputgroup-high">
+                        <div class="x-input">
+                            <div class="x-inpuntinline">
+                                <p><span>JSA</span> <span>N</span>o:</p>
+                                <div class="x-inputtext-high">
+                                    <input type="text" name="time" [(ngModel)]="jsa.jsaNo">
+                                </div>
+                            </div>
+                            <div class="x-inpuntinline">
+                                <p><span>R</span>ev:</p>
+                                <div class="x-inputtext-high">
+                                    <input type="text" name="time" [(ngModel)]="jsa.rev">
+                                </div>
+                            </div>
+                            <div class="x-inpuntinline">
+                                <p><span>R</span>eference:</p>
+                                <div class="x-inputtext-high">
+                                    <input type="text" name="time" [(ngModel)]="jsa.reference">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="x-input">
+                            <p><span>A</span>nalysis <span>B</span>y:</p>
+                            <div class="x-inputtext-high">
+                                <input type="text" name="time" [(ngModel)]="jsa.analysisBy">
+                            </div>
+                        </div>
+                        <div class="x-input">
+                            <p><span>A</span>pproved <span>B</span>y:</p>
+                            <div class="x-inputtext">
+                                <input type="text" name="time" [(ngModel)]="jsa.approvedBy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fs-note">
+                    <p>Any work outside this scope of work needs to be added to the JSA prior to beginning and approved
+                        by the immediate supervisor <br />
+                        By signing this document, you acknowledge that you have been prepared by your supervisor to
+                        complete each task safely and thereby if it is not safe you will not go ahead; Nor allow others
+                        to engage in an unsafe activity.</p>
+
+                    <div class="x-check-group">
+                        <p>All workers have been engaged in Daily Safety Huddle </p>
+                        <div>Yes: <span class="x-checkbox" [ngClass]="{ 'checked ':  jsa.dailySafety }"></span>
+                            No:<span class="x-checkbox" [ngClass]="{ 'checked ':  !jsa.dailySafety }"></span></div>
+                    </div>
+                </div>
+                <div class="fs-cells">
+                    <div class="fs-cell-head">
+                        <div><span>S</span>equence of <span>B</span>asic <span>J</span>ob <span>S</span>teps</div>
+                        <div><span>P</span>otential <span>H</span>azards</div>
+                        <div><span>R</span>ecommended <span>A</span>ction or <span>P</span>rocedure</div>
+                    </div>
+                    <div class="fs-cell-body">
+                        <div class="fs-cell-row" *ngFor="let stepAction of jsa.stepActions ">
+                            <div class="fa-cell-col">
+                                <div class="x-inputtext">
+                                    <input type="text" style="width: 100%;" name="time"
+                                        [(ngModel)]="stepAction.stepSequnce">
+                                </div>
+                            </div>
+                            <div class="fa-cell-col">
+                                <div class="x-inputtext">
+                                    <input type="text" style="width: 100%;" name="time"
+                                        [(ngModel)]="stepAction.hazards">
+                                </div>
+                            </div>
+                            <div class="fa-cell-col">
+                                <div class="x-inputtext">
+                                    <input type="text" style="width: 100%;" name="time"
+                                        [(ngModel)]="stepAction.actions">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fs-cell-row" *ngFor="let stepAction of stepActions ">
+                            <div class="fa-cell-col">
+                                <div class="x-inputtext">
+                                    <input type="text" style="width: 100%;" name="time"
+                                        [(ngModel)]="stepAction.stepSequnce">
+                                </div>
+                            </div>
+                            <div class="fa-cell-col">
+                                <div class="x-inputtext">
+                                    <input type="text" style="width: 100%;" name="time"
+                                        [(ngModel)]="stepAction.hazards">
+                                </div>
+                            </div>
+                            <div class="fa-cell-col">
+                                <div class="x-inputtext">
+                                    <input type="text" style="width: 100%;" name="time"
+                                        [(ngModel)]="stepAction.actions">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fs-cell-row">
+                            <div class="fs-cell-col">
+                                <div class="x-inputtext"></div>
+                            </div>
+                            <div class="fs-cell-col">
+                                <div class="x-inputtext"></div>
+                            </div>
+                            <div class="fs-cell-col">
+                                <div class="x-inputtext"></div>
+                            </div>
+                        </div>
+
+                        <div class="fs-cell-row">
+                            <div class="fs-cell-col">
+                                <div class="x-inputtext"></div>
+                            </div>
+                            <div class="fs-cell-col">
+                                <div class="x-inputtext"></div>
+                            </div>
+                            <div class="fs-cell-col">
+                                <div class="x-inputtext"></div>
+                            </div>
+                        </div>
+
+                        <div class="fs-cell-row">
+                            <div class="fs-cell-col">
+                                <div class="x-inputtext"></div>
+                            </div>
+                            <div class="fs-cell-col">
+                                <div class="x-inputtext"></div>
+                            </div>
+                            <div class="fs-cell-col">
+                                <div class="x-inputtext"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="page __2">
+        <div class="form-content">
+            <div class="form-sheet">
+                <div class="fs-cells">
+                    <div class="fs-cell-head">
+                        <div><span>S</span>equence of <span>B</span>asic <span>J</span>ob <span>S</span>teps</div>
+                        <div><span>P</span>otential <span>H</span>azards</div>
+                        <div><span>R</span>ecommended <span>A</span>ction or <span>P</span>rocedure</div>
+                    </div>
+                    <div class="fs-cell-body">
+
+                    </div>
+                </div>
+            </div>
+
+            <p class="fa-title"><span>C</span>rew <span>A</span>ttendance</p>
+            <div class="form-attendance">
+                <div class="fa-cells">
+                    <div class="fa-cell-head">
+                        <div><span>P</span>rint <span>N</span>ame</div>
+                        <div><span>S</span>ign <span>N</span>ame</div>
+                        <div><span>S</span>ign <span>I</span>n</div>
+                        <div><span>S</span>ign <span>O</span>ut</div>
+                    </div>
+                    <div class="fa-cell-body">
+                        <div class="fa-cell-row" *ngFor="let crew of jsa.crewAttendances">
+                            <div class="fa-cell-col">
+                                <div class="x-inputtext">
+                                    <input type="text" name="time" style="width: 100%;" [(ngModel)]="crew.printName">
+                                </div>
+                            </div>
+                            <div class="fa-cell-col">
+                                <div class="x-inputtext">
+                                    <input type="text" name="time" style="width: 100%;" [(ngModel)]="crew.signName">
+                                </div>
+                            </div>
+                            <div class="fa-cell-col">
+                                <div class="x-inputtext">
+                                    <input type="text" name="time" style="width: 100%;" [(ngModel)]="crew.signIn">
+                                </div>
+                            </div>
+                            <div class="fa-cell-col">
+                                <div class="x-inputtext">
+                                    <input type="text" name="time" style="width: 100%;" [(ngModel)]="crew.signOut">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fa-cell-row" *ngFor="let crew of crews">
+                            <div class="fa-cell-col">
+                                <div class="x-inputtext">
+                                    <input type="text" name="time" style="width: 100%;" [(ngModel)]="crew.printName">
+                                </div>
+                            </div>
+                            <div class="fa-cell-col">
+                                <div class="x-inputtext">
+                                    <input type="text" name="time" style="width: 100%;" [(ngModel)]="crew.signName">
+                                </div>
+                            </div>
+                            <div class="fa-cell-col">
+                                <div class="x-inputtext">
+                                    <input type="text" name="time" style="width: 100%;" [(ngModel)]="crew.signIn">
+                                </div>
+                            </div>
+                            <div class="fa-cell-col">
+                                <div class="x-inputtext">
+                                    <input type="text" name="time" style="width: 100%;" [(ngModel)]="crew.signOut">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-approved-by">
+                <div class="appby-note">
+                    <p class="appbynlbl"><b>required and/or recommended personal equipment:</b></p>
+                    <p>Hard Hat, Safety Glasses, Steel Cap Boots, Safety Gloves, Hearing Protection</p>
+                </div>
+                <div class="appby-name">
+                    <div class="x-input">
+                        <p><span>A</span>pproved <span>B</span>y:</p>
+                        <div class="x-inputtext"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-signdate">
+                <div class="supervisor-sign">
+                    <div class="x-inpuntinline">
+                        <p>Supervisor Sign off (Approval):</p>
+                        <div class="x-inputtext"></div>
+                    </div>
+                </div>
+                <div class="date-sign">
+                    <div class="x-inpuntinline">
+                        <p>Date:</p>
+                        <div class="x-inputtext"></div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <button class="btn btn-sm btn-primary pull-right" (click)="save()">
+                    Save
+                </button>
+                <div class="pull-right col-2">
+                    <button class="btn btn-sm btn-default pull-right" (click)="cancel()">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer"></footer>
+</div>

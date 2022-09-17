@@ -7,8 +7,23 @@
           <div class="col-7">
             <h5 class="card-title"> Safety forms</h5>
           </div>
-          <div class="pull-right col-1">
-            <!-- <input type="button" value="Add New" (click)="add()" class="btn btn-sm btn-primary"> -->
+          <div class="pull-right col-2">
+            <div class="col-3">
+
+              <select class="form-control form-control-sm" [(ngModel)]="selectedForm" style="width: 200px;">
+                <option>Good Catch Form</option>
+                <option>Incident Alert</option>
+                <option>JSA</option>
+                <option>Motorized Equipment</option>
+                <option>Near Miss</option>
+                <option>Site Safety Orientation</option>
+                <option>Tooldbox Talk</option>
+              </select>
+
+            </div>
+            <div class="col-2">
+              <input type="button" value="New Form" (click)="addForm()" class="btn btn-sm btn-primary">
+            </div>
           </div>
         </div>
         <div class="row">

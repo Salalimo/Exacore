@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\dev\Exacore\ExacoreApi\Exacore\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2022-09-14T04:27:35.9199520Z;True|2022-09-14T00:17:09.3525644-04:00;True|2022-09-12T21:56:10.0258112-04:00;True|2022-09-12T21:10:05.4045983-04:00;True|2022-09-12T21:03:01.6423515-04:00;True|2022-09-12T16:01:29.9582549-04:00;True|2022-09-11T19:34:09.5824714-04:00;</History>
+  </PropertyGroup>
+</Project>

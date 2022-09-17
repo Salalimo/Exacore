@@ -50,6 +50,7 @@ export class GoodCatchTypesComponent implements OnInit {
       console.log(result)
       if (result) {
         this.goodCatchTypeClient.delete(id).subscribe((data: GoodCatchTypeDto) => {
+          this.loadGoodCatchTypes();
         });
       }
     });

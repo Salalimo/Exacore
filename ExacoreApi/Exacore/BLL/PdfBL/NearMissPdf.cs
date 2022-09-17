@@ -1,4 +1,5 @@
-﻿using Exacore.DAL;
+﻿using Exacore.BLL.PdfBL.Interfaces;
+using Exacore.DAL;
 using Exacore.DAL.Forms;
 using Microsoft.EntityFrameworkCore;
 using PdfSharp.Pdf;
@@ -10,8 +11,14 @@ using System.Reflection;
 
 namespace Exacore.BLL.PdfBL
 {
-    public class NearMissPdf
+    public class NearMissPdf : INearMissPdf
     {
+        IExacoreContext _db;
+        public NearMissPdf(IExacoreContext db)
+        {
+            _db = db;
+        }
+
         public byte[] CreatePdf()
         {
             var model = GetModel();
@@ -95,11 +102,7 @@ namespace Exacore.BLL.PdfBL
 
         private NearMiss GetModel()
         {
-            var connectionstring = "Server=ROGU3\\SQLEXPRESS; Database=Exacore; User Id=ssaa;Password=limo;";
-            var optionsBuilder = new DbContextOptionsBuilder<ExacoreContext>();
-            optionsBuilder.UseSqlServer(connectionstring);
-            var db = new ExacoreContext(optionsBuilder.Options);
-            var model = db.NearMiss
+            var model = _db.NearMiss
                 .Include(g => g.Division)
                 .Include(g => g.Department)
                 .Include(g => g.NearMissType)

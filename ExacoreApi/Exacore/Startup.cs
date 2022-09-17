@@ -5,6 +5,8 @@ using Exacore.BLL.FormsBL;
 using Exacore.BLL.FormsBL.Interfaces;
 using Exacore.BLL.LookupsBL;
 using Exacore.BLL.LookupsBL.Interfaces;
+using Exacore.BLL.PdfBL;
+using Exacore.BLL.PdfBL.Interfaces;
 using Exacore.DAL;
 using Exacore.Filter;
 using Exacore.Models;
@@ -83,6 +85,7 @@ namespace Exacore
             services.AddTransient<IAccountLogic, AccountLogic>();
             services.AddTransient<ILoginLogic, LoginLogic>();
             services.AddTransient<IRefreshTokenLogic, RefreshTokenLogic>();
+            services.AddTransient<IRoleLogic, RoleLogic>();
             services.AddTransient<IUserLogic, UserLogic>();
             services.AddTransient<IUserGuidLogic, UserGuidLogic>();
 
@@ -102,6 +105,15 @@ namespace Exacore
             services.AddTransient<ISiteSafetyOrientationLogic, SiteSafetyOrientationLogic>();
             services.AddTransient<IMotorizedEquipmentLogic, MotorizedEquipmentLogic>();
             services.AddTransient<IToolboxMeetingLogic, ToolboxMeetingLogic>();
+
+            services.AddTransient<IGoodCatchPdf, GoodCatchPdf>();
+            services.AddTransient<IIncidentAlertPdf, IncidentAlertPdf>();
+            services.AddTransient<IJsaPdf, JsaPdf>();
+            services.AddTransient<IMotorizedEquipmentPdf, MotorizedEquipmentPdf>();
+            services.AddTransient<INearMissPdf, NearMissPdf>();
+            services.AddTransient<ISiteSafetyOrientationPdf, SiteSafetyOrientationPdf>();
+            services.AddTransient<IToolboxMeetingPdf, ToolboxMeetingPdf>();
+
             //addmore
 
             services.AddScoped<IExacoreContext, ExacoreContext>();

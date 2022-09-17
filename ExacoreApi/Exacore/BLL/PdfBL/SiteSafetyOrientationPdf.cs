@@ -1,4 +1,5 @@
-﻿using Exacore.DAL;
+﻿using Exacore.BLL.PdfBL.Interfaces;
+using Exacore.DAL;
 using Exacore.DAL.Forms;
 using Microsoft.EntityFrameworkCore;
 using PdfSharp.Pdf;
@@ -10,8 +11,13 @@ using System.Reflection;
 
 namespace Exacore.BLL.PdfBL
 {
-    public class SiteSafetyOrientationPdf
+    public class SiteSafetyOrientationPdf : ISiteSafetyOrientationPdf
     {
+        IExacoreContext _db;
+        public SiteSafetyOrientationPdf(IExacoreContext db)
+        {
+            _db = db;
+        }
         public byte[] CreatePdf()
         {
             var model = GetModel();
@@ -95,11 +101,7 @@ namespace Exacore.BLL.PdfBL
 
         private SiteSafetyOrientation GetModel()
         {
-            var connectionstring = "Server=ROGU3\\SQLEXPRESS; Database=Exacore; User Id=ssaa;Password=limo;";
-            var optionsBuilder = new DbContextOptionsBuilder<ExacoreContext>();
-            optionsBuilder.UseSqlServer(connectionstring);
-            var db = new ExacoreContext(optionsBuilder.Options);
-            var model = db.SiteSafetyOrientation
+            var model = _db.SiteSafetyOrientation
                 .Include(s => s.Project)
                 .First();
             return model;

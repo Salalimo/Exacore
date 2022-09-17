@@ -35,5 +35,14 @@ namespace Exacore.Controllers
             var vm = await _jsaLogic.Add(dto);
             return Ok(vm);
         }
+
+
+        [HttpPut, Route("")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(JsaDto))]
+        public async Task<IActionResult> Update(JsaDto dto)
+        {
+            var vm = await _jsaLogic.Update(dto);
+            return Ok(vm);
+        }
     }
 }

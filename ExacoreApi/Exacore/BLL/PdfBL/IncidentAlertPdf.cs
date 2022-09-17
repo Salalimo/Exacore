@@ -1,4 +1,5 @@
-﻿using Exacore.DAL;
+﻿using Exacore.BLL.PdfBL.Interfaces;
+using Exacore.DAL;
 using Exacore.DAL.Forms;
 using Microsoft.EntityFrameworkCore;
 using PdfSharp.Pdf;
@@ -10,8 +11,14 @@ using System.Reflection;
 
 namespace Exacore.BLL.PdfBL
 {
-    public class IncidentAlertPdf
+    public class IncidentAlertPdf : IIncidentAlertPdf
     {
+        IExacoreContext _db;
+        public IncidentAlertPdf(IExacoreContext db)
+        {
+            _db = db;
+        }
+
         public byte[] CreatePdf()
         {
             var model = GetModel();
@@ -91,11 +98,7 @@ namespace Exacore.BLL.PdfBL
 
         private IncidentAlert GetModel()
         {
-            var connectionstring = "Server=ROGU3\\SQLEXPRESS; Database=Exacore; User Id=ssaa;Password=limo;";
-            var optionsBuilder = new DbContextOptionsBuilder<ExacoreContext>();
-            optionsBuilder.UseSqlServer(connectionstring);
-            var db = new ExacoreContext(optionsBuilder.Options);
-            var model = db.IncidentAlert
+            var model = _db.IncidentAlert
                 .Include(g => g.AlertTime)
                 .Include(g => g.Project)
                 .First();

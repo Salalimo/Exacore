@@ -37,6 +37,11 @@ namespace Exacore.BLL.LookupsBL
         public async Task<NearMissDto> Add(NearMissDto dto)
         {
             var nearMiss = _mapper.Map<NearMissDto, NearMiss>(dto);
+            nearMiss.ControlMethod = null;
+            nearMiss.Department = null;
+            nearMiss.Division = null;
+            nearMiss.Project = null;
+            nearMiss.NearMissType = null;
             var form = new Form();
             form.NearMisses = new List<NearMiss>();
             form.NearMisses.Add(nearMiss);
@@ -44,6 +49,20 @@ namespace Exacore.BLL.LookupsBL
             form.FormName = "Near Miss";
 
             _db.Form.Add(form);
+            await _db.SaveChangesAsync();
+            return _mapper.Map<NearMiss, NearMissDto>(nearMiss);
+        }
+
+        public async Task<NearMissDto> Update(NearMissDto dto)
+        {
+            var nearMiss = await _db.NearMiss.FindAsync(dto.NearMissId);
+            nearMiss.ControlMethod = null;
+            nearMiss.Department = null;
+            nearMiss.Division = null;
+            nearMiss.Project = null;
+            nearMiss.NearMissType = null;
+            _mapper.Map(dto, nearMiss);
+            _db.Entry(nearMiss).State = EntityState.Modified;
             await _db.SaveChangesAsync();
             return _mapper.Map<NearMiss, NearMissDto>(nearMiss);
         }

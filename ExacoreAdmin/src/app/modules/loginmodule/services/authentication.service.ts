@@ -28,7 +28,6 @@ export class AuthenticationService {
         let expires = data.expires;
         if (!expires)
             return false;
-        console.log(expires)
 
         let ed = new Date(expires);
         let date = new Date();
@@ -46,7 +45,7 @@ export class AuthenticationService {
         return this.http.post<any>(environment.apiUrl + 'api/account/login', dto)
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
-                // console.log(user)
+                console.log(user)
                 if (user && user.token) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     sessionStorage.setItem('currentUser', JSON.stringify(user));

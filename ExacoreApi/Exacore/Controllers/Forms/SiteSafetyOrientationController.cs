@@ -35,5 +35,14 @@ namespace Exacore.Controllers
             var vm = await _sitesafetyorientationLogic.Add(dto);
             return Ok(vm);
         }
+
+
+        [HttpPut, Route("")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(SiteSafetyOrientationDto))]
+        public async Task<IActionResult> Update(SiteSafetyOrientationDto dto)
+        {
+            var vm = await _sitesafetyorientationLogic.Update(dto);
+            return Ok(vm);
+        }
     }
 }

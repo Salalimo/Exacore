@@ -50,6 +50,7 @@ export class ControlMethodsComponent implements OnInit {
       console.log(result)
       if (result) {
         this.controlMethodClient.delete(id).subscribe((data: ControlMethodDto) => {
+          this.loadControlMethods();
         });
       }
     });

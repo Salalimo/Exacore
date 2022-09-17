@@ -18,7 +18,7 @@ h1 {
     -moz-box-sizing: border-box;
 
     -webkit-print-color-adjust: exact !important;   /* Chrome, Safari, Edge */
-    color-adjust: exact !important;   
+    /* color-adjust: exact !important;    */
 }
 
 .header {

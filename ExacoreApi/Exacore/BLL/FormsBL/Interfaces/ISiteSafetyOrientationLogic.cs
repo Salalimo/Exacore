@@ -7,5 +7,6 @@ namespace Exacore.BLL.LookupsBL.Interfaces
     {
         Task<SiteSafetyOrientationDto> Get(int Id);
         Task<SiteSafetyOrientationDto> Add(SiteSafetyOrientationDto dto);
+        Task<SiteSafetyOrientationDto> Update(SiteSafetyOrientationDto dto);
     }
 }

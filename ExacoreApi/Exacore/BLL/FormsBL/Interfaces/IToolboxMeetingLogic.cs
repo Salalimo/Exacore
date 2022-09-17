@@ -7,5 +7,6 @@ namespace Exacore.BLL.LookupsBL.Interfaces
     {
         Task<ToolboxMeetingDto> Get(int Id);
         Task<ToolboxMeetingDto> Add(ToolboxMeetingDto dto);
+        Task<ToolboxMeetingDto> Update(ToolboxMeetingDto dto);
     }
 }

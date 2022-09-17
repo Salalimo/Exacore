@@ -7,5 +7,6 @@ namespace Exacore.BLL.LookupsBL.Interfaces
     {
         Task<MotorizedEquipmentDto> Get(int Id);
         Task<MotorizedEquipmentDto> Add(MotorizedEquipmentDto dto);
+        Task<MotorizedEquipmentDto> Update(MotorizedEquipmentDto dto);
     }
 }

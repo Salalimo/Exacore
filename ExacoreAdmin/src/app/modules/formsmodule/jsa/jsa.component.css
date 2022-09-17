@@ -170,6 +170,9 @@ h1 {
 .x-head-inputgroup .x-input:first-child {
     height: 80px;
 }
+.x-head-inputgroup-high .x-input:first-child {
+    height: 120px;
+}
 
 .x-input p {
     /*font-size: 10px;*/
@@ -204,6 +207,15 @@ h1 {
 .x-inputtext {
     width: 100%;
     height: 20px;
+
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 10pt;
+    padding: 4px;
+}
+
+.x-inputtext-high {
+    width: 100%;
+    height: 30px;
 
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: 10pt;

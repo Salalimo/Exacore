@@ -1,4 +1,5 @@
-﻿using Exacore.DAL;
+﻿using Exacore.BLL.PdfBL.Interfaces;
+using Exacore.DAL;
 using Exacore.DAL.Forms;
 using Microsoft.EntityFrameworkCore;
 using PdfSharp.Pdf;
@@ -10,8 +11,15 @@ using System.Reflection;
 
 namespace Exacore.BLL.PdfBL
 {
-    public class MotorizedEquipmentPdf
+    public class MotorizedEquipmentPdf : IMotorizedEquipmentPdf
     {
+
+        IExacoreContext _db;
+        public MotorizedEquipmentPdf(IExacoreContext db)
+        {
+            _db = db;
+        }
+
         public byte[] CreatePdf()
         {
             var model = GetModel();
@@ -95,11 +103,7 @@ namespace Exacore.BLL.PdfBL
 
         private MotorizedEquipment GetModel()
         {
-            var connectionstring = "Server=ROGU3\\SQLEXPRESS; Database=Exacore; User Id=ssaa;Password=limo;";
-            var optionsBuilder = new DbContextOptionsBuilder<ExacoreContext>();
-            optionsBuilder.UseSqlServer(connectionstring);
-            var db = new ExacoreContext(optionsBuilder.Options);
-            var model = db.MotorizedEquipment
+            var model = _db.MotorizedEquipment
                 .Include(g => g.OperationalInspection)
                 .Include(g => g.DamageInspection)
                 .First();

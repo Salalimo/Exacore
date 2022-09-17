@@ -36,7 +36,6 @@ namespace Exacore.BLL.AuthBL
                 throw new ApiException("User is already registered.");
 
             var role = await _db.Roles.FindAsync(dto.Role.RoleId);
-
             var contact = _mapper.Map<ContactDto, Contact>(dto.Contact);
             var user = _mapper.Map<UserDto, User>(dto.User);
 
@@ -51,7 +50,7 @@ namespace Exacore.BLL.AuthBL
             await _db.SaveChangesAsync();
 
             string guid = EmailHelper.SendVerificationEmail(_appSettings, user.Email, user.Contact.FirstName, user.Contact.LastName);
-            await AddGuid(guid, user.UserId, UserGuids.ForgotPassword);
+            await AddGuid(guid, user.UserId.Value, UserGuids.ForgotPassword);
         }
         public async Task ActivateAccount(EmailDto dto)
         {
@@ -67,7 +66,7 @@ namespace Exacore.BLL.AuthBL
                 throw new ApiException("Account is already active.");
 
 
-            var userGuid = await GetGuid(dto.Guid, user.UserId, UserGuids.Verification);
+            var userGuid = await GetGuid(dto.Guid, user.UserId.Value, UserGuids.Verification);
             if (userGuid == null)
                 throw new ApiException("An error occured please try logging in.");
 
@@ -76,7 +75,7 @@ namespace Exacore.BLL.AuthBL
 
             user.IsActive = true;
             await _db.SaveChangesAsync();
-            await DeleteGuid(dto.Guid, user.UserId, UserGuids.Verification);
+            await DeleteGuid(dto.Guid, user.UserId.Value, UserGuids.Verification);
         }
 
         public async Task ForgotPassword(EmailDto dto)
@@ -89,7 +88,7 @@ namespace Exacore.BLL.AuthBL
                 throw new ApiException("Email is not registered in our system.");
 
             string guid = EmailHelper.SendForgotPasswordEmail(_appSettings, user.Email, user.Contact.FirstName, user.Contact.LastName);
-            await AddGuid(guid, user.UserId, UserGuids.ForgotPassword);
+            await AddGuid(guid, user.UserId.Value, UserGuids.ForgotPassword);
         }
 
         public async Task ResetPassword(ResetPasswordDto dto)
@@ -101,7 +100,7 @@ namespace Exacore.BLL.AuthBL
             if (user == null)
                 return;
 
-            var userGuid = await GetGuid(dto.Guid, user.UserId, UserGuids.ForgotPassword);
+            var userGuid = await GetGuid(dto.Guid, user.UserId.Value, UserGuids.ForgotPassword);
 
             if (userGuid == null)
                 throw new ApiException("The reset password link has expired.");
@@ -110,8 +109,9 @@ namespace Exacore.BLL.AuthBL
                 throw new ApiException("The reset password link has expired.");
 
             user.Password = Hash.CreateHash(dto.Password, _appSettings.Salt);
+            user.IsActive = true;
             await _db.SaveChangesAsync();
-            await DeleteGuid(dto.Guid, user.UserId, UserGuids.ForgotPassword);
+            await DeleteGuid(dto.Guid, user.UserId.Value, UserGuids.ForgotPassword);
         }
 
 
@@ -125,7 +125,7 @@ namespace Exacore.BLL.AuthBL
                 return;
 
             string guid = EmailHelper.SendVerificationEmail(_appSettings, user.Email, user.Contact.FirstName, user.Contact.LastName);
-            await AddGuid(guid, user.UserId, UserGuids.Verification);
+            await AddGuid(guid, user.UserId.Value, UserGuids.Verification);
         }
 
         public async Task<List<RoleDto>> GetRoles()

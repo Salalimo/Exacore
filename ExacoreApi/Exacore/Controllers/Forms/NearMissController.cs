@@ -35,5 +35,13 @@ namespace Exacore.Controllers
             var vm = await _nearmissLogic.Add(dto);
             return Ok(vm);
         }
+
+        [HttpPut, Route("")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(NearMissDto))]
+        public async Task<IActionResult> Update(NearMissDto dto)
+        {
+            var vm = await _nearmissLogic.Update(dto);
+            return Ok(vm);
+        }
     }
 }

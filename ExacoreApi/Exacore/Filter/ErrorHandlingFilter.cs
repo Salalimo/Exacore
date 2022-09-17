@@ -2,6 +2,7 @@
 using Exacore.Filter.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using NLog;
 using System;
 
 namespace Exacore.Filter
@@ -10,6 +11,9 @@ namespace Exacore.Filter
     {
         public override void OnException(ExceptionContext context)
         {
+            var logger = LogManager.LoadConfiguration("nlog.config").GetCurrentClassLogger();
+            logger.Error(context.Exception);
+
             ApiError apiError = null;
             if (context.Exception is ApiException)
             {

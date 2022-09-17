@@ -2,5 +2,6 @@
 {
     public interface IIncidentAlertPdf
     {
+        byte[] CreatePdf();
     }
 }

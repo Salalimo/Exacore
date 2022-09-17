@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './modules/loginmodule/interceptors/jwt.interceptor';
 //import { ErrorInterceptor } from './modules/loginmodule/interceptors/error.interceptor';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,7 +36,7 @@ import {
   AlertTimeClient, ControlMethodClient, DepartmentClient, DivisionClient, GoodCatchTypeClient,
   NearMissTypeClient, ProjectClient,
   FormClient, GoodCatchClient, IncidentAlertClient, JsaClient, MotorizedEquipmentClient,
-  NearMissClient, SiteSafetyOrientationClient, ToolboxMeetingClient
+  NearMissClient, SiteSafetyOrientationClient, ToolboxMeetingClient, RoleClient
 
 } from './services/api.service';
 
@@ -90,7 +91,7 @@ import { DeleteModalComponent } from './shared/modals/delete.modal.component';
 
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     //{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
 
     {
@@ -112,7 +113,7 @@ import { DeleteModalComponent } from './shared/modals/delete.modal.component';
     NearMissTypeClient, ProjectClient,
     AccountClient, UserClient,
     FormClient, GoodCatchClient, IncidentAlertClient, JsaClient, MotorizedEquipmentClient,
-    NearMissClient, SiteSafetyOrientationClient, ToolboxMeetingClient
+    NearMissClient, SiteSafetyOrientationClient, ToolboxMeetingClient, RoleClient
 
   ],
   bootstrap: [AppComponent],

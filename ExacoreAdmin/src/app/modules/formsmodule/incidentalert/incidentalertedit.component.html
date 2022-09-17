@@ -1,0 +1,136 @@
+<div class="main-wrapper">
+    <header class="header">
+        <div class="logo"><img src="../../../../assets/forms/logo.png" /></div>
+        <div class="title">
+            <h1>INCIDENT ALERT</h1>
+        </div>
+    </header>
+    <div class="page">
+        <div class="form-content">
+            <div class="x-inputgroup-row">
+                <div class="x-inputgroup">
+                    <div class="x-input ">
+                        <p><span>I</span>ncident <span>D</span>ate</p>
+                        <div class="">
+                            <input type="date" name="date" [ngModel]="incidentAlert.date | date:'yyyy-MM-dd'"
+                                style="width: 200px;" (ngModelChange)="incidentAlert.date = $event" type="date"
+                                name="startDate">
+                        </div>
+                    </div>
+                    <div class="x-input xinp-incident-time">
+                        <p><span>I</span>ncident <span>T</span>ime</p>
+                        <div class="">
+                            <input type="text" name="time" [(ngModel)]="incidentAlert.time">
+                        </div>
+                    </div>
+                    <div class="x-input xinp-project-num">
+                        <p><span>P</span>roject <span>#</span></p>
+                        <div class="">
+                            <select class="form-control form-control-sm" [(ngModel)]="incidentAlert.projectId"
+                                style="width: 100%;">
+                                <option *ngFor="let project of projects" [value]="project.projectId">
+                                    {{project.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="x-input xinp-location">
+                        <p><span>E</span>quipment / <span>I</span>ncident <span>L</span>ocation</p>
+                        <div class="">
+                            <input type="text" name="time" [(ngModel)]="incidentAlert.equipmentIncidentLocation">
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup">
+                    <div class="x-input xinp-alert-type">
+                        <p class="x-green"><span>A</span>lert <span>T</span>ype</p>
+                        <div class="">
+                            <select class="form-control form-control-sm" [(ngModel)]="incidentAlert.alertTimeId"
+                                style="width: 100%;">
+                                <option *ngFor="let alert of alerts" [value]="alert.alertTimeId">
+                                    {{alert.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="x-input xinp-project-name">
+                        <p><span>P</span>roject <span>N</span>ame</p>
+                        <div class="">
+                            <select class="form-control form-control-sm" [(ngModel)]="incidentAlert.projectId"
+                                style="width: 92%;">
+                                <option *ngFor="let project of projects" [value]="project.projectId">
+                                    {{project.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup">
+                    <div class="x-input xinp-supervisor">
+                        <p><span>S</span>upervisor</p>
+                        <div class="">
+                            <input type="text" name="time" style="width: 350px;" [(ngModel)]="incidentAlert.supervisor">
+                        </div>
+                    </div>
+                    <div class="x-input xinp-supervisor">
+                        <p><span>I</span>nvolved <span>J</span>ob <span>T</span>itle</p>
+                        <div class="">
+                            <input type="text" name="time" style="width: 350px;"
+                                [(ngModel)]="incidentAlert.involvedJobTitle">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="x-divider"></div>
+
+            <div class="x-inputgroup-row">
+                <div class="x-inputgroup">
+                    <div class="x-input ">
+                        <p><span>I</span>ncident <span>D</span>escription</p>
+                        <div class="x-inputtextarea">
+                            <textarea name="description" rows="13" cols="89"
+                                [(ngModel)]="incidentAlert.incidentDescription"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="x-inputgroup">
+                    <div class="x-input ">
+                        <p><span>I</span>mmediate <span>A</span>ction <span>T</span>aken</p>
+                        <div class="x-inputtextarea">
+                            <textarea name="description" rows="13" cols="89"
+                                [(ngModel)]="incidentAlert.immediateActionTaken"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="x-inputgroup-row input-prepared">
+                <div class="x-inputgroup">
+                    <div class="x-input xinp-preparedby">
+                        <p><span>P</span>repared <span>B</span>y:</p>
+                        <div class="x-inputtext"></div>
+                    </div>
+                    <div class="x-input xinp-date">
+                        <p><span>D</span>ate:</p>
+                        <div class="x-inputtext"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <button class="btn btn-sm btn-primary pull-right" (click)="save()">
+                    Save
+                </button>
+                <div class="pull-right col-2">
+                    <button class="btn btn-sm btn-default pull-right" (click)="cancel()">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+            <br>
+        </div>
+
+    </div>
+    <footer class="footer"></footer>
+</div>

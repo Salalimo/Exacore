@@ -50,6 +50,7 @@ export class DivisionsComponent implements OnInit {
       console.log(result)
       if (result) {
         this.divisionClient.delete(id).subscribe((data: DivisionDto) => {
+          this.loadDivisions();
         });
       }
     });

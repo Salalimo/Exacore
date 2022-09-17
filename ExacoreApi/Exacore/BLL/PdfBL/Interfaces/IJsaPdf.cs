@@ -2,5 +2,6 @@
 {
     public interface IJsaPdf
     {
+        byte[] CreatePdf();
     }
 }

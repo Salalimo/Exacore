@@ -36,6 +36,9 @@ namespace Exacore
                 cfg.CreateMap<IncidentAlert, IncidentAlertDto>().ReverseMap();
                 cfg.CreateMap<Jsa, JsaDto>().ReverseMap();
                 cfg.CreateMap<MotorizedEquipment, MotorizedEquipmentDto>().ReverseMap();
+                cfg.CreateMap<MotorizedEquipmentDamageInspection, MotorizedEquipmentDamageInspectionDto>().ReverseMap();
+                cfg.CreateMap<MotorizedEquipmentOperationalInspection, MotorizedEquipmentOperationalInspectionDto>().ReverseMap();
+                cfg.CreateMap<Operational, OperationalDto>().ReverseMap();
                 cfg.CreateMap<NearMiss, NearMissDto>().ReverseMap();
                 cfg.CreateMap<SiteSafetyOrientation, SiteSafetyOrientationDto>().ReverseMap();
                 cfg.CreateMap<ToolboxMeeting, ToolboxMeetingDto>().ReverseMap();

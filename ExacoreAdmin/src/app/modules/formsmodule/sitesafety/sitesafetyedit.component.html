@@ -1,0 +1,574 @@
+<div class="main-wrapper">
+    <header class="header">
+        <div class="logo"><img src="../../../../assets/forms/logo.png" /></div>
+        <div class="title">
+            <h1>SITE SAFETY ORIENTATION</h1>
+        </div>
+    </header>
+
+    <div class="page __1">
+        <div class="form-content">
+
+            <div class="x-inputgroup-row">
+                <div class="x-inputgroup">
+                    <div class="x-inpuntinline">
+                        <div class="x-input">
+                            <p>Name (Print):</p>
+                            <div class="x-inputtext">
+                                <input type="text" name="time" style="width: 100%;"
+                                    [(ngModel)]="siteSafetyOrientation.name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x-inpuntinline">
+                        <div class="x-input">
+
+                            <p>Date:</p>
+                            <div class="x-inputtext">
+                                <input type="date" name="date"
+                                    [ngModel]="siteSafetyOrientation.date | date:'yyyy-MM-dd'" style="width: 200px;"
+                                    (ngModelChange)="siteSafetyOrientation.date = $event" type="date" name="startDate">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="x-inputgroup-row">
+                <div class="x-inpuntinline">
+                    <div class="x-input">
+                        <p>Project Name / Site Location:</p>
+                        <div class="x-inputtext">
+                            <input type="text" name="time" style="width: 100%;"
+                                [(ngModel)]="siteSafetyOrientation.project.name">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="x-form-checklist">
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>G</span>eneral <span>S</span>afety <span>R</span>ules:</p>
+                    </div>
+                    <div class="x-checklist">
+
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.generalHealth">
+                                General health and safety – (For example smoking,
+                                illumination, ventilation)</label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.houseKeeping">
+                                Housekeeping and sanitation – (Good housekeeping, trip
+                                hazards, waste disposal)
+                            </label>
+
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.powerTools">
+                                Hand and power tools – (Correct usage, correct tool, double
+                                insulation vs. grounding)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.firePrevention">
+                                Fire prevention – (Sources of ignition, high hazard
+                                areas
+                                and activities, fire extinguishertraining, PASS, ABC rating)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox" [(ngModel)]="siteSafetyOrientation.welding">
+                                Welding and cutting – (Removal of flammables, PPE, storage,
+                                fire blankets, curtains)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.compressedAir">
+                                Compressed air and gas – (Storage, secure, 20 feet
+                                separation)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.electricalSafety">
+                                Electrical safety – (100% GFCI, extension cords, demolition
+                                areas)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.aerialLifts">
+                                Aerial lifts – (Scissor vs. boom, safety chains and gates,
+                                trained personnel only, fall protection)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.scaffolding">
+                                Scaffolding – (Competent person supervision, planking and
+                                decking, ladders, guardrails, inspections)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox" [(ngModel)]="siteSafetyOrientation.trenching">
+                                Trenching and excavations – (Must be trained, daily
+                                inspections, protective systems, inspections)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.fallProtection">
+                                Fall protection – (100% above 6 feet, different types,
+                                anchorage, inspection, aerial lifts)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.fleetSafety">
+                                Fleet safety – (Speed limits, seat belts, accident
+                                reporting)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.craneSafety">
+                                Crane safety – (Trained operators only, daily inspections,
+                                signaling)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox" [(ngModel)]="siteSafetyOrientation.firstAid">
+                                First Aid and CPR – (Trained personnel only, first aid
+                                locations, accidentreporting)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox" [(ngModel)]="siteSafetyOrientation.pathogens">
+                                Blood-borne pathogens – (Hazards of exposure,reporting,
+                                vaccinations)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox" [(ngModel)]="siteSafetyOrientation.lead">
+                                Lead and asbestos – (Work prohibited in exposure areas,
+                                notify safety, how to ID)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.confinedSpaces">
+                                Confined spaces – (Trained personnel only, hazards, how to
+                                ID, signage, permits)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox" [(ngModel)]="siteSafetyOrientation.lockout">
+                                Lock-out / Tag-out – (Trained personnel only, purpose of
+                                procedures, do notremove locks)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.forkTrucks">
+                                Fork trucks – (Trained personnel only, inspections, speed
+                                limits, seat belts, horn)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.protectiveEquipment">
+                                Personal protective equipment – (100% hard hats and safety
+                                glasses, vests, boots, gloves, face shields, clothing
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.hearingProtection">
+                                hearing protection, respiratory protection)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>D</span>esignated <span>H</span>ealth <span>C</span>are:</p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.designateFacilities">
+                                Designated facilities – (Nearest locations)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox" [(ngModel)]="siteSafetyOrientation.coverage">
+                                Coverage – (Work-related incidents and illnesses)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.contactInformation">
+                                Contact information
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page __2">
+        <div class="form-content">
+            <div class="x-form-checklist">
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>I</span>ncident <span>R</span>eporting:</p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.whatRequires">
+                                What requires reporting (After experiencing a work-related
+                                injury)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.whenToReport">
+                                When to report ... IMMEDIATELY!
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.whoToNotify">
+                                Who to notify – (Foreman, Superintendent, Safety Director)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>S</span>ubstance <span>A</span>buse:</p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.testingProcedures">
+                                Testing procedures – (Pre-employment, post-incident (BAT),
+                                annual, random (BAT), suspicion (BAT))
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.reportingOfMedication">
+                                Reporting of medication and Rx
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox" [(ngModel)]="siteSafetyOrientation.eap">
+                                EAP – (Employee Assistance Program)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>D</span>isciplinary <span>A</span>ction:</p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.progressivePolicy">
+                                Progressive policy – (Informal action, verbal, written,
+                                suspension, dismissal, gross misconduct)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>H</span>azard <span>C</span>ommunication:</p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.obtainInformation">
+                                How to obtain information
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox" [(ngModel)]="siteSafetyOrientation.sds">
+                                SDS use and location
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.hazardCommunication">
+                                Hazard communication program details
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.labelingSystems">
+                                Labeling systems
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.protectiveMeasures">
+                                Protective measures and PPE
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>E</span>mergency <span>A</span>ction <span>P</span>lan (<span>O</span>ffice and
+                            <span>F</span>ield):
+                        </p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.alarmSystems">
+                                Alarm systems
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.shelterAreas">
+                                Shelter areas
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.musteringZones">
+                                Mustering zones
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.accountingProcedures">
+                                Accounting procedures
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>P</span>ersonal <span>P</span>rotective <span>E</span>quipment:</p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox" [(ngModel)]="siteSafetyOrientation.hardHats">
+                                100% hard hats and safety glasses
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.safetyVests">
+                                Safety vests
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.handProtection">
+                                Hand protection
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.footProtection">
+                                Foot protection
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.faceProtection">
+                                Face protection
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.hearingProtection2">
+                                Hearing protection
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.protectiveClothing">
+                                Protective clothing
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.personalFallArrest">
+                                Personal fall arrest
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page __3">
+        <div class="form-content">
+            <div class="x-form-checklist">
+                <div class="x-checklist-group">
+                    <div class="xcg-head">
+                        <p><span>L</span>adder <span>S</span>afety:</p>
+                    </div>
+                    <div class="x-checklist">
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.stepLadders">
+                                Step ladders – (Do not use top two steps, belt buckle rule,
+                                3 points of contact, inspections, footing)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.extensionLadders">
+                                Extension ladders – (4:1 rule, footing, secure the top)
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox"
+                                    [(ngModel)]="siteSafetyOrientation.capacities">
+                                Capacities
+                            </label>
+                        </div>
+                        <div class="x-checkitem-edit">
+                            <label>
+                                <input type="checkbox" class="x-checkbox" [(ngModel)]="siteSafetyOrientation.properUse">
+                                Proper use, care, and storage
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="x-certify">
+                <p><span>T</span>his is to certify that <span>I</span> have completed <span
+                        class="x-inputtext-inline"></span> new employee safety orientation. <span>A</span>lso,
+                    <span>I</span> have
+                <p>
+                <p>received the <span class="x-inputtext-inline w-22p"></span> employee handbook and am familiar with
+                    its contents. <span>I</span> understand</p>
+                <p>that failing to abide by these policies as well as generally accepted safe work practices subjects me
+                    to disciplinary action.</p>
+                <p><span>I</span> agree to do whatever possible to provent injury and illness to others and myself.</p>
+
+                <div class="x-inputgroup m-t-40">
+                    <div class="x-inpuntinline">
+                        <div class="x-input">
+                            <p><span>N</span>ame (Print):</p>
+                            <div class="x-inputtext"></div>
+                        </div>
+                    </div>
+                    <div class="x-inpuntinline">
+                        <div class="x-input">
+                            <p><span>D</span>ate:</p>
+                            <div class="x-inputtext"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="x-inpuntinline m-t-40">
+                    <div class="x-input">
+                        <p><span>S</span>ignature</p>
+                        <div class="x-inputsign"></div>
+                    </div>
+                </div>
+
+                <div class="x-inputgroup m-t-80">
+                    <div class="x-inpuntinline">
+                        <div class="x-input">
+                            <p><span>S</span>afety <span>D</span>irector’s <span>S</span>ignature:</p>
+                            <div class="x-inputtext"></div>
+                        </div>
+                    </div>
+                    <div class="x-inpuntinline">
+                        <div class="x-input">
+                            <p><span>D</span>ate:</p>
+                            <div class="x-inputtext"></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="row">
+                    <button class="btn btn-sm btn-primary pull-right" (click)="save()">
+                        Save
+                    </button>
+                    <div class="pull-right col-2">
+                        <button class="btn btn-sm btn-default pull-right" (click)="cancel()">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer"></footer>
+</div>

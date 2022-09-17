@@ -50,6 +50,7 @@ export class NearMissTypesComponent implements OnInit {
       console.log(result)
       if (result) {
         this.nearMissTypeClient.delete(id).subscribe((data: NearMissTypeDto) => {
+          this.loadNearMissTypes();
         });
       }
     });

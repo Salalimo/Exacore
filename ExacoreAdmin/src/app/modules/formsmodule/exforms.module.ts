@@ -15,6 +15,12 @@ import { SiteSafetyComponent } from './sitesafety/sitesafety.component';
 import { ToolboxMeetingComponent } from './toolboxmeeting/toolboxmeeting.component';
 
 import { GoodCatchEditComponent } from './goodcatch/goodcatchedit.component';
+import { IncidentAlertEditComponent } from './incidentalert/incidentalertedit.component';
+import { JsaEditComponent } from './jsa/jsaedit.component';
+import { MotorizedEquipmentEditComponent } from './motorizedequipment/motorizedequipmentedit.component';
+import { NearMissEditComponent } from './nearmiss/nearmissedit.component';
+import { SiteSafetyEditComponent } from './sitesafety/sitesafetyedit.component';
+import { ToolboxMeetingEditComponent } from './toolboxmeeting/toolboxmeetingedit.component';
 
 //addimport
 
@@ -30,6 +36,12 @@ import { GoodCatchEditComponent } from './goodcatch/goodcatchedit.component';
     ToolboxMeetingComponent,
 
     GoodCatchEditComponent,
+    IncidentAlertEditComponent,
+    JsaEditComponent,
+    MotorizedEquipmentEditComponent,
+    NearMissEditComponent,
+    SiteSafetyEditComponent,
+    ToolboxMeetingEditComponent,
     
     //addcomponent
 

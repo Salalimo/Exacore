@@ -35,5 +35,13 @@ namespace Exacore.Controllers
             var vm = await _motorizedequipmentLogic.Add(dto);
             return Ok(vm);
         }
+
+        [HttpPut, Route("")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(MotorizedEquipmentDto))]
+        public async Task<IActionResult> Update(MotorizedEquipmentDto dto)
+        {
+            var vm = await _motorizedequipmentLogic.Update(dto);
+            return Ok(vm);
+        }
     }
 }

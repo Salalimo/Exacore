@@ -7,5 +7,6 @@ namespace Exacore.BLL.LookupsBL.Interfaces
     {
         Task<IncidentAlertDto> Get(int Id);
         Task<IncidentAlertDto> Add(IncidentAlertDto dto);
+        Task<IncidentAlertDto> Update(IncidentAlertDto dto);
     }
 }

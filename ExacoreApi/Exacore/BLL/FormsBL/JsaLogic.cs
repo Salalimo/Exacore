@@ -44,5 +44,14 @@ namespace Exacore.BLL.LookupsBL
             await _db.SaveChangesAsync();
             return _mapper.Map<Jsa, JsaDto>(jsa);
         }
+
+        public async Task<JsaDto> Update(JsaDto dto)
+        {
+            var jsa = await _db.Jsa.FindAsync(dto.JsaId);
+            _mapper.Map(dto, jsa);
+            _db.Entry(jsa).State = EntityState.Modified;
+            await _db.SaveChangesAsync();
+            return _mapper.Map<Jsa, JsaDto>(jsa);
+        }
     }
 }

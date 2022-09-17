@@ -50,6 +50,7 @@ export class ProjectsComponent implements OnInit {
       console.log(result)
       if (result) {
         this.projectClient.delete(id).subscribe((data: ProjectDto) => {
+          this.loadProjects();
         });
       }
     });

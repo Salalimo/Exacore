@@ -64,7 +64,7 @@ namespace Exacore.DAL
                 foreach (var entry in changeSet.Where(c => c.State != EntityState.Unchanged))
                 {
                     entry.Entity.ChangedDate = DateTime.Now;
-                    entry.Entity.UserId = HttpContext.Current.User.Identity.GetUserId();
+                    entry.Entity.ChangedById = HttpContext.Current.User.Identity.GetUserId();
                 }
             }
             return base.SaveChanges();
@@ -79,7 +79,7 @@ namespace Exacore.DAL
                 foreach (var entry in changeSet.Where(c => c.State != EntityState.Unchanged))
                 {
                     entry.Entity.ChangedDate = DateTime.Now;
-                    entry.Entity.UserId = HttpContext.Current.User.Identity.GetUserId();
+                    entry.Entity.ChangedById = HttpContext.Current.User.Identity.GetUserId();
                 }
             }
 

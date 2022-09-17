@@ -35,5 +35,13 @@ namespace Exacore.Controllers
             var vm = await _toolboxmeetingLogic.Add(dto);
             return Ok(vm);
         }
+
+        [HttpPut, Route("")]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(ToolboxMeetingDto))]
+        public async Task<IActionResult> Update(ToolboxMeetingDto dto)
+        {
+            var vm = await _toolboxmeetingLogic.Update(dto);
+            return Ok(vm);
+        }
     }
 }

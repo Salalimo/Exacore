@@ -43,6 +43,12 @@ import { SiteSafetyComponent } from './modules/formsmodule/sitesafety/sitesafety
 import { ToolboxMeetingComponent } from './modules/formsmodule/toolboxmeeting/toolboxmeeting.component';
 
 import { GoodCatchEditComponent } from './modules/formsmodule/goodcatch/goodcatchedit.component';
+import { IncidentAlertEditComponent } from './modules/formsmodule/incidentalert/incidentalertedit.component';
+import { JsaEditComponent } from './modules/formsmodule/jsa/jsaedit.component';
+import { MotorizedEquipmentEditComponent } from './modules/formsmodule/motorizedequipment/motorizedequipmentedit.component';
+import { NearMissEditComponent } from './modules/formsmodule/nearmiss/nearmissedit.component';
+import { SiteSafetyEditComponent } from './modules/formsmodule/sitesafety/sitesafetyedit.component';
+import { ToolboxMeetingEditComponent } from './modules/formsmodule/toolboxmeeting/toolboxmeetingedit.component';
 
 //addimport
 
@@ -115,16 +121,23 @@ const routes: Routes = [
       { path: 'forms/sitesafetyorientation/:id', component: SiteSafetyComponent, canActivate: [AuthGuard] },
       { path: 'forms/toolboxmeeting/:id', component: ToolboxMeetingComponent, canActivate: [AuthGuard] },
 
+      { path: 'forms/goodcatch', component: GoodCatchEditComponent, canActivate: [AuthGuard] },
+      { path: 'forms/incidentalert', component: IncidentAlertEditComponent, canActivate: [AuthGuard] },
+      { path: 'forms/jsa', component: JsaEditComponent, canActivate: [AuthGuard] },
+      { path: 'forms/motorizedequipment', component: MotorizedEquipmentEditComponent, canActivate: [AuthGuard] },
+      { path: 'forms/nearmiss', component: NearMissEditComponent, canActivate: [AuthGuard] },
+      { path: 'forms/sitesafetyorientation', component: SiteSafetyEditComponent, canActivate: [AuthGuard] },
+      { path: 'forms/toolboxmeeting', component: ToolboxMeetingEditComponent, canActivate: [AuthGuard] },
+
       { path: 'forms/goodcatch/edit/:id', component: GoodCatchEditComponent, canActivate: [AuthGuard] },
-      { path: 'forms/incidentalert/edit/:id', component: IncidentAlertComponent, canActivate: [AuthGuard] },
-      { path: 'forms/jsa/edit/:id', component: JsaComponent, canActivate: [AuthGuard] },
-      { path: 'forms/motorizedequipment/edit/:id', component: MotorizedEquipmentComponent, canActivate: [AuthGuard] },
-      { path: 'forms/nearmiss/edit/:id', component: NearMissComponent, canActivate: [AuthGuard] },
-      { path: 'forms/sitesafetyorientation/edit/:id', component: SiteSafetyComponent, canActivate: [AuthGuard] },
-      { path: 'forms/toolboxmeeting/edit/:id', component: ToolboxMeetingComponent, canActivate: [AuthGuard] },
+      { path: 'forms/incidentalert/edit/:id', component: IncidentAlertEditComponent, canActivate: [AuthGuard] },
+      { path: 'forms/jsa/edit/:id', component: JsaEditComponent, canActivate: [AuthGuard] },
+      { path: 'forms/motorizedequipment/edit/:id', component: MotorizedEquipmentEditComponent, canActivate: [AuthGuard] },
+      { path: 'forms/nearmiss/edit/:id', component: NearMissEditComponent, canActivate: [AuthGuard] },
+      { path: 'forms/sitesafetyorientation/edit/:id', component: SiteSafetyEditComponent, canActivate: [AuthGuard] },
+      { path: 'forms/toolboxmeeting/edit/:id', component: ToolboxMeetingEditComponent, canActivate: [AuthGuard] },
     ]
   }
-
 ];
 
 @NgModule({

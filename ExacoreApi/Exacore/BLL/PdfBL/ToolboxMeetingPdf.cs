@@ -1,4 +1,5 @@
-﻿using Exacore.DAL;
+﻿using Exacore.BLL.PdfBL.Interfaces;
+using Exacore.DAL;
 using Exacore.DAL.Forms;
 using Microsoft.EntityFrameworkCore;
 using PdfSharp.Pdf;
@@ -10,8 +11,13 @@ using System.Reflection;
 
 namespace Exacore.BLL.PdfBL
 {
-    public class ToolboxMeetingPdf
+    public class ToolboxMeetingPdf : IToolboxMeetingPdf
     {
+        IExacoreContext _db;
+        public ToolboxMeetingPdf(IExacoreContext db)
+        {
+            _db = db;
+        }
         public byte[] CreatePdf()
         {
             var model = GetModel();
@@ -119,11 +125,7 @@ namespace Exacore.BLL.PdfBL
 
         private ToolboxMeeting GetModel()
         {
-            var connectionstring = "Server=ROGU3\\SQLEXPRESS; Database=Exacore; User Id=ssaa;Password=limo;";
-            var optionsBuilder = new DbContextOptionsBuilder<ExacoreContext>();
-            optionsBuilder.UseSqlServer(connectionstring);
-            var db = new ExacoreContext(optionsBuilder.Options);
-            var model = db.ToolboxMeeting
+            var model = _db.ToolboxMeeting
                 .Include(t => t.Project)
                 .Include(t => t.Topics)
                 .Include(t => t.Attendances)

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AlertTimeClient, AlertTimeDto } from '../../../services/api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -11,7 +11,10 @@ export class AlertTimeComponent implements OnInit, OnDestroy {
 
   sub: any;
   id: number = 0;
+
   alertTime: AlertTimeDto = new AlertTimeDto();
+  @ViewChild('field', { static: false }) field: ElementRef;
+
 
   constructor(private alertTimeClient: AlertTimeClient,
     private route: ActivatedRoute,
@@ -19,7 +22,12 @@ export class AlertTimeComponent implements OnInit, OnDestroy {
     private router: Router,
   ) {
   }
-
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.field.nativeElement.focus();
+    }, 200);
+  }
+  
   ngOnInit() {
 
     this.sub = this.route.params.subscribe(params => {
@@ -38,7 +46,7 @@ export class AlertTimeComponent implements OnInit, OnDestroy {
 
   onSubmit() {
 
-    if(this.id > 0) {
+    if (this.id > 0) {
       this.alertTimeClient.update(this.alertTime).subscribe((data) => {
         this.toastr.success('Save Successful!', '');
         this.router.navigateByUrl('alertTimes');
@@ -51,7 +59,7 @@ export class AlertTimeComponent implements OnInit, OnDestroy {
       });
     }
   }
-  
+
   cancel() {
     this.router.navigateByUrl('alertTimes');
   }

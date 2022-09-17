@@ -2,7 +2,7 @@
 {
     public class MotorizedEquipmentOperationalInspectionDto
     {
-        public int MotorizedEquipmentOperationalInspectionId { get; set; }
+        public int MotorizedEquipmentOperationalDtoInspectionId { get; set; }
         public OperationalDto Headlights { get; set; }
         public OperationalDto ReverseLights { get; set; }
         public OperationalDto RunningLights { get; set; }

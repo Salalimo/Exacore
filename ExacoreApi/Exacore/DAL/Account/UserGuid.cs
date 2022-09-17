@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Exacore.DAL.Entities.Account
 {
     [Table("UserGuid")]
-    public class UserGuid : BaseEntity, IAuditable
+    public class UserGuid 
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserGuidId { get; set; }
@@ -16,8 +16,7 @@ namespace Exacore.DAL.Entities.Account
         public UserGuids UserGuidType { get; set; }
         public string Guid { get; set; }
         public DateTime Expires{ get; set; }
-
-
-
+        public DateTime ChangedDate { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

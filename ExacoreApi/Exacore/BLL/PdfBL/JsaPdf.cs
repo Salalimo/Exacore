@@ -1,4 +1,5 @@
-﻿using Exacore.DAL;
+﻿using Exacore.BLL.PdfBL.Interfaces;
+using Exacore.DAL;
 using Exacore.DAL.Forms;
 using Microsoft.EntityFrameworkCore;
 using PdfSharp.Pdf;
@@ -10,8 +11,14 @@ using System.Reflection;
 
 namespace Exacore.BLL.PdfBL
 {
-    public class JsaPdf
+    public class JsaPdf : IJsaPdf
     {
+        IExacoreContext _db;
+        public JsaPdf(IExacoreContext db)
+        {
+            _db = db;
+        }
+
         public byte[] CreatePdf()
         {
             var model = GetModel();
@@ -103,11 +110,7 @@ namespace Exacore.BLL.PdfBL
 
         private Jsa GetModel()
         {
-            var connectionstring = "Server=ROGU3\\SQLEXPRESS; Database=Exacore; User Id=ssaa;Password=limo;";
-            var optionsBuilder = new DbContextOptionsBuilder<ExacoreContext>();
-            optionsBuilder.UseSqlServer(connectionstring);
-            var db = new ExacoreContext(optionsBuilder.Options);
-            var model = db.Jsa
+            var model = _db.Jsa
                 .Include(g => g.StepActions)
                 .Include(g => g.CrewAttendances)
                 .First();

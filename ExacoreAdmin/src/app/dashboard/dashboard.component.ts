@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   dataSource: FormDto[] = [];
   forms: MatTableDataSource<FormDto>;
   filter: string = '';
+  selectedForm: string = '';
 
   constructor(
     private httpClient: HttpClient,
@@ -51,7 +52,6 @@ export class DashboardComponent implements OnInit {
 
   view(form: FormDto) {
 
-    console.log(form)
     if (form.goodCatches?.length || 0 > 0) {
       this.router.navigateByUrl('forms/goodcatch/' + form.goodCatches[0].goodCatchId);
     }
@@ -78,7 +78,6 @@ export class DashboardComponent implements OnInit {
 
   edit(form: FormDto) {
 
-    console.log(form)
     if (form.goodCatches?.length || 0 > 0) {
       this.router.navigateByUrl('forms/goodcatch/edit/' + form.goodCatches[0].goodCatchId);
     }
@@ -108,8 +107,34 @@ export class DashboardComponent implements OnInit {
       var fileURL = URL.createObjectURL(data);
       window.open(fileURL);
     });
+  }
+  addForm() {
+    if (this.selectedForm == '') {
+
+    }
 
 
+    if (this.selectedForm == 'Good Catch Form') {
+      this.router.navigateByUrl('forms/goodcatch');
+    }
+    else if (this.selectedForm == 'Incident Alert') {
+      this.router.navigateByUrl('forms/incidentalert');
+    }
+    else if (this.selectedForm == 'JSA') {
+      this.router.navigateByUrl('forms/jsa');
+    }
+    else if (this.selectedForm == 'Near Miss') {
+      this.router.navigateByUrl('forms/nearmiss');
+    }
+    else if (this.selectedForm == 'Site Safety Orientation') {
+      this.router.navigateByUrl('forms/sitesafetyorientation');
+    }
+    else if (this.selectedForm == 'Tooldbox Talk') {
+      this.router.navigateByUrl('forms/toolboxmeeting');
+    }
+    else if (this.selectedForm == 'Motorized Equipment') {
+      this.router.navigateByUrl('forms/motorizedequipment');
+    }
 
   }
 }
