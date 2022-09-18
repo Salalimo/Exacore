@@ -2,6 +2,6 @@
 {
     public interface IGoodCatchPdf
     {
-        byte[] CreatePdf();
+        byte[] CreatePdf(int formId);
     }
 }

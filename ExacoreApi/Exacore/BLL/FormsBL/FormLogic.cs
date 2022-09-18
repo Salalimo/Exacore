@@ -75,19 +75,19 @@ namespace Exacore.BLL.FormsBL.Interfaces
             switch(form.FormName)
             {
                 case "Good Catch":
-                    return _goodCatchPdf.CreatePdf();
+                    return _goodCatchPdf.CreatePdf(formId);
                 case "Incident Alert":
-                    return _incidentAlertPdf.CreatePdf();
+                    return _incidentAlertPdf.CreatePdf(formId);
                 case "Jsa":
-                    return _jsaPdf.CreatePdf();
+                    return _jsaPdf.CreatePdf(formId);
                 case "Near Miss":
-                    return _nearMissPdf.CreatePdf();
+                    return _nearMissPdf.CreatePdf(formId);
                 case "Motorized Equipment":
-                    return _motorizedEquipmentPdf.CreatePdf();
+                    return _motorizedEquipmentPdf.CreatePdf(formId);
                 case "Site Safety Orientation":
-                    return _siteSafetyOrientationPdf.CreatePdf();
+                    return _siteSafetyOrientationPdf.CreatePdf(formId);
                 case "Toolbox Meeting":
-                    return _toolboxMeetingPdf.CreatePdf();
+                    return _toolboxMeetingPdf.CreatePdf(formId);
                 default:
                     return null;
             }

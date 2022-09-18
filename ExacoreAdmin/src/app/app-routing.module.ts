@@ -68,47 +68,49 @@ const routes: Routes = [
     component: MainComponent,
     children: [
 
-      { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+      { path: '', component: DashboardComponent, canActivate: [AuthGuard], },
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 
       //lookups
-      { path: 'alertTimes', component: AlertTimesComponent, canActivate: [AuthGuard] },
-      { path: 'controlMethods', component: ControlMethodsComponent, canActivate: [AuthGuard] },
-      { path: 'departments', component: DepartmentsComponent, canActivate: [AuthGuard] },
-      { path: 'divisions', component: DivisionsComponent, canActivate: [AuthGuard] },
-      { path: 'projects', component: ProjectsComponent, canActivate: [AuthGuard] },
-      { path: 'goodCatchTypes', component: GoodCatchTypesComponent, canActivate: [AuthGuard] },
-      { path: 'nearMissTypes', component: NearMissTypesComponent, canActivate: [AuthGuard] },
+      { path: 'alertTimes', component: AlertTimesComponent, canActivate: [AuthGuard], data: { role: RoleEnum.ADMIN } },
+      { path: 'controlMethods', component: ControlMethodsComponent, canActivate: [AuthGuard], data: { role: RoleEnum.ADMIN } },
+      { path: 'departments', component: DepartmentsComponent, canActivate: [AuthGuard], data: { role: RoleEnum.ADMIN } },
+      { path: 'divisions', component: DivisionsComponent, canActivate: [AuthGuard], data: { role: RoleEnum.ADMIN } },
+      { path: 'projects', component: ProjectsComponent, canActivate: [AuthGuard], data: { role: RoleEnum.ADMIN } },
+      { path: 'goodCatchTypes', component: GoodCatchTypesComponent, canActivate: [AuthGuard], data: { role: RoleEnum.ADMIN } },
+      { path: 'nearMissTypes', component: NearMissTypesComponent, canActivate: [AuthGuard], data: { role: RoleEnum.ADMIN } },
       //account
-      { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
+      { path: 'users', component: UsersComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
       //forms
     ]
- , canActivate: [AuthGuard] },
-  
+    , canActivate: [AuthGuard]
+  },
+
   {
     path: '',
     component: MainSMComponent,
     children: [
 
-      { path: 'alertTime', component: AlertTimeComponent, canActivate: [AuthGuard] },
-      { path: 'alertTime/:id', component: AlertTimeComponent, canActivate: [AuthGuard] },
-      { path: 'controlMethod', component: ControlMethodComponent, canActivate: [AuthGuard] },
-      { path: 'controlMethod/:id', component: ControlMethodComponent, canActivate: [AuthGuard] },
-      { path: 'department', component: DepartmentComponent, canActivate: [AuthGuard] },
-      { path: 'department/:id', component: DepartmentComponent, canActivate: [AuthGuard] },
-      { path: 'division', component: DivisionComponent, canActivate: [AuthGuard] },
-      { path: 'division/:id', component: DivisionComponent, canActivate: [AuthGuard] },
-      { path: 'project', component: ProjectComponent, canActivate: [AuthGuard] },
-      { path: 'project/:id', component: ProjectComponent, canActivate: [AuthGuard] },
-      { path: 'goodCatchType/:id', component: GoodCatchTypeComponent, canActivate: [AuthGuard] },
-      { path: 'goodCatchType', component: GoodCatchTypeComponent, canActivate: [AuthGuard] },
-      { path: 'nearMissType', component: NearMissTypeComponent, canActivate: [AuthGuard] },
-      { path: 'nearMissType/:id', component: NearMissTypeComponent, canActivate: [AuthGuard] },
+      { path: 'alertTime', component: AlertTimeComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'alertTime/:id', component: AlertTimeComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'controlMethod', component: ControlMethodComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'controlMethod/:id', component: ControlMethodComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'department', component: DepartmentComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'department/:id', component: DepartmentComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'division', component: DivisionComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'division/:id', component: DivisionComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'project', component: ProjectComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'project/:id', component: ProjectComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'goodCatchType/:id', component: GoodCatchTypeComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'goodCatchType', component: GoodCatchTypeComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'nearMissType', component: NearMissTypeComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'nearMissType/:id', component: NearMissTypeComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
       //account
-      { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
-      { path: 'user/:id', component: UserComponent, canActivate: [AuthGuard] },
+      { path: 'user', component: UserComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'user/:id', component: UserComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
     ]
- , canActivate: [AuthGuard] },
+    , canActivate: [AuthGuard]
+  },
   {
     path: '',
     component: FormsMainComponent,
@@ -129,13 +131,13 @@ const routes: Routes = [
       { path: 'forms/sitesafetyorientation', component: SiteSafetyEditComponent, canActivate: [AuthGuard] },
       { path: 'forms/toolboxmeeting', component: ToolboxMeetingEditComponent, canActivate: [AuthGuard] },
 
-      { path: 'forms/goodcatch/edit/:id', component: GoodCatchEditComponent, canActivate: [AuthGuard] },
-      { path: 'forms/incidentalert/edit/:id', component: IncidentAlertEditComponent, canActivate: [AuthGuard] },
-      { path: 'forms/jsa/edit/:id', component: JsaEditComponent, canActivate: [AuthGuard] },
-      { path: 'forms/motorizedequipment/edit/:id', component: MotorizedEquipmentEditComponent, canActivate: [AuthGuard] },
-      { path: 'forms/nearmiss/edit/:id', component: NearMissEditComponent, canActivate: [AuthGuard] },
-      { path: 'forms/sitesafetyorientation/edit/:id', component: SiteSafetyEditComponent, canActivate: [AuthGuard] },
-      { path: 'forms/toolboxmeeting/edit/:id', component: ToolboxMeetingEditComponent, canActivate: [AuthGuard] },
+      { path: 'forms/goodcatch/edit/:id', component: GoodCatchEditComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'forms/incidentalert/edit/:id', component: IncidentAlertEditComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'forms/jsa/edit/:id', component: JsaEditComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'forms/motorizedequipment/edit/:id', component: MotorizedEquipmentEditComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'forms/nearmiss/edit/:id', component: NearMissEditComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'forms/sitesafetyorientation/edit/:id', component: SiteSafetyEditComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'forms/toolboxmeeting/edit/:id', component: ToolboxMeetingEditComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
     ]
   }
 ];

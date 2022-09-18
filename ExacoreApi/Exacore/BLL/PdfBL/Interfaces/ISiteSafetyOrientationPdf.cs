@@ -2,6 +2,6 @@
 {
     public interface ISiteSafetyOrientationPdf
     {
-        byte[] CreatePdf();
+        byte[] CreatePdf(int formId);
     }
 }

@@ -4928,7 +4928,7 @@ export interface IMotorizedEquipmentDto extends IBaseDto {
 }
 
 export class MotorizedEquipmentOperationalInspectionDto implements IMotorizedEquipmentOperationalInspectionDto {
-    motorizedEquipmentOperationalDtoInspectionId!: number;
+    motorizedEquipmentOperationalInspectionId!: number;
     headlights?: OperationalDto | undefined;
     reverseLights?: OperationalDto | undefined;
     runningLights?: OperationalDto | undefined;
@@ -4961,7 +4961,7 @@ export class MotorizedEquipmentOperationalInspectionDto implements IMotorizedEqu
 
     init(_data?: any) {
         if (_data) {
-            this.motorizedEquipmentOperationalDtoInspectionId = _data["motorizedEquipmentOperationalDtoInspectionId"];
+            this.motorizedEquipmentOperationalInspectionId = _data["motorizedEquipmentOperationalInspectionId"];
             this.headlights = _data["headlights"] ? OperationalDto.fromJS(_data["headlights"]) : <any>undefined;
             this.reverseLights = _data["reverseLights"] ? OperationalDto.fromJS(_data["reverseLights"]) : <any>undefined;
             this.runningLights = _data["runningLights"] ? OperationalDto.fromJS(_data["runningLights"]) : <any>undefined;
@@ -4994,7 +4994,7 @@ export class MotorizedEquipmentOperationalInspectionDto implements IMotorizedEqu
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["motorizedEquipmentOperationalDtoInspectionId"] = this.motorizedEquipmentOperationalDtoInspectionId;
+        data["motorizedEquipmentOperationalInspectionId"] = this.motorizedEquipmentOperationalInspectionId;
         data["headlights"] = this.headlights ? this.headlights.toJSON() : <any>undefined;
         data["reverseLights"] = this.reverseLights ? this.reverseLights.toJSON() : <any>undefined;
         data["runningLights"] = this.runningLights ? this.runningLights.toJSON() : <any>undefined;
@@ -5020,7 +5020,7 @@ export class MotorizedEquipmentOperationalInspectionDto implements IMotorizedEqu
 }
 
 export interface IMotorizedEquipmentOperationalInspectionDto {
-    motorizedEquipmentOperationalDtoInspectionId: number;
+    motorizedEquipmentOperationalInspectionId: number;
     headlights?: OperationalDto | undefined;
     reverseLights?: OperationalDto | undefined;
     runningLights?: OperationalDto | undefined;

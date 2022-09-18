@@ -18,9 +18,9 @@ namespace Exacore.BLL.PdfBL
         {
             _db = db;
         }
-        public byte[] CreatePdf()
+        public byte[] CreatePdf(int id)
         {
-            var model = GetModel();
+            var model = GetModel(id);
             var fileName = CreatePdf(model);
             return File.ReadAllBytes(fileName);
         }
@@ -64,25 +64,6 @@ namespace Exacore.BLL.PdfBL
                 string fqName = names[idx];
                 PdfAcroField field = fields[fqName];
                 field.ReadOnly = true;
-                //PdfTextField txtField;
-                //PdfRadioButtonField radField;
-                //PdfCheckBoxField chkField;
-                //PdfListBoxField lbxField;
-                //PdfComboBoxField cbxField;
-                //PdfGenericField genField;
-
-                //if ((txtField = field as PdfTextField) != null)
-                //    txtField.ReadOnly = true;
-                //else if ((radField = field as PdfRadioButtonField) != null)
-                //    radField.ReadOnly = true;
-                //else if ((chkField = field as PdfCheckBoxField) != null)
-                //    chkField.ReadOnly = true;
-                //else if ((lbxField = field as PdfListBoxField) != null)
-                //    lbxField.ReadOnly = true;
-                //else if ((cbxField = field as PdfComboBoxField) != null)
-                //    cbxField.ReadOnly = true;
-                //else if ((genField = field as PdfGenericField) != null)
-                //    genField.ReadOnly = true;
             }
         }
 
@@ -123,12 +104,13 @@ namespace Exacore.BLL.PdfBL
             }
         }
 
-        private ToolboxMeeting GetModel()
+        private ToolboxMeeting GetModel(int id)
         {
             var model = _db.ToolboxMeeting
                 .Include(t => t.Project)
                 .Include(t => t.Topics)
                 .Include(t => t.Attendances)
+                .Where(t => t.ToolboxMeetingId == id)
                 .First();
             return model;
         }
@@ -144,7 +126,6 @@ namespace Exacore.BLL.PdfBL
             var ret = property?.GetValue(model, null)?.ToString();
             return ret;
         }
-
 
         private void LoopThrooughTopics(PdfAcroField.PdfAcroFieldCollection fields,
             string[] names, ToolboxMeeting model)

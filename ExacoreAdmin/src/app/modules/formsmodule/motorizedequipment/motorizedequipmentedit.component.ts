@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MotorizedEquipmentClient, MotorizedEquipmentDto, MotorizedEquipmentOperationalInspectionDto
-,MotorizedEquipmentDamageInspectionDto, OperationalDto } from '../../../services/api.service';
+import {
+    MotorizedEquipmentClient, MotorizedEquipmentDto, MotorizedEquipmentOperationalInspectionDto
+    , MotorizedEquipmentDamageInspectionDto, OperationalDto
+} from '../../../services/api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
@@ -18,6 +20,10 @@ export class MotorizedEquipmentEditComponent implements OnInit, OnDestroy {
         private route: ActivatedRoute,
         private router: Router,
     ) {
+        this.initialize();
+    }
+
+    initialize() {
         this.motorizedEquipment.operationalInspection = new MotorizedEquipmentOperationalInspectionDto();
         this.motorizedEquipment.operationalInspection.batteryGauge = new OperationalDto();
         this.motorizedEquipment.operationalInspection.brakes = new OperationalDto();
@@ -41,14 +47,14 @@ export class MotorizedEquipmentEditComponent implements OnInit, OnDestroy {
         this.motorizedEquipment.operationalInspection.waterLevelGauge = new OperationalDto();
 
         this.motorizedEquipment.damageInspection = new MotorizedEquipmentDamageInspectionDto();
-        this.motorizedEquipment.damageInspection.attachments  = new OperationalDto();
-        this.motorizedEquipment.damageInspection.batteryConnectors  = new OperationalDto();
-        this.motorizedEquipment.damageInspection.forks  = new OperationalDto();
-        this.motorizedEquipment.damageInspection.guards  = new OperationalDto();
-        this.motorizedEquipment.damageInspection.leaksDetected  = new OperationalDto();
-        this.motorizedEquipment.damageInspection.propaneTankLines  = new OperationalDto();
-        this.motorizedEquipment.damageInspection.safetyDevices  = new OperationalDto();
-        this.motorizedEquipment.damageInspection.tiresAndWheels  = new OperationalDto();
+        this.motorizedEquipment.damageInspection.attachments = new OperationalDto();
+        this.motorizedEquipment.damageInspection.batteryConnectors = new OperationalDto();
+        this.motorizedEquipment.damageInspection.forks = new OperationalDto();
+        this.motorizedEquipment.damageInspection.guards = new OperationalDto();
+        this.motorizedEquipment.damageInspection.leaksDetected = new OperationalDto();
+        this.motorizedEquipment.damageInspection.propaneTankLines = new OperationalDto();
+        this.motorizedEquipment.damageInspection.safetyDevices = new OperationalDto();
+        this.motorizedEquipment.damageInspection.tiresAndWheels = new OperationalDto();
     }
 
     ngOnInit(): void {
@@ -57,6 +63,8 @@ export class MotorizedEquipmentEditComponent implements OnInit, OnDestroy {
             this.id = +params['id'];
             if (this.id > 0) {
                 this.loadForm();
+            } else {
+                this.initialize();
             }
         });
     }

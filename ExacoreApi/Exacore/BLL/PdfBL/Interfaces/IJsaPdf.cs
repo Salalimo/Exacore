@@ -2,6 +2,6 @@
 {
     public interface IJsaPdf
     {
-        byte[] CreatePdf();
+        byte[] CreatePdf(int formId);
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface IToolboxMeetingPdf
     {
-        byte[] CreatePdf();
+        byte[] CreatePdf(int formId);
     }
 }

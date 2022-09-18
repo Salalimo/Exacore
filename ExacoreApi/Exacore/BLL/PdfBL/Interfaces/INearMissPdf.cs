@@ -2,6 +2,6 @@
 {
     public interface INearMissPdf
     {
-        byte[] CreatePdf();
+        byte[] CreatePdf(int formId);
     }
 }

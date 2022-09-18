@@ -1,7 +1,9 @@
 <div class="main-wrapper">
     <header class="header">
         <div class="logo"><img src="../../../../assets/forms/logo.png" /></div>
-        <div class="title"><h1>MOTORIZED EQUIPMENT AND TELEHANDLER INSPECTION</h1></div>
+        <div class="title">
+            <h1>MOTORIZED EQUIPMENT AND TELEHANDLER INSPECTION</h1>
+        </div>
     </header>
     <div class="page">
         <div class="form-content">
@@ -56,174 +58,567 @@
                     <div><span>N/A</span></div>
                     <div><span>D</span>escription</div>
                 </div>
-                
+
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">1</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Headlights operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">1</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Headlights operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.headlights.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.headlights.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.headlights.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.headlights?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">2</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Reverse lights operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">2</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Reverse lights operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.reverseLights.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.reverseLights.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.reverseLights.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.reverseLights?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">3</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Running lights operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">3</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Running lights operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.runningLights.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.runningLights.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.runningLights.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.runningLights?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">4</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Parking brake operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">4</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Parking brake operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.parkingBrake.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.parkingBrake.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.parkingBrake.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.parkingBrake?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">5</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Battery gauge operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">5</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Battery gauge operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.batteryGauge.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.batteryGauge.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.batteryGauge.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.batteryGauge?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">6</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Water level gauge operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">6</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Water level gauge operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.waterLevelGauge.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.waterLevelGauge.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.waterLevelGauge.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.waterLevelGauge?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">7</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Temperature gauge operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">7</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Temperature gauge operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.temperatureGauge.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.temperatureGauge.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.temperatureGauge.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.temperatureGauge?.description}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="xfs-cell-row">
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">9</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Oil level gauge operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.oilLevelGauge.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.oilLevelGauge.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.oilLevelGauge.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.oilLevelGauge?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">8</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Temperature gauge operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">10</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Fuel level gauge operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.fuelLevelGauge.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.fuelLevelGauge.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.fuelLevelGauge.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.fuelLevelGauge?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">9</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Oil level gauge operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">11</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Horn operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.horn.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.horn.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.horn.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.horn?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">10</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Fuel level gauge operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">12</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Reverse signal operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.reverseSignal.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.reverseSignal.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.reverseSignal.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.reverseSignal?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">11</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Horn operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">13</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Brakes operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.brakes.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.brakes.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.brakes.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.brakes?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">12</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Reverse signal operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">14</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Seat belt operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.seatBelt.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.seatBelt.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.seatBelt.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.seatBelt?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">13</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Brakes operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">15</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Chains inspected?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection?.chains.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.chains.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.chains.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.chains?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">14</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Seat belt operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">16</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Hydraulic outriggers operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.hydraulicOutriggers.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.hydraulicOutriggers.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.hydraulicOutriggers.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.hydraulicOutriggers?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">15</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Chains inspected?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">17</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Hydraulic tilt operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.hydraulicTilt.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.hydraulicTilt.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.hydraulicTilt.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.hydraulicTilt?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">16</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Hydraulic outriggers operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">18</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Hydraulic side shift available?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.hydraulicSideShift.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.hydraulicSideShift.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.hydraulicSideShift.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.hydraulicSideShift?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">17</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Hydraulic tilt operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">19</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Engine oil level full?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.engineOilLevel.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.engineOilLevel.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.engineOilLevel.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.engineOilLevel?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">18</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Hydraulic side shift available?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">20</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Hydraulic oil level full?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.hydraulicOilLevel.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.hydraulicOilLevel.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.hydraulicOilLevel.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.hydraulicOilLevel?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">19</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Engine oil level full?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
-                </div>
-                <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">20</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Hydraulic oil level full?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
-                </div>
-                <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">21</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Steering controls operational?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">21</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Steering controls operational?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.steeringControls.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.steeringControls.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.operationalInspection.steeringControls.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.operationalInspection.steeringControls?.description}}
+                        </div>
+                    </div>
                 </div>
 
                 <div class="xfs-head">
@@ -236,78 +631,245 @@
                 </div>
 
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">22</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Leaks detected</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">22</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Leaks detected</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.leaksDetected.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.leaksDetected.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.leaksDetected.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.damageInspection.leaksDetected?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">23</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Tires and wheels (damaged)?</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">23</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Tires and wheels (damaged)?</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.tiresAndWheels.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.tiresAndWheels.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.tiresAndWheels.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.damageInspection.tiresAndWheels?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">24</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Forks (bent, damaged)</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">24</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Forks (bent, damaged)</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.forks.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.forks.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.forks.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.damageInspection.forks?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">25</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Attachments (<small>water level, caps, leaks, damaged</small>)</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">25</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Attachments (<small>water level, caps, leaks, damaged</small>)</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.attachments.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.attachments.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.attachments.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.damageInspection.attachments?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">26</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Battery connectors (damages, cracks)</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">26</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Battery connectors (damages, cracks)</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.batteryConnectors.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.batteryConnectors.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.batteryConnectors.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.damageInspection.batteryConnectors?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">27</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Guards (back, rest, overhead)</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">27</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Guards (back, rest, overhead)</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.guards.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.guards.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.guards.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.damageInspection.guards?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">28</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Safety devices (shields, guards damaged)</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">28</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Safety devices (shields, guards damaged)</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.safetyDevices.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.safetyDevices.yesNoNa == 'no' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.safetyDevices.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.damageInspection.propaneTankLines?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">29</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel">Propane tank lines (detect gases, vapors)</div></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">29</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel">Propane tank lines (detect gases, vapors)</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.propaneTankLines.yesNoNa == 'yes' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.propaneTankLines.yesNoNa == 'no' }">
+                        </span>
+                        {{motorizedEquipment.damageInspection.propaneTankLines.yesNoNa}}
+                    </div>
+                    <div class="xfs-cell-col">
+                        <span class="x-checkbox" [ngClass]="{ 'checked ':  
+                            motorizedEquipment.damageInspection.propaneTankLines.yesNoNa == 'na' }">
+                        </span>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext">
+                            {{motorizedEquipment.damageInspection.propaneTankLines?.description}}
+                        </div>
+                    </div>
                 </div>
                 <div class="xfs-cell-row">
-                    <div class="xfs-cell-col"><div class="x-inputcount">30</div></div>
-                    <div class="xfs-cell-col"><div class="x-inputlabel"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputcount">30</div>
+                    </div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputlabel"></div>
+                    </div>
                     <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
                     <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
                     <div class="xfs-cell-col"><span class="x-checkbox"></span></div>
-                    <div class="xfs-cell-col"><div class="x-inputtext"></div></div>
+                    <div class="xfs-cell-col">
+                        <div class="x-inputtext"></div>
+                    </div>
                 </div>
-            
+
             </div>
         </div>
     </div>

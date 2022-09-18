@@ -1,7 +1,6 @@
 export enum RoleEnum {
-    Association = 'Association Board Member',
-    PropertyManagment = 'Property Manager',
-    Owner = 'Owner',
-    Tenant = 'Tenant',
-  }
-  
+  SUPERADMIN = 'Super Admin',
+  ADMIN = 'Admin',
+  USER = 'user',
+  UNKNOWN = 'unknown'
+}

@@ -14,15 +14,15 @@ namespace Exacore.DAL.Forms
         public string Description { get; set; }
         public string ImmediateActionTaken { get; set; }
 
-        public int DivisionId { get; set; }
+        public int? DivisionId { get; set; }
         public Division Division { get; set; }
-        public int DepartmentId { get; set; }
+        public int? DepartmentId { get; set; }
         public Department Department { get; set; }
-        public int ProjectId { get; set; }
+        public int? ProjectId { get; set; }
         public Project Project { get; set; }
-        public int GoodCatchTypeId { get; set; }
+        public int? GoodCatchTypeId { get; set; }
         public GoodCatchType GoodCatchType { get; set; }
-        public int ControlMethodId { get; set; }
+        public int? ControlMethodId { get; set; }
         public ControlMethod ControlMethod { get; set; }
     }
 }

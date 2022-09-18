@@ -14,15 +14,15 @@ namespace Exacore.Dtos.Forms
         public string Description { get; set; }
         public string ImmediateActionTaken { get; set; }
 
-        public int DivisionId { get; set; }
+        public int? DivisionId { get; set; }
         public DivisionDto Division { get; set; }
-        public int DepartmentId { get; set; }
+        public int? DepartmentId { get; set; }
         public DepartmentDto Department { get; set; }
-        public int ProjectId { get; set; }
+        public int? ProjectId { get; set; }
         public ProjectDto Project { get; set; }
-        public int GoodCatchTypeId { get; set; }
+        public int? GoodCatchTypeId { get; set; }
         public GoodCatchTypeDto GoodCatchType { get; set; }
-        public int ControlMethodId { get; set; }
+        public int? ControlMethodId { get; set; }
         public ControlMethodDto ControlMethod { get; set; }
     }
 }

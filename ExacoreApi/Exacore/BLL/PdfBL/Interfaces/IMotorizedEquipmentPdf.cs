@@ -2,6 +2,6 @@
 {
     public interface IMotorizedEquipmentPdf
     {
-        byte[] CreatePdf();
+        byte[] CreatePdf(int Id);
     }
 }

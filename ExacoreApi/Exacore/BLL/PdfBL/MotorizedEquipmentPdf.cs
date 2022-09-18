@@ -13,16 +13,15 @@ namespace Exacore.BLL.PdfBL
 {
     public class MotorizedEquipmentPdf : IMotorizedEquipmentPdf
     {
-
         IExacoreContext _db;
         public MotorizedEquipmentPdf(IExacoreContext db)
         {
             _db = db;
         }
 
-        public byte[] CreatePdf()
+        public byte[] CreatePdf(int id)
         {
-            var model = GetModel();
+            var model = GetModel(id);
             var fileName = CreatePdf(model);
             return File.ReadAllBytes(fileName);
         }
@@ -40,6 +39,7 @@ namespace Exacore.BLL.PdfBL
             string[] names = fields.Names;
             names = fields.DescendantNames;
             LoopThrooughFields(fields, names, model);
+            LoopThrooughTextBoxes(fields, model);
 
             if (form.Elements.ContainsKey("/NeedAppearances"))
             {
@@ -77,6 +77,7 @@ namespace Exacore.BLL.PdfBL
                 if ((txtField = field as PdfTextField) != null)
                 {
                     txtField.Value = new PdfString(text, PdfStringEncoding.Unicode);
+                    txtField.Value = new PdfString(fqName, PdfStringEncoding.Unicode);
                     txtField.ReadOnly = true;
                 }
                 else if ((radField = field as PdfRadioButtonField) != null)
@@ -101,33 +102,79 @@ namespace Exacore.BLL.PdfBL
             }
         }
 
-        private MotorizedEquipment GetModel()
+        private MotorizedEquipment GetModel(int Id)
         {
             var model = _db.MotorizedEquipment
-                .Include(g => g.OperationalInspection)
-                .Include(g => g.DamageInspection)
-                .First();
+               .Include(t => t.OperationalInspection.Headlights)
+               .Include(t => t.OperationalInspection.ReverseLights)
+               .Include(t => t.OperationalInspection.ReverseLights)
+               .Include(t => t.OperationalInspection.RunningLights)
+               .Include(t => t.OperationalInspection.ParkingBrake)
+               .Include(t => t.OperationalInspection.BatteryGauge)
+               .Include(t => t.OperationalInspection.WaterLevelGauge)
+               .Include(t => t.OperationalInspection.TemperatureGauge)
+               .Include(t => t.OperationalInspection.OilLevelGauge)
+               .Include(t => t.OperationalInspection.FuelLevelGauge)
+               .Include(t => t.OperationalInspection.Horn)
+               .Include(t => t.OperationalInspection.ReverseSignal)
+               .Include(t => t.OperationalInspection.Brakes)
+               .Include(t => t.OperationalInspection.SeatBelt)
+               .Include(t => t.OperationalInspection.Chains)
+               .Include(t => t.OperationalInspection.HydraulicOutriggers)
+               .Include(t => t.OperationalInspection.HydraulicTilt)
+               .Include(t => t.OperationalInspection.HydraulicSideShift)
+               .Include(t => t.OperationalInspection.EngineOilLevel)
+               .Include(t => t.OperationalInspection.HydraulicOilLevel)
+               .Include(t => t.OperationalInspection.SteeringControls)
+               .Include(t => t.DamageInspection.LeaksDetected)
+               .Include(t => t.DamageInspection.TiresAndWheels)
+               .Include(t => t.DamageInspection.Forks)
+               .Include(t => t.DamageInspection.Attachments)
+               .Include(t => t.DamageInspection.BatteryConnectors)
+               .Include(t => t.DamageInspection.Guards)
+               .Include(t => t.DamageInspection.SafetyDevices)
+               .Include(t => t.DamageInspection.PropaneTankLines)
+               .Where(t => t.MotorizedEquipmentId == Id)
+               .First();
             return model;
+        }
+
+        private void LoopThrooughTextBoxes(PdfAcroField.PdfAcroFieldCollection fields, MotorizedEquipment model)
+        {
+            for (int i = 1; i <= 34; i++)
+            {
+                if (i < 5)
+                {
+                    var text = GetValue(model, "Text Field " + i);
+                    PdfAcroField field = fields["Text Field " + i];
+                    PdfTextField txtField = field as PdfTextField;
+                    txtField.ReadOnly = false;
+                    txtField.Value = new PdfString(text, PdfStringEncoding.Unicode);
+                    txtField.ReadOnly = true;
+                }
+                else if (i < 26)
+                {
+                    var text = GetOperationalValue(model.OperationalInspection, "Text Field " + i);
+                    PdfAcroField field = fields["Text Field " + i];
+                    PdfTextField txtField = field as PdfTextField;
+                    txtField.ReadOnly = false;
+                    txtField.Value = new PdfString(text, PdfStringEncoding.Unicode);
+                    txtField.ReadOnly = true;
+                }
+                else
+                {
+                    var text = GetDamageValue(model.DamageInspection, "Text Field " + i);
+                    PdfAcroField field = fields["Text Field " + i];
+                    PdfTextField txtField = field as PdfTextField;
+                    txtField.ReadOnly = false;
+                    txtField.Value = new PdfString(text, PdfStringEncoding.Unicode);
+                    txtField.ReadOnly = true;
+                }
+            }
         }
 
         private string GetValue(MotorizedEquipment model, string name)
         {
-            //if (name.Contains("."))
-            //{
-            //    string propertyName = name.Split(',')[0];
-            //    PropertyInfo? property = model.GetType().GetProperty(propertyName);
-            //    var refType = property?.ReflectedType;
-            //    var valu = property.GetValue(model, null);
-
-            //    var one = refType.GetProperties()[0];
-            //    var ppp1 = refType.GetProperty("Division").ReflectedType.GetProperty("Name");
-            //    var typess = ppp1.PropertyType;
-            //    var ppp2 = ppp1.ReflectedType;
-            //    //var val = ppp1.GetValue();
-            //    return "".ToString();
-            //}
-            //else
-            //{
             var fn = new DocFieldNames();
             fn.SetMotorizedEquipment();
             if (!fn.Fields.ContainsKey(name))
@@ -136,9 +183,32 @@ namespace Exacore.BLL.PdfBL
             PropertyInfo? property = model.GetType().GetProperty(propertyName);
             var ret = property?.GetValue(model, null)?.ToString();
             return ret;
-            //}
         }
 
+        private string GetOperationalValue(MotorizedEquipmentOperationalInspection model, string name)
+        {
+            var fn = new DocFieldNames();
+            fn.SetMotorizedEquipment();
+            if (!fn.Fields.ContainsKey(name))
+                return "";
+            var propertyName = fn.Fields[name];
+            propertyName = propertyName.Replace("OperationalInspection.", "");
+            PropertyInfo? property = model.GetType().GetProperty(propertyName);
+            var ret = property?.GetValue(model, null)?.ToString();
+            return ret;
+        }
 
+        private string GetDamageValue(MotorizedEquipmentDamageInspection model, string name)
+        {
+            var fn = new DocFieldNames();
+            fn.SetMotorizedEquipment();
+            if (!fn.Fields.ContainsKey(name))
+                return "";
+            var propertyName = fn.Fields[name];
+            propertyName = propertyName.Replace("DamageInspection.", "");
+            PropertyInfo? property = model.GetType().GetProperty(propertyName);
+            var ret = property?.GetValue(model, null)?.ToString();
+            return ret;
+        }
     }
 }

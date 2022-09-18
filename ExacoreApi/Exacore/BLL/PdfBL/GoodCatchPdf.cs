@@ -14,13 +14,13 @@ namespace Exacore.BLL.PdfBL
     public class GoodCatchPdf : IGoodCatchPdf
     {
         IExacoreContext _db;
-        public GoodCatchPdf (IExacoreContext db)
+        public GoodCatchPdf(IExacoreContext db)
         {
-            _db= db;
+            _db = db;
         }
-        public byte[] CreatePdf()
+        public byte[] CreatePdf(int id)
         {
-            var model = GetModel();
+            var model = GetModel(id);
             var fileName = CreatePdf(model);
             return File.ReadAllBytes(fileName);
         }
@@ -95,40 +95,21 @@ namespace Exacore.BLL.PdfBL
             }
         }
 
-        private GoodCatch GetModel()
+        private GoodCatch GetModel(int id)
         {
-            //var connectionstring = "Server=ROGU3\\SQLEXPRESS; Database=Exacore; User Id=ssaa;Password=limo;";
-            //var optionsBuilder = new DbContextOptionsBuilder<ExacoreContext>();
-            //optionsBuilder.UseSqlServer(connectionstring);
-            //var db = new ExacoreContext(optionsBuilder.Options);
             var model = _db.GoodCatch
                 .Include(g => g.Division)
                 .Include(g => g.Department)
                 .Include(g => g.Project)
                 .Include(g => g.GoodCatchType)
                 .Include(g => g.ControlMethod)
+                .Where(g => g.GoodCatchId == id)
                 .First();
             return model;
         }
 
         private string GetValue(GoodCatch model, string name)
         {
-            //if (name.Contains("."))
-            //{
-            //    string propertyName = name.Split(',')[0];
-            //    PropertyInfo? property = model.GetType().GetProperty(propertyName);
-            //    var refType = property?.ReflectedType;
-            //    var valu = property.GetValue(model, null);
-
-            //    var one = refType.GetProperties()[0];
-            //    var ppp1 = refType.GetProperty("Division").ReflectedType.GetProperty("Name");
-            //    var typess = ppp1.PropertyType;
-            //    var ppp2 = ppp1.ReflectedType;
-            //    //var val = ppp1.GetValue();
-            //    return "".ToString();
-            //}
-            //else
-            //{
             var fn = new DocFieldNames();
             fn.SetGoodCatchFields();
             if (!fn.Fields.ContainsKey(name))
@@ -137,7 +118,6 @@ namespace Exacore.BLL.PdfBL
             PropertyInfo? property = model.GetType().GetProperty(propertyName);
             var value = property?.GetValue(model, null)?.ToString();
             return ApplyTransformation(value, propertyName);
-            //}
         }
 
         private string ApplyTransformation(string value, string propertyName)
@@ -151,7 +131,5 @@ namespace Exacore.BLL.PdfBL
                 return value;
             }
         }
-
-
     }
 }

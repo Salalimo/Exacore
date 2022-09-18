@@ -18,9 +18,9 @@ namespace Exacore.BLL.PdfBL
         {
             _db = db;
         }
-        public byte[] CreatePdf()
+        public byte[] CreatePdf(int id)
         {
-            var model = GetModel();
+            var model = GetModel(id);
             var fileName = CreatePdf(model);
             return File.ReadAllBytes(fileName);
         }
@@ -99,30 +99,17 @@ namespace Exacore.BLL.PdfBL
             }
         }
 
-        private SiteSafetyOrientation GetModel()
+        private SiteSafetyOrientation GetModel(int id)
         {
             var model = _db.SiteSafetyOrientation
                 .Include(s => s.Project)
+                .Where(s => s.ProjectId == id)
                 .First();
             return model;
         }
 
         private string GetValue(SiteSafetyOrientation model, string name)
         {
-            //if (name.Contains("."))
-            //{
-            //    string propertyName = name.Split(',')[0];
-            //    PropertyInfo? property = model.GetType().GetProperty(propertyName);
-            //    var refType = property?.ReflectedType;
-            //    var valu = property.GetValue(model, null);
-
-            //    var one = refType.GetProperties()[0];
-            //    var ppp1 = refType.GetProperty("Division").ReflectedType.GetProperty("Name");
-            //    var typess = ppp1.PropertyType;
-            //    var ppp2 = ppp1.ReflectedType;
-            //    //var val = ppp1.GetValue();
-            //    return "".ToString();
-            //}
             var fn = new DocFieldNames();
             fn.SetSiteSafetyOrientationFields();
             if (!fn.Fields.ContainsKey(name))

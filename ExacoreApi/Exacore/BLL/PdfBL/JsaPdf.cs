@@ -19,9 +19,9 @@ namespace Exacore.BLL.PdfBL
             _db = db;
         }
 
-        public byte[] CreatePdf()
+        public byte[] CreatePdf(int id)
         {
-            var model = GetModel();
+            var model = GetModel(id);
             var fileName = CreatePdf(model);
             return File.ReadAllBytes(fileName);
         }
@@ -108,11 +108,12 @@ namespace Exacore.BLL.PdfBL
             }
         }
 
-        private Jsa GetModel()
+        private Jsa GetModel(int id)
         {
             var model = _db.Jsa
                 .Include(g => g.StepActions)
                 .Include(g => g.CrewAttendances)
+                .Where(g => g.JsaId == id)
                 .First();
             return model;
         }
