@@ -34,7 +34,7 @@ import { ExFormsModule } from './modules/formsmodule/exforms.module';
 
 import {
   AlertTimeClient, ControlMethodClient, DepartmentClient, DivisionClient, GoodCatchTypeClient,
-  NearMissTypeClient, ProjectClient,
+  NearMissTypeClient, ProjectClient, WorkoutClient, MyWorkoutClient,
   FormClient, GoodCatchClient, IncidentAlertClient, JsaClient, MotorizedEquipmentClient,
   NearMissClient, SiteSafetyOrientationClient, ToolboxMeetingClient, RoleClient
 
@@ -47,6 +47,7 @@ import { MainComponent } from './main.component';
 import { MainSMComponent } from './main-sm.component';
 import { FormsMainComponent } from './formsmain.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MyWorkoutsComponent } from './myworkouts/myworkouts.component';
 
 import { DeleteModalComponent } from './shared/modals/delete.modal.component';
 
@@ -58,6 +59,7 @@ import { DeleteModalComponent } from './shared/modals/delete.modal.component';
     FormsMainComponent,
     DashboardComponent,
     MainSMComponent,
+    MyWorkoutsComponent,
 
   ],
   imports: [
@@ -110,7 +112,7 @@ import { DeleteModalComponent } from './shared/modals/delete.modal.component';
     },
 
     AlertTimeClient, ControlMethodClient, DepartmentClient, DivisionClient, GoodCatchTypeClient,
-    NearMissTypeClient, ProjectClient,
+    NearMissTypeClient, ProjectClient, WorkoutClient, MyWorkoutClient,
     AccountClient, UserClient,
     FormClient, GoodCatchClient, IncidentAlertClient, JsaClient, MotorizedEquipmentClient,
     NearMissClient, SiteSafetyOrientationClient, ToolboxMeetingClient, RoleClient

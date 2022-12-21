@@ -55,7 +55,6 @@ export class IncidentAlertEditComponent implements OnInit, OnDestroy {
         });
     }
     save() {
-        console.log(this.incidentAlert.date)
         this.incidentAlert.date = new Date(this.incidentAlert.date);
         this.incidentAlert.changedDate = new Date();
         if (this.id > 0) {

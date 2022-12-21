@@ -168,7 +168,7 @@ namespace Exacore.BLL.AuthBL
                 UserId = userId,
                 UserGuidType = userGuids,
                 Guid = guid,
-                Expires = DateTime.Now.AddMinutes(20),
+                Expires = DateTime.Now.AddMinutes(3000),
             };
             _db.UserGuid.Add(newUserGuid);
             await _db.SaveChangesAsync();

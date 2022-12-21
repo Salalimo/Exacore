@@ -29,7 +29,6 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(11)
     this.loadUsers();
   }
 

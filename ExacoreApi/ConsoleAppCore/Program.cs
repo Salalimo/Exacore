@@ -9,8 +9,8 @@ namespace ConsoleAppCore
     {
         static void Main(string[] args)
         {
-            //string pdfTemplate = @"c:\Temp\exacore\JSa.pdf";
-            string pdfTemplate = @"c:\Temp\asdasd.pdf";
+            string pdfTemplate = @"c:\Temp\exacore\MotorizedEquipment.pdf";
+            //string pdfTemplate = @"c:\Temp\asdasd.pdf";
             PdfDocument document = PdfReader.Open(pdfTemplate, PdfDocumentOpenMode.Modify);
             PdfAcroForm form = document.AcroForm;
             PdfAcroField.PdfAcroFieldCollection fields = form.Fields;

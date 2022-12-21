@@ -22,6 +22,8 @@ import { GoodCatchTypeComponent } from './goodcatchtype/goodcatchtype.component'
 import { NearMissTypeComponent } from './nearmisstype/nearmisstype.component';
 import { NearMissTypesComponent } from './nearmisstype/nearmisstypes.component';
 import { GoodCatchTypesComponent } from './goodcatchtype/goodcatchtypes.component';
+import { WorkoutComponent } from './workout/workout.component';
+import { WorkoutsComponent } from './workout/workouts.component';
 //addimport
 
 @NgModule({
@@ -41,6 +43,9 @@ import { GoodCatchTypesComponent } from './goodcatchtype/goodcatchtypes.componen
     NearMissTypeComponent,
     NearMissTypesComponent,
     GoodCatchTypesComponent,
+    WorkoutComponent,
+    WorkoutsComponent,
+
     //addcomponent
 
   ],

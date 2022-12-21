@@ -30,6 +30,7 @@ namespace Exacore
                 cfg.CreateMap<GoodCatchType, GoodCatchTypeDto>().ReverseMap();
                 cfg.CreateMap<NearMissType, NearMissTypeDto>().ReverseMap();
                 cfg.CreateMap<Project, ProjectDto>().ReverseMap();
+                cfg.CreateMap<Workout, WorkoutDto>().ReverseMap();
                 
                 //forms
                 cfg.CreateMap<GoodCatch, GoodCatchDto>().ReverseMap();
@@ -43,6 +44,7 @@ namespace Exacore
                 cfg.CreateMap<SiteSafetyOrientation, SiteSafetyOrientationDto>().ReverseMap();
                 cfg.CreateMap<ToolboxMeeting, ToolboxMeetingDto>().ReverseMap();
                 cfg.CreateMap<Form, FormDto>().ReverseMap();
+                cfg.CreateMap<MyWorkout, MyWorkoutDto>().ReverseMap();
                 //formsplus
                 cfg.CreateMap<Attendance, AttendanceDto>().ReverseMap();
                 cfg.CreateMap<CrewAttendance, CrewAttendanceDto>().ReverseMap();

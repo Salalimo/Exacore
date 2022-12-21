@@ -42,7 +42,6 @@ import { ToolboxMeetingEditComponent } from './toolboxmeeting/toolboxmeetingedit
     NearMissEditComponent,
     SiteSafetyEditComponent,
     ToolboxMeetingEditComponent,
-    
     //addcomponent
 
   ],
@@ -52,8 +51,6 @@ import { ToolboxMeetingEditComponent } from './toolboxmeeting/toolboxmeetingedit
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-
-
 
   ],
   providers: [

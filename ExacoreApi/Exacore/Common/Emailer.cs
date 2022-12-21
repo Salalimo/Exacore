@@ -32,7 +32,7 @@ namespace Exacore.Common
                 UseDefaultCredentials = false,
             };
 
-            smtp.Credentials = new NetworkCredential("salalimo@gmail.com", "vxpfglkpxotjgdwj");
+            smtp.Credentials = new NetworkCredential("wellness@exacore.com", "qhiuindcvavjeijs");
             //var smtp = new SmtpClient();
             //smtp.Host = "localhost";
             //smtp.UseDefaultCredentials = true;

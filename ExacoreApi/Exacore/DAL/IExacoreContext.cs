@@ -30,6 +30,7 @@ namespace Exacore.DAL
         DbSet<GoodCatchType> GoodCatchType { get; set; }
         DbSet<NearMissType> NearMissType { get; set; }
         DbSet<Project> Project { get; set; }
+        DbSet<Workout> Workout { get; set; }
 
         //forms
         DbSet<Attendance> Attendance { get; set; }
@@ -46,9 +47,9 @@ namespace Exacore.DAL
         DbSet<SiteSafetyOrientation> SiteSafetyOrientation { get; set; }
         DbSet<StepAction> StepAction { get; set; }
         DbSet<ToolboxMeeting> ToolboxMeeting { get; set; }
+        DbSet<MyWorkout> MyWorkout { get; set; }
 
 
-        
         //addmore
 
 

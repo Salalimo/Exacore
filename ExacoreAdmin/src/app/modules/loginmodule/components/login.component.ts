@@ -46,13 +46,13 @@ export class LoginComponent implements OnInit {
             if (user) {
                 this.httpClient.post<any>(environment.apiUrl + 'api/login/authenticate', { idToken: user.idToken, accessToken: user.response.access_token })
                     .subscribe({
-                        next: (authToken: any) => {
-                            console.log(authToken);
-                            let reqHeader = new HttpHeaders({
-                                'Content-Type': 'application/json',
-                                'Authorization': 'Bearer ' + authToken.authToken
-                            });
-                            this.router.navigateByUrl('dashboard');
+                        next: (user: any) => {
+                            console.log(user);
+                            console.log(11);
+                            sessionStorage.setItem('currentUser', JSON.stringify(user));
+                            this.authenticationService.currentUserSubject.next(user);
+
+                            this.router.navigateByUrl('myworkouts');
                         },
                         error: (error) => {
                             console.log(error)
@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
                     });
             }
             this.user = user;
-        })
+        });
     }
 
     // convenience getter for easy access to form fields
@@ -89,7 +89,7 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    this.router.navigate(['/dashboard']);
+                    this.router.navigate(['/myworkouts']);
                 },
                 error => {
                     console.log(error)

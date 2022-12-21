@@ -45,7 +45,6 @@ export class JsaEditComponent implements OnInit, OnDestroy {
         });
     }
     save() {
-        console.log(this.jsa.date)
         this.jsa.date = new Date(this.jsa.date);
         this.jsa.changedDate = new Date();
 

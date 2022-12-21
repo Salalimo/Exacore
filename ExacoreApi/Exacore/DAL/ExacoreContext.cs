@@ -34,6 +34,7 @@ namespace Exacore.DAL
         public virtual DbSet<GoodCatchType> GoodCatchType { get; set; }
         public virtual DbSet<NearMissType> NearMissType { get; set; }
         public virtual DbSet<Project> Project { get; set; }
+        public virtual DbSet<Workout> Workout { get; set; }
 
         //forms
         public virtual DbSet<Attendance> Attendance { get; set; }
@@ -50,6 +51,7 @@ namespace Exacore.DAL
         public virtual DbSet<SiteSafetyOrientation> SiteSafetyOrientation { get; set; }
         public virtual DbSet<StepAction> StepAction { get; set; }
         public virtual DbSet<ToolboxMeeting> ToolboxMeeting { get; set; }
+        public virtual DbSet<MyWorkout> MyWorkout { get; set; }
 
 
 

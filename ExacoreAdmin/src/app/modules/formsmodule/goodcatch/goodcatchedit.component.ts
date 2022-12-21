@@ -86,7 +86,6 @@ export class GoodCatchEditComponent implements OnInit, OnDestroy {
     }
 
     save() {
-        console.log(this.goodCatch.date)
         this.goodCatch.date = new Date(this.goodCatch.date);
         this.goodCatch.changedDate = new Date();
         if (this.id > 0) {

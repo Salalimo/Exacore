@@ -14,6 +14,7 @@ import { ResendVerificationComponent } from './modules/loginmodule/components/re
 import { MainComponent } from './main.component';
 import { MainSMComponent } from './main-sm.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MyWorkoutsComponent } from './myworkouts/myworkouts.component';
 
 import { AlertTimeComponent } from './modules/lookupsmodule/alerttime/alerttime.component';
 import { AlertTimesComponent } from './modules/lookupsmodule/alerttime/alerttimes.component';
@@ -28,6 +29,8 @@ import { ProjectComponent } from './modules/lookupsmodule/project/project.compon
 import { GoodCatchTypeComponent } from './modules/lookupsmodule/goodcatchtype/goodcatchtype.component';
 import { NearMissTypeComponent } from './modules/lookupsmodule/nearmisstype/nearmisstype.component';
 import { NearMissTypesComponent } from './modules/lookupsmodule/nearmisstype/nearmisstypes.component';
+import { WorkoutComponent } from './modules/lookupsmodule/workout/workout.component';
+import { WorkoutsComponent } from './modules/lookupsmodule/workout/workouts.component';
 //account
 import { UsersComponent } from './modules/adminmodule/user/users.component';
 import { UserComponent } from './modules/adminmodule/user/user.component';
@@ -70,6 +73,7 @@ const routes: Routes = [
 
       { path: '', component: DashboardComponent, canActivate: [AuthGuard], },
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+      { path: 'myworkouts', component: MyWorkoutsComponent, canActivate: [AuthGuard] },
 
       //lookups
       { path: 'alertTimes', component: AlertTimesComponent, canActivate: [AuthGuard], data: { role: RoleEnum.ADMIN } },
@@ -79,6 +83,7 @@ const routes: Routes = [
       { path: 'projects', component: ProjectsComponent, canActivate: [AuthGuard], data: { role: RoleEnum.ADMIN } },
       { path: 'goodCatchTypes', component: GoodCatchTypesComponent, canActivate: [AuthGuard], data: { role: RoleEnum.ADMIN } },
       { path: 'nearMissTypes', component: NearMissTypesComponent, canActivate: [AuthGuard], data: { role: RoleEnum.ADMIN } },
+      { path: 'workouts', component: WorkoutsComponent, canActivate: [AuthGuard], data: { role: RoleEnum.ADMIN } },
       //account
       { path: 'users', component: UsersComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
       //forms
@@ -105,6 +110,8 @@ const routes: Routes = [
       { path: 'goodCatchType', component: GoodCatchTypeComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
       { path: 'nearMissType', component: NearMissTypeComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
       { path: 'nearMissType/:id', component: NearMissTypeComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'workout', component: WorkoutComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
+      { path: 'workout/:id', component: WorkoutComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
       //account
       { path: 'user', component: UserComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },
       { path: 'user/:id', component: UserComponent, canActivate: [AuthGuard], data: { role: RoleEnum.SUPERADMIN } },

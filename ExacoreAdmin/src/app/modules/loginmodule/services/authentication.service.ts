@@ -7,7 +7,7 @@ import { User } from '../models/user';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-    private currentUserSubject: BehaviorSubject<User>;
+    public currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
 
     constructor(private http: HttpClient) {

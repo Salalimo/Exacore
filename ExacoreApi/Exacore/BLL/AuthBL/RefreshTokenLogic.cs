@@ -31,7 +31,7 @@ namespace Exacore.BLL.AuthBL
 
         public async Task<bool> AddRefreshToken(AccessTokenDto accessTokenDto, string userName)
         {
-            var existingToken = _db.RefreshToken.Where(r => r.UserName == userName).SingleOrDefault();
+            var existingToken = _db.RefreshToken.Where(r => r.UserName == userName).FirstOrDefault();
 
             if (existingToken != null)
             {

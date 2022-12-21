@@ -74,7 +74,6 @@ export class RegisterComponent implements OnInit {
 
         // stop here if form is invalid
         if (this.registerForm.invalid) {
-            console.log(this.registerForm, this.registerForm.invalid)
             this.error = "Please complete all required fields";
             return;
         }

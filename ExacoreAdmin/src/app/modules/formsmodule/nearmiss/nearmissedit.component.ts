@@ -56,7 +56,6 @@ export class NearMissEditComponent implements OnInit, OnDestroy {
     }
 
     save() {
-        console.log(this.nearMiss.date)
         this.nearMiss.date = new Date(this.nearMiss.date);
         this.nearMiss.changedDate = new Date();
         if (this.id > 0) {

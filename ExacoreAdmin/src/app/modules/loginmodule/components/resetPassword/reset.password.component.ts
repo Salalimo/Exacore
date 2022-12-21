@@ -34,7 +34,6 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
         this.sub = this.route.queryParams.subscribe(params => {
             this.guid = params['guid'];
             this.email = params['email'];
-            console.log(this.guid, this.email)
             if (this.guid == undefined || this.email == undefined) {
                 this.error = "This page has expired. Request a new password reset link.";
             }
@@ -45,7 +44,6 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
 
     onSubmit() {
 
-        console.log(this.theForm)
         if (this.theForm.invalid) {
             return;
         }
@@ -55,7 +53,6 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
     resetPassword() {
         this.submitted = true;
         this.error = '';
-        console.log(this.guid, this.email)
         if (this.email == null || this.email == undefined || this.email.length == 0) {
             this.error = 'This page has expired. Please try logging in.';
             return;

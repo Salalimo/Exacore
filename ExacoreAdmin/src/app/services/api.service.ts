@@ -3147,6 +3147,288 @@ export class ProjectClient extends ClientBase implements IProjectClient {
     }
 }
 
+export interface IWorkoutClient {
+    getAll(): Observable<WorkoutDto[]>;
+    create(dto: WorkoutDto): Observable<WorkoutDto>;
+    update(dto: WorkoutDto): Observable<WorkoutDto>;
+    get(id: number): Observable<WorkoutDto>;
+    delete(id: number): Observable<WorkoutDto>;
+}
+
+@Injectable()
+export class WorkoutClient extends ClientBase implements IWorkoutClient {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        super();
+        this.http = http;
+        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : this.getBaseUrl("https://localhost:44302");
+    }
+
+    getAll(): Observable<WorkoutDto[]> {
+        let url_ = this.baseUrl + "/api/Workout";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetAll(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetAll(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<WorkoutDto[]>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<WorkoutDto[]>;
+        }));
+    }
+
+    protected processGetAll(response: HttpResponseBase): Observable<WorkoutDto[]> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            if (Array.isArray(resultData200)) {
+                result200 = [] as any;
+                for (let item of resultData200)
+                    result200!.push(WorkoutDto.fromJS(item));
+            }
+            else {
+                result200 = <any>null;
+            }
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    create(dto: WorkoutDto): Observable<WorkoutDto> {
+        let url_ = this.baseUrl + "/api/Workout";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(dto);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processCreate(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processCreate(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<WorkoutDto>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<WorkoutDto>;
+        }));
+    }
+
+    protected processCreate(response: HttpResponseBase): Observable<WorkoutDto> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = WorkoutDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    update(dto: WorkoutDto): Observable<WorkoutDto> {
+        let url_ = this.baseUrl + "/api/Workout";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(dto);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processUpdate(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processUpdate(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<WorkoutDto>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<WorkoutDto>;
+        }));
+    }
+
+    protected processUpdate(response: HttpResponseBase): Observable<WorkoutDto> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = WorkoutDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    get(id: number): Observable<WorkoutDto> {
+        let url_ = this.baseUrl + "/api/Workout/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGet(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGet(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<WorkoutDto>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<WorkoutDto>;
+        }));
+    }
+
+    protected processGet(response: HttpResponseBase): Observable<WorkoutDto> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = WorkoutDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    delete(id: number): Observable<WorkoutDto> {
+        let url_ = this.baseUrl + "/api/Workout/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processDelete(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processDelete(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<WorkoutDto>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<WorkoutDto>;
+        }));
+    }
+
+    protected processDelete(response: HttpResponseBase): Observable<WorkoutDto> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = WorkoutDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+}
+
 export interface IFormClient {
     getAll(): Observable<FormDto[]>;
     print(formId: number): Observable<any>;
@@ -3435,6 +3717,292 @@ export class GoodCatchClient extends ClientBase implements IGoodCatchClient {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
             result200 = GoodCatchDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+}
+
+export interface IMyWorkoutClient {
+    get(id: number): Observable<MyWorkoutDto>;
+    getWorkoutLeaders(): Observable<WorkoutLeadersDto[]>;
+    getAll(): Observable<MyWorkoutListDto[]>;
+    create(dto: MyWorkoutDto): Observable<MyWorkoutDto>;
+    update(dto: MyWorkoutDto): Observable<MyWorkoutDto>;
+}
+
+@Injectable()
+export class MyWorkoutClient extends ClientBase implements IMyWorkoutClient {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        super();
+        this.http = http;
+        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : this.getBaseUrl("https://localhost:44302");
+    }
+
+    get(id: number): Observable<MyWorkoutDto> {
+        let url_ = this.baseUrl + "/api/MyWorkout/{id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGet(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGet(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<MyWorkoutDto>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<MyWorkoutDto>;
+        }));
+    }
+
+    protected processGet(response: HttpResponseBase): Observable<MyWorkoutDto> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = MyWorkoutDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    getWorkoutLeaders(): Observable<WorkoutLeadersDto[]> {
+        let url_ = this.baseUrl + "/api/MyWorkout/leaders";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetWorkoutLeaders(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetWorkoutLeaders(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<WorkoutLeadersDto[]>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<WorkoutLeadersDto[]>;
+        }));
+    }
+
+    protected processGetWorkoutLeaders(response: HttpResponseBase): Observable<WorkoutLeadersDto[]> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            if (Array.isArray(resultData200)) {
+                result200 = [] as any;
+                for (let item of resultData200)
+                    result200!.push(WorkoutLeadersDto.fromJS(item));
+            }
+            else {
+                result200 = <any>null;
+            }
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    getAll(): Observable<MyWorkoutListDto[]> {
+        let url_ = this.baseUrl + "/api/MyWorkout";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetAll(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetAll(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<MyWorkoutListDto[]>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<MyWorkoutListDto[]>;
+        }));
+    }
+
+    protected processGetAll(response: HttpResponseBase): Observable<MyWorkoutListDto[]> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            if (Array.isArray(resultData200)) {
+                result200 = [] as any;
+                for (let item of resultData200)
+                    result200!.push(MyWorkoutListDto.fromJS(item));
+            }
+            else {
+                result200 = <any>null;
+            }
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    create(dto: MyWorkoutDto): Observable<MyWorkoutDto> {
+        let url_ = this.baseUrl + "/api/MyWorkout";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(dto);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processCreate(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processCreate(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<MyWorkoutDto>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<MyWorkoutDto>;
+        }));
+    }
+
+    protected processCreate(response: HttpResponseBase): Observable<MyWorkoutDto> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = MyWorkoutDto.fromJS(resultData200);
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    update(dto: MyWorkoutDto): Observable<MyWorkoutDto> {
+        let url_ = this.baseUrl + "/api/MyWorkout";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(dto);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processUpdate(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processUpdate(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<MyWorkoutDto>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<MyWorkoutDto>;
+        }));
+    }
+
+    protected processUpdate(response: HttpResponseBase): Observable<MyWorkoutDto> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = MyWorkoutDto.fromJS(resultData200);
             return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
@@ -5990,6 +6558,67 @@ export interface IGoodCatchTypeDto extends IBaseDto {
     catchType?: string | undefined;
 }
 
+export class WorkoutDto extends BaseDto implements IWorkoutDto {
+    workoutId?: number | undefined;
+    exercise?: string | undefined;
+    increments!: number;
+    units?: string | undefined;
+    points!: number;
+    startDate?: Date | undefined;
+    endDate?: Date | undefined;
+    countPoints!: boolean;
+
+    constructor(data?: IWorkoutDto) {
+        super(data);
+    }
+
+    init(_data?: any) {
+        super.init(_data);
+        if (_data) {
+            this.workoutId = _data["workoutId"];
+            this.exercise = _data["exercise"];
+            this.increments = _data["increments"];
+            this.units = _data["units"];
+            this.points = _data["points"];
+            this.startDate = _data["startDate"] ? new Date(_data["startDate"].toString()) : <any>undefined;
+            this.endDate = _data["endDate"] ? new Date(_data["endDate"].toString()) : <any>undefined;
+            this.countPoints = _data["countPoints"];
+        }
+    }
+
+    static fromJS(data: any): WorkoutDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new WorkoutDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["workoutId"] = this.workoutId;
+        data["exercise"] = this.exercise;
+        data["increments"] = this.increments;
+        data["units"] = this.units;
+        data["points"] = this.points;
+        data["startDate"] = this.startDate ? this.startDate.toISOString() : <any>undefined;
+        data["endDate"] = this.endDate ? this.endDate.toISOString() : <any>undefined;
+        data["countPoints"] = this.countPoints;
+        super.toJSON(data);
+        return data;
+    }
+}
+
+export interface IWorkoutDto extends IBaseDto {
+    workoutId?: number | undefined;
+    exercise?: string | undefined;
+    increments: number;
+    units?: string | undefined;
+    points: number;
+    startDate?: Date | undefined;
+    endDate?: Date | undefined;
+    countPoints: boolean;
+}
+
 export class FormDto extends BaseDto implements IFormDto {
     formId!: number;
     formName?: string | undefined;
@@ -6120,15 +6749,15 @@ export class GoodCatchDto extends BaseDto implements IGoodCatchDto {
     name?: string | undefined;
     description?: string | undefined;
     immediateActionTaken?: string | undefined;
-    divisionId!: number;
+    divisionId?: number | undefined;
     division?: DivisionDto | undefined;
-    departmentId!: number;
+    departmentId?: number | undefined;
     department?: DepartmentDto | undefined;
-    projectId!: number;
+    projectId?: number | undefined;
     project?: ProjectDto | undefined;
-    goodCatchTypeId!: number;
+    goodCatchTypeId?: number | undefined;
     goodCatchType?: GoodCatchTypeDto | undefined;
-    controlMethodId!: number;
+    controlMethodId?: number | undefined;
     controlMethod?: ControlMethodDto | undefined;
 
     constructor(data?: IGoodCatchDto) {
@@ -6200,16 +6829,157 @@ export interface IGoodCatchDto extends IBaseDto {
     name?: string | undefined;
     description?: string | undefined;
     immediateActionTaken?: string | undefined;
-    divisionId: number;
+    divisionId?: number | undefined;
     division?: DivisionDto | undefined;
-    departmentId: number;
+    departmentId?: number | undefined;
     department?: DepartmentDto | undefined;
-    projectId: number;
+    projectId?: number | undefined;
     project?: ProjectDto | undefined;
-    goodCatchTypeId: number;
+    goodCatchTypeId?: number | undefined;
     goodCatchType?: GoodCatchTypeDto | undefined;
-    controlMethodId: number;
+    controlMethodId?: number | undefined;
     controlMethod?: ControlMethodDto | undefined;
+}
+
+export class MyWorkoutDto extends BaseDto implements IMyWorkoutDto {
+    myWorkoutId?: number | undefined;
+    workout?: WorkoutDto | undefined;
+    workoutId?: number | undefined;
+    quantity!: number;
+    date!: Date;
+
+    constructor(data?: IMyWorkoutDto) {
+        super(data);
+    }
+
+    init(_data?: any) {
+        super.init(_data);
+        if (_data) {
+            this.myWorkoutId = _data["myWorkoutId"];
+            this.workout = _data["workout"] ? WorkoutDto.fromJS(_data["workout"]) : <any>undefined;
+            this.workoutId = _data["workoutId"];
+            this.quantity = _data["quantity"];
+            this.date = _data["date"] ? new Date(_data["date"].toString()) : <any>undefined;
+        }
+    }
+
+    static fromJS(data: any): MyWorkoutDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new MyWorkoutDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["myWorkoutId"] = this.myWorkoutId;
+        data["workout"] = this.workout ? this.workout.toJSON() : <any>undefined;
+        data["workoutId"] = this.workoutId;
+        data["quantity"] = this.quantity;
+        data["date"] = this.date ? this.date.toISOString() : <any>undefined;
+        super.toJSON(data);
+        return data;
+    }
+}
+
+export interface IMyWorkoutDto extends IBaseDto {
+    myWorkoutId?: number | undefined;
+    workout?: WorkoutDto | undefined;
+    workoutId?: number | undefined;
+    quantity: number;
+    date: Date;
+}
+
+export class WorkoutLeadersDto implements IWorkoutLeadersDto {
+    name?: string | undefined;
+    points!: number;
+
+    constructor(data?: IWorkoutLeadersDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.name = _data["name"];
+            this.points = _data["points"];
+        }
+    }
+
+    static fromJS(data: any): WorkoutLeadersDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new WorkoutLeadersDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        data["points"] = this.points;
+        return data;
+    }
+}
+
+export interface IWorkoutLeadersDto {
+    name?: string | undefined;
+    points: number;
+}
+
+export class MyWorkoutListDto implements IMyWorkoutListDto {
+    myWorkoutId!: number;
+    workout?: string | undefined;
+    quantity!: number;
+    date!: Date;
+    points!: number;
+
+    constructor(data?: IMyWorkoutListDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.myWorkoutId = _data["myWorkoutId"];
+            this.workout = _data["workout"];
+            this.quantity = _data["quantity"];
+            this.date = _data["date"] ? new Date(_data["date"].toString()) : <any>undefined;
+            this.points = _data["points"];
+        }
+    }
+
+    static fromJS(data: any): MyWorkoutListDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new MyWorkoutListDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["myWorkoutId"] = this.myWorkoutId;
+        data["workout"] = this.workout;
+        data["quantity"] = this.quantity;
+        data["date"] = this.date ? this.date.toISOString() : <any>undefined;
+        data["points"] = this.points;
+        return data;
+    }
+}
+
+export interface IMyWorkoutListDto {
+    myWorkoutId: number;
+    workout?: string | undefined;
+    quantity: number;
+    date: Date;
+    points: number;
 }
 
 export class AccessTokenDto implements IAccessTokenDto {

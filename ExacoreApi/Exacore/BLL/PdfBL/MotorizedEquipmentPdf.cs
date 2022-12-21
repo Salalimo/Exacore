@@ -25,7 +25,6 @@ namespace Exacore.BLL.PdfBL
             var fileName = CreatePdf(model);
             return File.ReadAllBytes(fileName);
         }
-
         private string CreatePdf(MotorizedEquipment model)
         {
             string pdfTemplate = @"c:\Temp\exacore\MotorizedEquipment.pdf";
@@ -38,8 +37,8 @@ namespace Exacore.BLL.PdfBL
             // Get all form fields of the whole document
             string[] names = fields.Names;
             names = fields.DescendantNames;
-            LoopThrooughFields(fields, names, model);
             LoopThrooughTextBoxes(fields, model);
+            LoopThrooughCheckBoxes(fields, model);
 
             if (form.Elements.ContainsKey("/NeedAppearances"))
             {
@@ -51,55 +50,6 @@ namespace Exacore.BLL.PdfBL
             }
             document.Save(newFile);
             return newFile;
-        }
-
-        private void LoopThrooughFields(PdfAcroField.PdfAcroFieldCollection fields,
-            string[] names, MotorizedEquipment model)
-        {
-            var list = names.ToList();
-            list.Sort();
-
-            for (int idx = 0; idx < list.Count; idx++)
-            {
-                string fqName = names[idx];
-                PdfAcroField field = fields[fqName];
-
-                PdfTextField txtField;
-                PdfRadioButtonField radField;
-                PdfCheckBoxField chkField;
-                PdfListBoxField lbxField;
-                PdfComboBoxField cbxField;
-                PdfGenericField genField;
-
-                string text = GetValue(model, fqName);
-                text = idx.ToString();
-
-                if ((txtField = field as PdfTextField) != null)
-                {
-                    txtField.Value = new PdfString(text, PdfStringEncoding.Unicode);
-                    txtField.Value = new PdfString(fqName, PdfStringEncoding.Unicode);
-                    txtField.ReadOnly = true;
-                }
-                else if ((radField = field as PdfRadioButtonField) != null)
-                {
-                    radField.SelectedIndex = 0;
-                }
-                else if ((chkField = field as PdfCheckBoxField) != null)
-                {
-                    chkField.Checked = text == "True";
-                }
-                else if ((lbxField = field as PdfListBoxField) != null)
-                {
-                    lbxField.SelectedIndex = 0;
-                }
-                else if ((cbxField = field as PdfComboBoxField) != null)
-                {
-                    cbxField.SelectedIndex = 0;
-                }
-                else if ((genField = field as PdfGenericField) != null)
-                {
-                }
-            }
         }
 
         private MotorizedEquipment GetModel(int Id)
@@ -137,6 +87,43 @@ namespace Exacore.BLL.PdfBL
                .Where(t => t.MotorizedEquipmentId == Id)
                .First();
             return model;
+        }
+        private void LoopThrooughCheckBoxes(PdfAcroField.PdfAcroFieldCollection fields, MotorizedEquipment model)
+        {
+            for (int i = 4; i < 88; i += 3)
+            {
+                var value = "";
+                if (i < 64)
+                    value = GetOperationalYesNo(model.OperationalInspection, "Check Box " + i);
+                else
+                    value = GetDamageYesNo(model.DamageInspection, "Check Box " + i);
+
+                if (value == "yes")
+                {
+                    PdfAcroField field = fields["Check Box " + i];
+                    PdfCheckBoxField chkField = field as PdfCheckBoxField;
+                    chkField.ReadOnly = false;
+                    chkField.Checked = true;
+                    chkField.ReadOnly = true;
+                }
+                else if (value == "no")
+                {
+
+                    PdfAcroField field = fields["Check Box " + (i + 1)];
+                    PdfCheckBoxField chkField = field as PdfCheckBoxField;
+                    chkField.ReadOnly = false;
+                    chkField.Checked = true;
+                    chkField.ReadOnly = true;
+                }
+                else if (value == "na")
+                {
+                    PdfAcroField field = fields["Check Box " + (i + 2)];
+                    PdfCheckBoxField chkField = field as PdfCheckBoxField;
+                    chkField.ReadOnly = false;
+                    chkField.Checked = true;
+                    chkField.ReadOnly = true;
+                }
+            }
         }
 
         private void LoopThrooughTextBoxes(PdfAcroField.PdfAcroFieldCollection fields, MotorizedEquipment model)
@@ -208,6 +195,43 @@ namespace Exacore.BLL.PdfBL
             propertyName = propertyName.Replace("DamageInspection.", "");
             PropertyInfo? property = model.GetType().GetProperty(propertyName);
             var ret = property?.GetValue(model, null)?.ToString();
+            return ret;
+        }
+
+
+        private string GetOperationalYesNo(MotorizedEquipmentOperationalInspection model, string name)
+        {
+            var fn = new DocFieldNames();
+            fn.SetMotorizedEquipment();
+            if (!fn.Fields.ContainsKey(name))
+                return "";
+
+            var propertyName = fn.Fields[name];
+            propertyName = propertyName.Replace("OperationalInspection.", "");
+            PropertyInfo? property = model.GetType().GetProperty(propertyName);
+            var obj = property?.GetValue(model, null);
+
+            propertyName = "YesNoNa";
+            property = obj.GetType().GetProperty(propertyName);
+            var ret = property?.GetValue(obj, null)?.ToString();
+            return ret;
+        }
+
+        private string GetDamageYesNo(MotorizedEquipmentDamageInspection model, string name)
+        {
+            var fn = new DocFieldNames();
+            fn.SetMotorizedEquipment();
+            if (!fn.Fields.ContainsKey(name))
+                return "";
+
+            var propertyName = fn.Fields[name];
+            propertyName = propertyName.Replace("DamageInspection.", "");
+            PropertyInfo? property = model.GetType().GetProperty(propertyName);
+            var obj = property?.GetValue(model, null);
+
+            propertyName = "YesNoNa";
+            property = obj.GetType().GetProperty(propertyName);
+            var ret = property?.GetValue(obj, null)?.ToString();
             return ret;
         }
     }

@@ -96,6 +96,7 @@ namespace Exacore
             services.AddTransient<IGoodCatchTypeLogic, GoodCatchTypeLogic>();
             services.AddTransient<INearMissTypeLogic, NearMissTypeLogic>();
             services.AddTransient<IProjectLogic, ProjectLogic>();
+            services.AddTransient<IWorkoutLogic, WorkoutLogic>();
 
             services.AddTransient<IFormLogic, FormLogic>();
             services.AddTransient<IGoodCatchLogic, GoodCatchLogic>();
@@ -105,6 +106,7 @@ namespace Exacore
             services.AddTransient<ISiteSafetyOrientationLogic, SiteSafetyOrientationLogic>();
             services.AddTransient<IMotorizedEquipmentLogic, MotorizedEquipmentLogic>();
             services.AddTransient<IToolboxMeetingLogic, ToolboxMeetingLogic>();
+            services.AddTransient<IMyWorkoutLogic, MyWorkoutLogic>();
 
             services.AddTransient<IGoodCatchPdf, GoodCatchPdf>();
             services.AddTransient<IIncidentAlertPdf, IncidentAlertPdf>();
@@ -141,7 +143,7 @@ namespace Exacore
             });
             HttpContext.Configure(accessor);
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors("_myCors");
             app.UseAuthentication();

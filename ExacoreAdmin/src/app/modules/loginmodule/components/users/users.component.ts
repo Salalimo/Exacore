@@ -28,7 +28,6 @@ export class UserComponent implements OnInit, OnDestroy {
         this.sub = this.route.queryParams.subscribe(params => {
             this.guid = params['guid'];
             this.email = params['email'];
-            console.log(this.guid, this.email)
             if (this.guid == undefined || this.email == undefined) {
                 this.error = "This page has expired. Request a new password reset link.";
             }
@@ -37,7 +36,6 @@ export class UserComponent implements OnInit, OnDestroy {
 
     resetPassword() {
         this.error = '';
-        console.log(this.guid, this.email)
         if (this.email == null || this.email == undefined || this.email.length == 0) {
             this.error = 'This page has expired. Please try logging in.';
             return;

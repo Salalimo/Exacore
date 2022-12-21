@@ -45,8 +45,6 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 
   ],
   providers: [
-
-
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

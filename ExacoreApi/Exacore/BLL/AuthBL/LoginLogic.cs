@@ -97,7 +97,7 @@ namespace Exacore.BLL.AuthBL
             {
                 Subject = subject,
                 IssuedAt = DateTime.Now,
-                Expires = DateTime.UtcNow.AddMinutes(120),
+                Expires = DateTime.UtcNow.AddMinutes(250),
                 Issuer = _appSettings.Issuer,
                 SigningCredentials = new SigningCredentials
                         (new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
